@@ -9,15 +9,33 @@
 
   <ItemGroup>
     <None Remove="Images\BalloonShop.png" />
+    <None Remove="Images\Icons\icons8-balloons-60.png" />
+    <None Remove="Images\Icons\icons8-candles-64.png" />
+    <None Remove="Images\Icons\icons8-garlands-66.png" />
+    <None Remove="Images\Icons\icons8-hearts_balloons-60.png" />
+    <None Remove="Images\Icons\icons8-star-64.png" />
+    <None Remove="Images\Temp\CandlesImg.jpg" />
+    <None Remove="Images\Temp\FoilImg.jpg" />
+    <None Remove="Images\Temp\GarlandsImg.jpg" />
+    <None Remove="Images\Temp\LatexImg.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Images\BalloonShop.png" />
+    <Resource Include="Images\Icons\icons8-balloons-60.png" />
+    <Resource Include="Images\Icons\icons8-candles-64.png" />
+    <Resource Include="Images\Icons\icons8-garlands-66.png" />
+    <Resource Include="Images\Icons\icons8-hearts_balloons-60.png" />
+    <Resource Include="Images\Icons\icons8-star-64.png" />
+    <Resource Include="Images\Temp\CandlesImg.jpg" />
+    <Resource Include="Images\Temp\FoilImg.jpg" />
+    <Resource Include="Images\Temp\GarlandsImg.jpg" />
+    <Resource Include="Images\Temp\LatexImg.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="ViewModels\" />
+    <Folder Include="Views\Windows\" />
   </ItemGroup>
 
   <ItemGroup>

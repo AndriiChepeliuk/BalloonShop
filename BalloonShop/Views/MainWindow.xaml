@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:viewModel="clr-namespace:BalloonShop.ViewModels"
         xmlns:local="clr-namespace:BalloonShop.Views"
         mc:Ignorable="d"
         Title="Balloon Shop" Height="900" Width="1600"
@@ -12,6 +13,20 @@
         Background="Transparent"
         AllowsTransparency="True"
         Icon="\Images\BalloonShop.png">
+
+    <Window.DataContext>
+        <viewModel:MainWindowViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:LatexBalloonsViewModel}">
+            <local:LatexBalloonsView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:FoilBalloonsViewModel}">
+            <local:FoilBalloonsView/>
+        </DataTemplate>
+    </Window.Resources>
 
     <Border CornerRadius="10"
             BorderThickness="1"
@@ -48,6 +63,49 @@
                                    VerticalAlignment="Center"
                                    Margin="10,0,10,0"/>
 
+                    </StackPanel>
+                    <!--#endregion-->
+
+                    <!--#region Menu Buttons-->
+                    <StackPanel>
+                        <RadioButton Style="{StaticResource menuButton}"
+                                     Tag="{StaticResource color1}"
+                                     IsChecked="True"
+                                     Command="{Binding ShowLatexBalloonsViewCommand}">
+
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="\Images\Icons\icons8-hearts_balloons-60.png" Height="35" Width="35" Style="{StaticResource menuButtonImage}"/>
+                                <TextBlock Text="Латексні кульки" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+
+                        <RadioButton Style="{StaticResource menuButton}"
+                                     Tag="{StaticResource color6}"
+                                     Command="{Binding ShowFoilBalloonsViewCommand}">
+
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="\Images\Icons\icons8-star-64.png" Height="35" Width="35" Style="{StaticResource menuButtonImage}"/>
+                                <TextBlock Text="Фольговані кульки" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+
+                        <RadioButton Style="{StaticResource menuButton}"
+                                     Tag="{StaticResource color3}">
+
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="\Images\Icons\icons8-candles-64.png" Height="35" Width="35" Style="{StaticResource menuButtonImage}"/>
+                                <TextBlock Text="Свічки" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+
+                        <RadioButton Style="{StaticResource menuButton}"
+                                     Tag="{StaticResource color2}">
+
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="\Images\Icons\icons8-garlands-66.png" Height="35" Width="35" Style="{StaticResource menuButtonImage}"/>
+                                <TextBlock Text="Гірлянди" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
                     </StackPanel>
                     <!--#endregion-->
 
@@ -103,6 +161,13 @@
                         
                     </StackPanel>
                     <!--#endregion-->
+
+                    <!--#region Content Section-->
+                    <ContentControl Content="{Binding CurrentChildView}"
+                                    Grid.Row="2"
+                                    Margin="25"/>
+                    <!--#endregion-->
+
                 </Grid>
 
             </Border>

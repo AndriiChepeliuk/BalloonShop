@@ -7,6 +7,7 @@
     <SolidColorBrush x:Key="backColor3">#202020</SolidColorBrush>
     <SolidColorBrush x:Key="backColor4">#101010</SolidColorBrush>
     <SolidColorBrush x:Key="backColor5">#969696</SolidColorBrush>
+    <SolidColorBrush x:Key="backColor6">#C8C8C8</SolidColorBrush>
 
     <!--Font Colors-->
     <SolidColorBrush x:Key="fontColor1" Color="#969696"/>
