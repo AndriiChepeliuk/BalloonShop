@@ -162,7 +162,35 @@
                     </StackPanel>
                     <!--#endregion-->
 
-                    <!--#region Content Section-->
+                    <!--#region Header-->
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--Caption-->
+                        <StackPanel Grid.Column="0"
+                                    Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+
+                            <Image Source="{Binding Icon}"
+                                   Height="30"
+                                   Width="30"
+                                   Margin="35,0,10,0"/>
+                            
+                            <TextBlock Text="{Binding Caption}"
+                                       Foreground="{StaticResource fontColor1}"
+                                       FontSize="16"
+                                       FontFamily="Montserrat"
+                                       FontWeight="Medium"
+                                       VerticalAlignment="Center"/>
+                        </StackPanel>
+
+                    </Grid>
+                    <!--#endregion-->
+
+                    <!--#region Content Section / Child views-->
                     <ContentControl Content="{Binding CurrentChildView}"
                                     Grid.Row="2"
                                     Margin="25"/>

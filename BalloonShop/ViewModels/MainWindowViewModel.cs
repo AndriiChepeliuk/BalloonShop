@@ -8,7 +8,7 @@ public class MainWindowViewModel : ViewModelBase
 {
     private ViewModelBase _currentChildView;
     private string _caption;
-    private IconChar _icon;
+    private string _icon;
 
     public ViewModelBase CurrentChildView
     {
@@ -34,7 +34,7 @@ public class MainWindowViewModel : ViewModelBase
             OnPropertyChanged(nameof(Caption));
         }
     }
-    public IconChar Icon
+    public string Icon
     {
         get
         {
@@ -61,10 +61,14 @@ public class MainWindowViewModel : ViewModelBase
     private void ExecuteShowFoilBalloonsViewCommand(object obj)
     {
         CurrentChildView = new FoilBalloonsViewModel();
+        Caption = "Фольговані кульки";
+        Icon = "\\Images\\Icons\\icons8-star-64_grey.png";
     }
 
     private void ExecuteShowLatexBalloonsViewCommand(object obj)
     {
         CurrentChildView = new LatexBalloonsViewModel();
+        Caption = "Латексні кульки";
+        Icon = "\\Images\\Icons\\icons8-hearts_balloons-60_grey.png";
     }
 }
