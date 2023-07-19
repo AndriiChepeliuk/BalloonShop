@@ -1,5 +1,4 @@
-﻿using FontAwesome.Sharp;
-using System;
+﻿using BalloonShop.Data;
 using System.Windows.Input;
 
 namespace BalloonShop.ViewModels;
@@ -52,6 +51,8 @@ public class MainWindowViewModel : ViewModelBase
 
     public MainWindowViewModel()
     {
+        using (var context = new ApplicationContext()) { }
+
         ShowLatexBalloonsViewCommand = new ViewModelCommand(ExecuteShowLatexBalloonsViewCommand);
         ShowFoilBalloonsViewCommand = new ViewModelCommand(ExecuteShowFoilBalloonsViewCommand);
 
@@ -62,13 +63,13 @@ public class MainWindowViewModel : ViewModelBase
     {
         CurrentChildView = new FoilBalloonsViewModel();
         Caption = "Фольговані кульки";
-        Icon = "\\Images\\Icons\\icons8-star-64_grey.png";
+        Icon = "\\Data\\Icons\\icons8-star-64_grey.png";
     }
 
     private void ExecuteShowLatexBalloonsViewCommand(object obj)
     {
         CurrentChildView = new LatexBalloonsViewModel();
         Caption = "Латексні кульки";
-        Icon = "\\Images\\Icons\\icons8-hearts_balloons-60_grey.png";
+        Icon = "\\Data\\Icons\\icons8-hearts_balloons-60_grey.png";
     }
 }

@@ -12,7 +12,7 @@
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True"
-        Icon="\Images\BalloonShop.png">
+        Icon="\Data\Icons\BalloonShop.png">
 
     <Window.DataContext>
         <viewModel:MainWindowViewModel/>
@@ -53,7 +53,7 @@
                                 Height="35"
                                 Margin="15,25,0,40">
 
-                        <Image Source="\Images\BalloonShop.png"/>
+                        <Image Source="\Data\Icons\BalloonShop.png"/>
 
                         <TextBlock Text="Balloon Shop"
                                    Foreground="{StaticResource fontColor1}"
@@ -74,7 +74,7 @@
                                      Command="{Binding ShowLatexBalloonsViewCommand}">
 
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="\Images\Icons\icons8-hearts_balloons-60.png" Height="35" Width="35" Style="{StaticResource menuButtonImage}"/>
+                                <Image Source="\Data\Icons\icons8-hearts_balloons-60.png" Height="35" Width="35" Style="{StaticResource menuButtonImage}"/>
                                 <TextBlock Text="Латексні кульки" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
@@ -84,7 +84,7 @@
                                      Command="{Binding ShowFoilBalloonsViewCommand}">
 
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="\Images\Icons\icons8-star-64.png" Height="35" Width="35" Style="{StaticResource menuButtonImage}"/>
+                                <Image Source="\Data\Icons\icons8-star-64.png" Height="35" Width="35" Style="{StaticResource menuButtonImage}"/>
                                 <TextBlock Text="Фольговані кульки" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
@@ -93,7 +93,7 @@
                                      Tag="{StaticResource color3}">
 
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="\Images\Icons\icons8-candles-64.png" Height="35" Width="35" Style="{StaticResource menuButtonImage}"/>
+                                <Image Source="\Data\Icons\icons8-candles-64.png" Height="35" Width="35" Style="{StaticResource menuButtonImage}"/>
                                 <TextBlock Text="Свічки" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
@@ -102,7 +102,7 @@
                                      Tag="{StaticResource color2}">
 
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="\Images\Icons\icons8-garlands-66.png" Height="35" Width="35" Style="{StaticResource menuButtonImage}"/>
+                                <Image Source="\Data\Icons\icons8-garlands-66.png" Height="35" Width="35" Style="{StaticResource menuButtonImage}"/>
                                 <TextBlock Text="Гірлянди" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
