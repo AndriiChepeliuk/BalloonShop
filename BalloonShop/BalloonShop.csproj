@@ -23,6 +23,10 @@
     <None Remove="Images\Temp\FoilImg.jpg" />
     <None Remove="Images\Temp\GarlandsImg.jpg" />
     <None Remove="Images\Temp\LatexImg.jpg" />
+    <None Remove="Images\Temp\Латексні\Латексні_без_малюнку.png" />
+    <None Remove="Images\Temp\Латексні\Латексні_без_малюнку_оригінал.png" />
+    <None Remove="Images\Temp\Латексні\Латексні_з_малюнком_оригінал.png" />
+    <None Remove="Images\Temp\Латексні\Набори_кульок_оригінал.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,6 +45,10 @@
     <Resource Include="Images\Temp\FoilImg.jpg" />
     <Resource Include="Images\Temp\GarlandsImg.jpg" />
     <Resource Include="Images\Temp\LatexImg.jpg" />
+    <Resource Include="Images\Temp\Латексні\Латексні_без_малюнку.png" />
+    <Resource Include="Images\Temp\Латексні\Латексні_без_малюнку_оригінал.png" />
+    <Resource Include="Images\Temp\Латексні\Латексні_з_малюнком_оригінал.png" />
+    <Resource Include="Images\Temp\Латексні\Набори_кульок_оригінал.png" />
   </ItemGroup>
 
   <ItemGroup>

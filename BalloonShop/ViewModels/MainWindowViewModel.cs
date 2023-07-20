@@ -51,8 +51,6 @@ public class MainWindowViewModel : ViewModelBase
 
     public MainWindowViewModel()
     {
-        using (var context = new ApplicationContext()) { }
-
         ShowLatexBalloonsViewCommand = new ViewModelCommand(ExecuteShowLatexBalloonsViewCommand);
         ShowFoilBalloonsViewCommand = new ViewModelCommand(ExecuteShowFoilBalloonsViewCommand);
 

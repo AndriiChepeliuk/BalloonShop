@@ -36,7 +36,7 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <!--Navigation menu-->
-                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="300"/>
                 <!--Content section-->
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
@@ -181,7 +181,7 @@
                             
                             <TextBlock Text="{Binding Caption}"
                                        Foreground="{StaticResource fontColor1}"
-                                       FontSize="16"
+                                       FontSize="18"
                                        FontFamily="Montserrat"
                                        FontWeight="Medium"
                                        VerticalAlignment="Center"/>
