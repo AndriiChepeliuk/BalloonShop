@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BalloonShop.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,15 @@ namespace BalloonShop.Views
         public LatexBalloonsView()
         {
             InitializeComponent();
+        }
+
+        private void ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var dataContext = DataContext as LatexBalloonsViewModel;
+            if (dataContext != null)
+            {
+                dataContext.SelectedMenuItem.ShowNextViewCommand.Execute(this);
+            }
         }
     }
 }

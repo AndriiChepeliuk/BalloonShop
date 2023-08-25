@@ -1,10 +1,23 @@
 ﻿using BalloonShop.Data;
+using BalloonShop.Views;
+using System.Windows;
 using System.Windows.Input;
 
 namespace BalloonShop.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
+    //-----------------------
+    private MainWindow window;
+
+    private void LoadWindow()
+    {
+        if (window == null)
+        {
+            window = Window.GetWindow(App.Current.MainWindow) as MainWindow;
+        }
+    }
+    //-----------------------
     private ViewModelBase _currentChildView;
     private string _caption;
     private string _icon;
@@ -54,20 +67,28 @@ public class MainWindowViewModel : ViewModelBase
         ShowLatexBalloonsViewCommand = new ViewModelCommand(ExecuteShowLatexBalloonsViewCommand);
         ShowFoilBalloonsViewCommand = new ViewModelCommand(ExecuteShowFoilBalloonsViewCommand);
 
-        ExecuteShowLatexBalloonsViewCommand(null);
+        //ExecuteShowLatexBalloonsViewCommand(null);
     }
 
     private void ExecuteShowFoilBalloonsViewCommand(object obj)
     {
-        CurrentChildView = new FoilBalloonsViewModel();
-        Caption = "Фольговані кульки";
-        Icon = "\\Data\\Icons\\icons8-star-64_grey.png";
+        LoadWindow();
+        window.ExecutePage(AppPages.FoilBalloons_Page);
+
+        //CurrentChildView = new FoilBalloonsViewModel();
+        //CurrentChildView.PassCurrentChildView(_currentChildView);
+        //Caption = "Фольговані кульки";
+        //Icon = "\\Data\\Icons\\icons8-star-64_grey.png";
     }
 
     private void ExecuteShowLatexBalloonsViewCommand(object obj)
     {
-        CurrentChildView = new LatexBalloonsViewModel();
-        Caption = "Латексні кульки";
-        Icon = "\\Data\\Icons\\icons8-hearts_balloons-60_grey.png";
+        LoadWindow();
+        window.ExecutePage(AppPages.LatexBalloons_Page);
+
+        //CurrentChildView = new LatexBalloonsViewModel();
+        //CurrentChildView.PassCurrentChildView(_currentChildView);
+        //Caption = "Латексні кульки";
+        //Icon = "\\Data\\Icons\\icons8-hearts_balloons-60_grey.png";
     }
 }

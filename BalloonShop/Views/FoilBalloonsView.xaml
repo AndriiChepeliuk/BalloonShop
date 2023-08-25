@@ -6,13 +6,118 @@
              xmlns:local="clr-namespace:BalloonShop.Views"
              xmlns:viewModel="clr-namespace:BalloonShop.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="700" d:DesignWidth="1200">
 
     <UserControl.DataContext>
         <viewModel:FoilBalloonsViewModel/>
     </UserControl.DataContext>
 
-    <StackPanel>
-        <Image Source="\Images\Temp\FoilImg.jpg"/>
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <!--<ListView-->
+
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top">
+
+            <!--#region Без малюнка-->
+            <Border BorderBrush="{StaticResource backColor1}"
+                    BorderThickness="1"
+                    Margin="10"
+                    CornerRadius="10"
+                    Width="300" Height="300">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="250"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+
+                    <Rectangle Grid.Row="0"
+                                       Height="250"
+                                       Width="250"
+                                       RadiusX="5"
+                                       RadiusY="5">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="\Images\Temp\Латексні\Латексні_без_малюнку_оригінал.png"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+
+                    <TextBlock Text="Без малюнка"
+                               Grid.Row="1"
+                               Style="{StaticResource simpleText}"/>
+
+                </Grid>
+            </Border>
+            <!--#endregion-->
+
+            <!--#region З малюнком-->
+            <Border BorderBrush="{StaticResource backColor1}"
+                    BorderThickness="1"
+                    Margin="10"
+                    CornerRadius="10"
+                    Width="300" Height="300">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="250"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+
+                    <Rectangle Grid.Row="0"
+                                       Height="250"
+                                       Width="250"
+                                       RadiusX="5"
+                                       RadiusY="5">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="\Images\Temp\Латексні\Латексні_з_малюнком_оригінал.png"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+
+                    <TextBlock Text="З малюнком"
+                               Grid.Row="1"
+                               Style="{StaticResource simpleText}"/>
+
+                </Grid>
+            </Border>
+            <!--#endregion-->
+
+            <!--#region Набори кульок-->
+            <Border BorderBrush="{StaticResource backColor1}"
+                    BorderThickness="1"
+                    Margin="10"
+                    CornerRadius="10"
+                    Width="300" Height="300">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="250"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+
+                    <Rectangle Grid.Row="0"
+                                       Height="250"
+                                       Width="250"
+                                       RadiusX="5"
+                                       RadiusY="5">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="\Images\Temp\Латексні\Набори_кульок_оригінал.png"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+
+                    <TextBlock Text="Набори кульок"
+                               Grid.Row="1"
+                               Style="{StaticResource simpleText}"/>
+
+                </Grid>
+
+            </Border>
+            <!--#endregion-->
+
+        </StackPanel>
+
+    </Grid>
 </UserControl>

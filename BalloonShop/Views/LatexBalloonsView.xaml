@@ -18,104 +18,56 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top">
-            
-            <!--#region Без малюнка-->
-            <Border BorderBrush="{StaticResource backColor1}"
+        <ListView Grid.Row="0"
+                  ItemsSource="{Binding LatexBalloonsItems}"
+                  SelectedItem="{Binding SelectedMenuItem}"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  Background="Transparent"
+                  BorderBrush="Transparent"
+                  MouseDoubleClick="ListView_MouseDoubleClick">
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="{StaticResource backColor1}"
                     BorderThickness="1"
-                    Margin="10"
+                    Margin="5"
                     CornerRadius="10"
                     Width="300" Height="300">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="250"/>
-                        <RowDefinition Height="50"/>
-                    </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="250"/>
+                                <RowDefinition Height="50"/>
+                            </Grid.RowDefinitions>
 
-                    <Rectangle Grid.Row="0"
+                            <Rectangle Grid.Row="0"
                                        Height="250"
                                        Width="250"
                                        RadiusX="5"
                                        RadiusY="5">
-                        <Rectangle.Fill>
-                            <ImageBrush ImageSource="\Images\Temp\Латексні\Латексні_без_малюнку_оригінал.png"/>
-                        </Rectangle.Fill>
-                    </Rectangle>
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="{Binding ImageUri}"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
 
-                    <TextBlock Text="Без малюнка"
-                               Grid.Row="1"
-                               Style="{StaticResource simpleText}"/>
-                    
-                </Grid>
-            </Border>
-            <!--#endregion-->
-
-            <!--#region З малюнком-->
-            <Border BorderBrush="{StaticResource backColor1}"
-                    BorderThickness="1"
-                    Margin="10"
-                    CornerRadius="10"
-                    Width="300" Height="300">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="250"/>
-                        <RowDefinition Height="50"/>
-                    </Grid.RowDefinitions>
-
-                    <Rectangle Grid.Row="0"
-                                       Height="250"
-                                       Width="250"
-                                       RadiusX="5"
-                                       RadiusY="5">
-                        <Rectangle.Fill>
-                            <ImageBrush ImageSource="\Images\Temp\Латексні\Латексні_з_малюнком_оригінал.png"/>
-                        </Rectangle.Fill>
-                    </Rectangle>
-
-                    <TextBlock Text="З малюнком"
-                               Grid.Row="1"
-                               Style="{StaticResource simpleText}"/>
-                    
-                </Grid>
-            </Border>
-            <!--#endregion-->
-
-            <!--#region Набори кульок-->
-            <Border BorderBrush="{StaticResource backColor1}"
-                    BorderThickness="1"
-                    Margin="10"
-                    CornerRadius="10"
-                    Width="300" Height="300">
-
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="250"/>
-                        <RowDefinition Height="50"/>
-                    </Grid.RowDefinitions>
-
-                    <Rectangle Grid.Row="0"
-                                       Height="250"
-                                       Width="250"
-                                       RadiusX="5"
-                                       RadiusY="5">
-                        <Rectangle.Fill>
-                            <ImageBrush ImageSource="\Images\Temp\Латексні\Набори_кульок_оригінал.png"/>
-                        </Rectangle.Fill>
-                    </Rectangle>
-
-                    <TextBlock Text="Набори кульок"
+                            <TextBlock Text="{Binding Name}"
                                Grid.Row="1"
                                Style="{StaticResource simpleText}"/>
 
-                </Grid>
-                
-            </Border>
-            <!--#endregion-->
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
 
-        </StackPanel>
+        </ListView>
 
     </Grid>
 </UserControl>

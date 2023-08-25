@@ -5,11 +5,20 @@ using System.Windows.Interop;
 
 namespace BalloonShop.Views
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    public enum AppPages
+    {
+        FoilBalloons_Page, LatexBalloons_Page, LatexBalloons_WithImages_Page
+    }
+
     public partial class MainWindow : Window
     {
+
+        private MainWindow window;
+
+        private Pages.LatexBalloons_Page latexBalloons_Page = new Pages.LatexBalloons_Page();
+        private Pages.FoilBalloons_Page foilBalloons_Page = new Pages.FoilBalloons_Page();
+        private Pages.LatexBalloons_WithImages_Page latexBalloons_WithImages_Page = new Pages.LatexBalloons_WithImages_Page();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -44,6 +53,42 @@ namespace BalloonShop.Views
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
+        }
+
+        public void ExecutePage(AppPages page)
+        {
+            switch (page)
+            {
+                case AppPages.LatexBalloons_Page:
+                    container.Content = latexBalloons_Page;
+                    break;
+                case AppPages.FoilBalloons_Page:
+                    container.Content = foilBalloons_Page;
+                    break;
+                case AppPages.LatexBalloons_WithImages_Page:
+                    container.Content = latexBalloons_WithImages_Page;
+                    break;
+            }
+        }
+
+        private void LoadWindow()
+        {
+            if (window == null)
+            {
+                window = Window.GetWindow(App.Current.MainWindow) as MainWindow;
+            }
+        }
+
+        private void ShowLatexBalloons_Click(object sender, RoutedEventArgs e)
+        {
+            LoadWindow();
+            window.ExecutePage(AppPages.LatexBalloons_Page);
+        }
+
+        private void ShowFoilBalloons_Click(object sender, RoutedEventArgs e)
+        {
+            LoadWindow();
+            window.ExecutePage(AppPages.FoilBalloons_Page);
         }
     }
 }

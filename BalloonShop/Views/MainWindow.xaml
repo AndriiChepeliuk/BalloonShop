@@ -6,6 +6,7 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         xmlns:viewModel="clr-namespace:BalloonShop.ViewModels"
         xmlns:local="clr-namespace:BalloonShop.Views"
+        xmlns:pages="clr-namespace:BalloonShop.Pages"
         mc:Ignorable="d"
         Title="Balloon Shop" Height="900" Width="1600"
         WindowStartupLocation="CenterScreen"
@@ -71,7 +72,7 @@
                         <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color1}"
                                      IsChecked="True"
-                                     Command="{Binding ShowLatexBalloonsViewCommand}">
+                                     Click="ShowLatexBalloons_Click">
 
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="\Data\Icons\icons8-hearts_balloons-60.png" Height="35" Width="35" Style="{StaticResource menuButtonImage}"/>
@@ -81,7 +82,7 @@
 
                         <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color6}"
-                                     Command="{Binding ShowFoilBalloonsViewCommand}">
+                                     Click="ShowFoilBalloons_Click">
 
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="\Data\Icons\icons8-star-64.png" Height="35" Width="35" Style="{StaticResource menuButtonImage}"/>
@@ -191,9 +192,17 @@
                     <!--#endregion-->
 
                     <!--#region Content Section / Child views-->
-                    <ContentControl Content="{Binding CurrentChildView}"
+                    
+                    <!--<ContentControl Content="{Binding CurrentChildView}"
                                     Grid.Row="2"
-                                    Margin="25"/>
+                                    Margin="25"/>-->
+                    
+                    <ContentPresenter x:Name="container" Grid.Row="2">
+                        <ContentPresenter.Content>
+                            <pages:LatexBalloons_Page/>
+                        </ContentPresenter.Content>
+                    </ContentPresenter>
+                    
                     <!--#endregion-->
 
                 </Grid>

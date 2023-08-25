@@ -19,10 +19,25 @@
     <None Remove="Data\Icons\icons8-hearts_balloons-60_grey.png" />
     <None Remove="Data\Icons\icons8-star-64.png" />
     <None Remove="Data\Icons\icons8-star-64_grey.png" />
+    <None Remove="Data\MenuImages\FoilBalloons\Фольга_без_малюнку_оригінал.png" />
+    <None Remove="Data\MenuImages\FoilBalloons\Фольга_гірлянди_оригінал.png" />
+    <None Remove="Data\MenuImages\FoilBalloons\Фольга_з_малюнком_оригінал.png" />
+    <None Remove="Data\MenuImages\FoilBalloons\Фольга_міні-фігури_оригінал.png" />
+    <None Remove="Data\MenuImages\FoilBalloons\Фольга_стоячі-фігури_оригінал.png" />
+    <None Remove="Data\MenuImages\FoilBalloons\Фольга_фігури_оригінал.png" />
+    <None Remove="Data\MenuImages\FoilBalloons\Фольга_цифри_оригінал.png" />
+    <None Remove="Data\MenuImages\LatexBalloons\Латексні_серця_оригінал.png" />
+    <None Remove="Data\MenuImages\Латексні_без_малюнку_оригінал.png" />
+    <None Remove="Data\MenuImages\Латексні_з_малюнком_оригінал.png" />
+    <None Remove="Data\MenuImages\Набори_кульок_оригінал.png" />
     <None Remove="Images\Temp\CandlesImg.jpg" />
     <None Remove="Images\Temp\FoilImg.jpg" />
     <None Remove="Images\Temp\GarlandsImg.jpg" />
     <None Remove="Images\Temp\LatexImg.jpg" />
+    <None Remove="Images\Temp\Латексні\Sertsya.jpg" />
+    <None Remove="Images\Temp\Латексні\Sets.jpg" />
+    <None Remove="Images\Temp\Латексні\WithOutPictures.jpg" />
+    <None Remove="Images\Temp\Латексні\WithPictures.jpg" />
     <None Remove="Images\Temp\Латексні\Латексні_без_малюнку.png" />
     <None Remove="Images\Temp\Латексні\Латексні_без_малюнку_оригінал.png" />
     <None Remove="Images\Temp\Латексні\Латексні_з_малюнком_оригінал.png" />
@@ -41,10 +56,25 @@
     <Resource Include="Data\Icons\icons8-hearts_balloons-60_grey.png" />
     <Resource Include="Data\Icons\icons8-star-64.png" />
     <Resource Include="Data\Icons\icons8-star-64_grey.png" />
+    <Resource Include="Data\MenuImages\FoilBalloons\Фольга_без_малюнку_оригінал.png" />
+    <Resource Include="Data\MenuImages\FoilBalloons\Фольга_гірлянди_оригінал.png" />
+    <Resource Include="Data\MenuImages\FoilBalloons\Фольга_з_малюнком_оригінал.png" />
+    <Resource Include="Data\MenuImages\FoilBalloons\Фольга_міні-фігури_оригінал.png" />
+    <Resource Include="Data\MenuImages\FoilBalloons\Фольга_стоячі-фігури_оригінал.png" />
+    <Resource Include="Data\MenuImages\FoilBalloons\Фольга_фігури_оригінал.png" />
+    <Resource Include="Data\MenuImages\FoilBalloons\Фольга_цифри_оригінал.png" />
+    <Resource Include="Data\MenuImages\LatexBalloons\Латексні_без_малюнку_оригінал.png" />
+    <Resource Include="Data\MenuImages\LatexBalloons\Латексні_з_малюнком_оригінал.png" />
+    <Resource Include="Data\MenuImages\LatexBalloons\Латексні_серця_оригінал.png" />
+    <Resource Include="Data\MenuImages\LatexBalloons\Набори_кульок_оригінал.png" />
     <Resource Include="Images\Temp\CandlesImg.jpg" />
     <Resource Include="Images\Temp\FoilImg.jpg" />
     <Resource Include="Images\Temp\GarlandsImg.jpg" />
     <Resource Include="Images\Temp\LatexImg.jpg" />
+    <Resource Include="Images\Temp\Латексні\Sertsya.jpg" />
+    <Resource Include="Images\Temp\Латексні\Sets.jpg" />
+    <Resource Include="Images\Temp\Латексні\WithOutPictures.jpg" />
+    <Resource Include="Images\Temp\Латексні\WithPictures.jpg" />
     <Resource Include="Images\Temp\Латексні\Латексні_без_малюнку.png" />
     <Resource Include="Images\Temp\Латексні\Латексні_без_малюнку_оригінал.png" />
     <Resource Include="Images\Temp\Латексні\Латексні_з_малюнком_оригінал.png" />
@@ -53,7 +83,6 @@
 
   <ItemGroup>
     <Folder Include="Data\ProductImages\" />
-    <Folder Include="Views\Windows\" />
   </ItemGroup>
 
   <ItemGroup>
