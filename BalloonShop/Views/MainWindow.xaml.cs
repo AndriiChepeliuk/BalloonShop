@@ -18,7 +18,6 @@ namespace BalloonShop.Views
 
     public partial class MainWindow : Window
     {
-
         private MainWindow window;
 
         private Pages.LatexBalloons_Page latexBalloons_Page = new Pages.LatexBalloons_Page();
@@ -81,22 +80,22 @@ namespace BalloonShop.Views
                 case AppPages.LatexBalloons_WithImages_Page:
                     container.Content = latexBalloons_WithImages_Page;
                     titleText.Text = "Латексні кульки з малюнком";
-                    titleImage.Source = new BitmapImage(new Uri("\\Data\\MenuImages\\LatexBalloons\\Латексні_з_малюнком_оригінал.png", UriKind.Relative));
+                    titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\LatexBalloonsIcons\\LatexBalloons_WithImage_Icon.png", UriKind.Relative));
                     break;
                 case AppPages.LatexBalloons_WithoutImage_Page:
                     container.Content = latexBalloons_WithoutImage_Page;
                     titleText.Text = "Латексні кульки без малюнку";
-                    titleImage.Source = new BitmapImage(new Uri("\\Data\\MenuImages\\LatexBalloons\\Латексні_без_малюнку_оригінал.png", UriKind.Relative));
+                    titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\LatexBalloonsIcons\\LatexBalloons_WithoutImage_Icon.png", UriKind.Relative));
                     break;
                 case AppPages.LatexBalloons_SetsOfBalloons_Page:
                     container.Content = latexBalloons_SetsOfBalloons_Page;
                     titleText.Text = "Сети латексних кульок";
-                    titleImage.Source = new BitmapImage(new Uri("\\Data\\MenuImages\\LatexBalloons\\Набори_кульок_оригінал.png", UriKind.Relative));
+                    titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\LatexBalloonsIcons\\LatexBalloons_Sets_Icon.png", UriKind.Relative));
                     break;
                 case AppPages.LatexBalloons_Hearts_Page:
                     container.Content = latexBalloons_Hearts_Page;
                     titleText.Text = "Латексні кульки серця";
-                    titleImage.Source = new BitmapImage(new Uri("\\Data\\MenuImages\\LatexBalloons\\Латексні_серця_оригінал.png", UriKind.Relative));
+                    titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\LatexBalloonsIcons\\LatexBalloons_Hearts_Icon.png", UriKind.Relative));
                     break;
             }
         }
