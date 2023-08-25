@@ -41,5 +41,23 @@ namespace BalloonShop.Pages
             LoadWindow();
             window.ExecutePage(AppPages.LatexBalloons_WithImages_Page);
         }
+
+        private void LatexBalloons_WithoutImage_Page_ElementClick(object sender, RoutedEventArgs e)
+        {
+            LoadWindow();
+            window.ExecutePage(AppPages.LatexBalloons_WithoutImage_Page);
+        }
+
+        private void LatexBalloons_SetsOfBalloons_Page_ElementClick(object sender, RoutedEventArgs e)
+        {
+            LoadWindow();
+            window.ExecutePage(AppPages.LatexBalloons_SetsOfBalloons_Page);
+        }
+
+        private void LatexBalloons_Hearts_Page_ElementClick(object sender, RoutedEventArgs e)
+        {
+            LoadWindow();
+            window.ExecutePage(AppPages.LatexBalloons_Hearts_Page);
+        }
     }
 }

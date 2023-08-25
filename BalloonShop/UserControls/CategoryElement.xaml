@@ -3,47 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Name="categoryElement">
 
-    <Button Padding="20" Width="230" Margin="15 0" FocusVisualStyle="{x:Null}" Click="Button_Click">
-        <Button.Style>
-            <Style TargetType="Button">
-                <Setter Property="Height" Value="350" />
-                <Setter Property="Foreground" Value="#E2E2E4" />
-
-                <Setter Property="Background">
-                    <Setter.Value>
-                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                            <GradientStop Color="#464F78"/>
-                            <GradientStop Color="#323F6C" Offset="0.9"/>
-                        </LinearGradientBrush>
-                    </Setter.Value>
-                </Setter>
-
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="Button">
-                            <Border Background="{TemplateBinding Background}" CornerRadius="5">
-                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-
-                <Style.Triggers>
-                    <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="Background" Value="#5F76F6" />
-                        <Setter Property="Foreground" Value="#ffffff" />
-                        <!--<Setter Property="Height" Value="380" />-->
-                    </Trigger>
-
-                    <DataTrigger Binding="{Binding ElementName=categoryElement,Path=IsActive}" Value="True">
-                        <Setter Property="Background" Value="#5F76F6" />
-                        <Setter Property="Foreground" Value="#ffffff" />
-                        <!--<Setter Property="Height" Value="380" />-->
-                    </DataTrigger>
-                </Style.Triggers>
-            </Style>
-        </Button.Style>
-
+    <Button Padding="20" Width="230" Margin="15 0" FocusVisualStyle="{x:Null}" Click="Button_Click" Style="{StaticResource categoryButton}">
         <StackPanel VerticalAlignment="Center">
             <Image Source="{Binding ElementName=categoryElement, Path=ImageSource}" Width="200" Height="200" 
                                    VerticalAlignment="Center" HorizontalAlignment="Center"/>

@@ -7,7 +7,12 @@ namespace BalloonShop.Views
 {
     public enum AppPages
     {
-        FoilBalloons_Page, LatexBalloons_Page, LatexBalloons_WithImages_Page
+        FoilBalloons_Page, 
+        LatexBalloons_Page, 
+        LatexBalloons_WithImages_Page,
+        LatexBalloons_WithoutImage_Page,
+        LatexBalloons_SetsOfBalloons_Page,
+        LatexBalloons_Hearts_Page
     }
 
     public partial class MainWindow : Window
@@ -18,6 +23,9 @@ namespace BalloonShop.Views
         private Pages.LatexBalloons_Page latexBalloons_Page = new Pages.LatexBalloons_Page();
         private Pages.FoilBalloons_Page foilBalloons_Page = new Pages.FoilBalloons_Page();
         private Pages.LatexBalloons_WithImages_Page latexBalloons_WithImages_Page = new Pages.LatexBalloons_WithImages_Page();
+        private Pages.LatexBalloons_WithoutImage_Page latexBalloons_WithoutImage_Page = new Pages.LatexBalloons_WithoutImage_Page();
+        private Pages.LatexBalloons_SetsOfBalloons_Page latexBalloons_SetsOfBalloons_Page = new Pages.LatexBalloons_SetsOfBalloons_Page();
+        private Pages.LatexBalloons_Hearts_Page latexBalloons_Hearts_Page = new Pages.LatexBalloons_Hearts_Page();
 
         public MainWindow()
         {
@@ -67,6 +75,15 @@ namespace BalloonShop.Views
                     break;
                 case AppPages.LatexBalloons_WithImages_Page:
                     container.Content = latexBalloons_WithImages_Page;
+                    break;
+                case AppPages.LatexBalloons_WithoutImage_Page:
+                    container.Content = latexBalloons_WithoutImage_Page; 
+                    break;
+                case AppPages.LatexBalloons_SetsOfBalloons_Page:
+                    container.Content = latexBalloons_SetsOfBalloons_Page;
+                    break;
+                case AppPages.LatexBalloons_Hearts_Page:
+                    container.Content = latexBalloons_Hearts_Page;
                     break;
             }
         }

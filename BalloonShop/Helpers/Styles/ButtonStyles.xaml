@@ -108,6 +108,50 @@
 
     <!--#endregion-->
 
+    <!--#region Category button-->
+    <Style x:Key="categoryButton" TargetType="Button">
 
+        <!--#region Normal condition-->
+        <Setter Property="Height" Value="350" />
+        <Setter Property="Foreground" Value="#E2E2E4" />
+
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#404040"/>
+                    <GradientStop Color="#101010" Offset="0.9"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="5">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!--#endregion-->
+
+        <!--#region On hover style-->
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource backColor1}" />
+                <Setter Property="Foreground" Value="#ffffff" />
+                <!--<Setter Property="Height" Value="380" />-->
+            </Trigger>
+
+            <DataTrigger Binding="{Binding ElementName=categoryElement,Path=IsActive}" Value="True">
+                <Setter Property="Background" Value="{StaticResource backColor5}" />
+                <Setter Property="Foreground" Value="#ffffff" />
+                <!--<Setter Property="Height" Value="380" />-->
+            </DataTrigger>
+        </Style.Triggers>
+        <!--#endregion-->
+
+    </Style>
+    <!--#endregion-->
 
 </ResourceDictionary>

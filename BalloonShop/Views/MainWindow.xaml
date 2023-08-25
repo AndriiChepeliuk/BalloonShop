@@ -15,11 +15,11 @@
         AllowsTransparency="True"
         Icon="\Data\Icons\BalloonShop.png">
 
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <viewModel:MainWindowViewModel/>
-    </Window.DataContext>
+    </Window.DataContext>-->
 
-    <Window.Resources>
+    <!--<Window.Resources>
         <DataTemplate DataType="{x:Type viewModel:LatexBalloonsViewModel}">
             <local:LatexBalloonsView/>
         </DataTemplate>
@@ -27,7 +27,7 @@
         <DataTemplate DataType="{x:Type viewModel:FoilBalloonsViewModel}">
             <local:FoilBalloonsView/>
         </DataTemplate>
-    </Window.Resources>
+    </Window.Resources>-->
 
     <Border CornerRadius="10"
             BorderThickness="1"
