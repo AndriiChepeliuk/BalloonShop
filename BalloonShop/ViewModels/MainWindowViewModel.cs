@@ -1,5 +1,4 @@
-﻿using BalloonShop.Data;
-using BalloonShop.Views;
+﻿using BalloonShop.Views;
 using System.Windows;
 using System.Windows.Input;
 
@@ -18,6 +17,7 @@ public class MainWindowViewModel : ViewModelBase
         }
     }
     //-----------------------
+
     private ViewModelBase _currentChildView;
     private string _caption;
     private string _icon;
@@ -73,7 +73,7 @@ public class MainWindowViewModel : ViewModelBase
     private void ExecuteShowFoilBalloonsViewCommand(object obj)
     {
         LoadWindow();
-        window.ExecutePage(AppPages.FoilBalloons_Page);
+        window.ExecutePage(AppPages.App_FoilBalloons_Page);
 
         //CurrentChildView = new FoilBalloonsViewModel();
         //CurrentChildView.PassCurrentChildView(_currentChildView);
@@ -84,7 +84,7 @@ public class MainWindowViewModel : ViewModelBase
     private void ExecuteShowLatexBalloonsViewCommand(object obj)
     {
         LoadWindow();
-        window.ExecutePage(AppPages.LatexBalloons_Page);
+        window.ExecutePage(AppPages.App_LatexBalloons_Page);
 
         //CurrentChildView = new LatexBalloonsViewModel();
         //CurrentChildView.PassCurrentChildView(_currentChildView);

@@ -17,13 +17,13 @@ using System.Windows.Shapes;
 namespace BalloonShop.Pages
 {
     /// <summary>
-    /// Interaction logic for LatexBalloons_Page.xaml
+    /// Interaction logic for App_LatexBalloons_Page.xaml
     /// </summary>
-    public partial class LatexBalloons_Page : UserControl
+    public partial class App_LatexBalloons_Page : UserControl
     {
         private MainWindow window;
 
-        public LatexBalloons_Page()
+        public App_LatexBalloons_Page()
         {
             InitializeComponent();
         }

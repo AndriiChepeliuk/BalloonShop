@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace BalloonShop.Pages
 {
     /// <summary>
-    /// Interaction logic for FoilBalloons_Page.xaml
+    /// Interaction logic for Settings_ColorSettings_Page.xaml
     /// </summary>
-    public partial class FoilBalloons_Page : UserControl
+    public partial class Settings_ColorSettings_Page : UserControl
     {
-        public FoilBalloons_Page()
+        public Settings_ColorSettings_Page()
         {
             InitializeComponent();
         }
