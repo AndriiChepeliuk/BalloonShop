@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BalloonShop.Models.Color;
+using BalloonShop.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,15 @@ namespace BalloonShop.Pages
         public Settings_ColorSettings_Page()
         {
             InitializeComponent();
+        }
+
+        private void addColorButton_Click(object sender, RoutedEventArgs e)
+        {
+            ColorModel newColor = new ColorModel();
+            newColor.Name = "Red";
+            newColor.RelatedProduct = "Defoult";
+
+            ColorModelService.AddColor(newColor);
         }
     }
 }

@@ -6,8 +6,8 @@
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="0 20" VerticalAlignment="Center" Width="{Binding ElementName=grid,Path=ActualWidth}">
             <WrapPanel>
 
-                <uc:CategoryElement Title="Налаштування кольорів" ImageSource="\Data\Icons\icons8-color-94.png" Margin="0 10" ElementClick="Settings_ColorSettings_Page_ElementClick"/>
-                
+                <uc:CategoryElement Title="Налаштування кольорів" ImageSource="\Data\MenuImages\Settings\icons8-color-94.png" Margin="0 10" ElementClick="Settings_ColorSettings_Page_ElementClick"/>
+                <uc:CategoryElement Title="Типи кульок" ImageSource="\Data\MenuImages\Settings\Balloon_Types.png" Margin="0 10" ElementClick="Settings_BalloonsTypes_Page_ElementClick"/>
             </WrapPanel>
         </ScrollViewer>
     </Grid>

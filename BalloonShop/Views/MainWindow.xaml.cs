@@ -15,7 +15,8 @@ namespace BalloonShop.Views
         LatexBalloons_WithoutImage_Page,
         LatexBalloons_SetsOfBalloons_Page,
         LatexBalloons_Hearts_Page,
-        Settings_ColorSettings_Page
+        Settings_ColorSettings_Page,
+        Settings_BalloonsTypes_Page
     }
 
     public partial class MainWindow : Window
@@ -30,6 +31,7 @@ namespace BalloonShop.Views
         private Pages.LatexBalloons_SetsOfBalloons_Page latexBalloons_SetsOfBalloons_Page = new Pages.LatexBalloons_SetsOfBalloons_Page();
         private Pages.LatexBalloons_Hearts_Page latexBalloons_Hearts_Page = new Pages.LatexBalloons_Hearts_Page();
         private Pages.Settings_ColorSettings_Page settings_ColorSettings_Page = new Pages.Settings_ColorSettings_Page();
+        private Pages.Settings_BalloonsTypes_Page settings_BalloonsTypes_Page = new Pages.Settings_BalloonsTypes_Page();
 
         public MainWindow()
         {
@@ -110,6 +112,11 @@ namespace BalloonShop.Views
                     container.Content = settings_ColorSettings_Page;
                     titleText.Text = "Налаштування кольорів";
                     titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\icons8-color-94_grey.png", UriKind.Relative));
+                    break;
+                case AppPages.Settings_BalloonsTypes_Page:
+                    container.Content = settings_BalloonsTypes_Page;
+                    titleText.Text = "Типи кульок";
+                    titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\Balloon_Types.png", UriKind.Relative));
                     break;
             }
         }

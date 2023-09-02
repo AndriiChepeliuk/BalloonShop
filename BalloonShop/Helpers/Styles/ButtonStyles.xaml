@@ -153,5 +153,37 @@
 
     </Style>
     <!--#endregion-->
+    
+    <!--#region Add Button-->
+    <Style x:Key="addButton" TargetType="Button">
+        <!--#region Normal condition-->
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Margin" Value="25 5"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="25"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <!--#region On hover style-->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#21AD64"/>
+            </Trigger>
+            <!--#endregion-->
+        </Style.Triggers>
+        <!--#endregion-->
+    </Style>
+    <!--#endregion-->
 
 </ResourceDictionary>
