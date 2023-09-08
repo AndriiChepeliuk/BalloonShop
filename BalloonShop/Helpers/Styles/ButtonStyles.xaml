@@ -153,9 +153,9 @@
 
     </Style>
     <!--#endregion-->
-    
-    <!--#region Add Button-->
-    <Style x:Key="addButton" TargetType="Button">
+
+    <!--#region Add Button - Circle-->
+    <Style x:Key="addButton_Circle" TargetType="Button">
         <!--#region Normal condition-->
         <Setter Property="Height" Value="40"/>
         <Setter Property="Width" Value="40"/>
@@ -185,5 +185,128 @@
         <!--#endregion-->
     </Style>
     <!--#endregion-->
+
+    <!--#region Add Button - Rectangle-->
+    <Style x:Key="addButton_Rectangle" TargetType="Button">
+
+        <!--#region Normal condition-->
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Foreground" Value="{StaticResource whiteColor}"/>
+        <Setter Property="Background" Value="{StaticResource btnAddButtonColorRectangle}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="5"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!--#endregion-->
+
+        <Style.Triggers>
+
+            <!--#region On hover style-->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource btnAddButtonColorRectangleIsMouseOver}"/>
+                <Setter Property="Foreground" Value="{StaticResource blackColor}"/>
+            </Trigger>
+            <!--#endregion-->
+
+        </Style.Triggers>
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region Cancel Button - Rectangle-->
+    <Style x:Key="cancelButton_Rectangle" TargetType="Button">
+
+        <!--#region Normal condition-->
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Foreground" Value="{StaticResource whiteColor}"/>
+        <Setter Property="Background" Value="{StaticResource btnCancelButtonColorRectangle}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="5"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!--#endregion-->
+
+        <Style.Triggers>
+
+            <!--#region On hover style-->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource btnCancelButtonColorRectangleIsMouseOver}"/>
+                <Setter Property="Foreground" Value="{StaticResource blackColor}"/>
+            </Trigger>
+            <!--#endregion-->
+
+        </Style.Triggers>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region Simple Button-->
+    <Style x:Key="simpleButton" TargetType="Button">
+
+        <!--#region Normal condition-->
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Foreground" Value="{StaticResource whiteColor}"/>
+        <Setter Property="Background" Value="{StaticResource btnControlWindowColor}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="5"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!--#endregion-->
+
+        <Style.Triggers>
+
+            <!--#region On hover style-->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource btnControlWindowColorIsMouseOver}"/>
+                <Setter Property="Foreground" Value="{StaticResource blackColor}"/>
+            </Trigger>
+            <!--#endregion-->
+
+        </Style.Triggers>
+    </Style>
+
+    <!--#endregion-->
+
 
 </ResourceDictionary>

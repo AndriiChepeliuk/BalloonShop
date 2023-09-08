@@ -7,6 +7,7 @@ namespace BalloonShop.Models.ProductType;
 public class ProductTypeModel : ModelBase
 {
     private string _name;
+    private string _imageUri;
     private string _relatedProduct;
     private ObservableCollection<LatexBalloonModel> _latexBalloons;
     private ObservableCollection<FoilBalloonModel> _foilBalloons;
@@ -19,6 +20,15 @@ public class ProductTypeModel : ModelBase
         {
             _name = value;
             OnPropertyChanged(nameof(Name));
+        }
+    }
+    public string ImageUri
+    {
+        get { return _imageUri; }
+        set
+        {
+            _imageUri = value;
+            OnPropertyChanged(nameof(ImageUri));
         }
     }
     public string RelatedProduct

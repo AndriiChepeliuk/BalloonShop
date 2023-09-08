@@ -10,7 +10,10 @@
     <SolidColorBrush x:Key="backColor6">#C8C8C8</SolidColorBrush>
 
     <!--Font Colors-->
+    <SolidColorBrush x:Key="whiteColor" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="blackColor" Color="#000000"/>
     <SolidColorBrush x:Key="fontColor1" Color="#969696"/>
+    <SolidColorBrush x:Key="fontColor2" Color="#C8C8C8"/>
 
     <!--Panel Colors-->
     <SolidColorBrush x:Key="panelColor" Color="#E30528"/>
@@ -28,5 +31,13 @@
     <SolidColorBrush x:Key="color8" Color="#78A3FC"/>
     <SolidColorBrush x:Key="color9" Color="#07F3C0"/>
     <SolidColorBrush x:Key="color10" Color="#FBA1AA"/>
+
+    <!--Button Colors-->
+    <SolidColorBrush x:Key="btnControlWindowColor" Color="#464646"/>
+    <SolidColorBrush x:Key="btnControlWindowColorIsMouseOver" Color="#636363"/>
+    <SolidColorBrush x:Key="btnAddButtonColorRectangle" Color="#498048"/>
+    <SolidColorBrush x:Key="btnAddButtonColorRectangleIsMouseOver" Color="#2ABE30"/>
+    <SolidColorBrush x:Key="btnCancelButtonColorRectangle" Color="#AD4545"/>
+    <SolidColorBrush x:Key="btnCancelButtonColorRectangleIsMouseOver" Color="#D30707"/>
 
 </ResourceDictionary>
