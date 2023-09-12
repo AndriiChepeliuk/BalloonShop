@@ -21,24 +21,9 @@ namespace BalloonShop.Pages
     /// </summary>
     public partial class Settings_BalloonsTypes_Page : UserControl
     {
-        private MainWindow window;
         public Settings_BalloonsTypes_Page()
         {
             InitializeComponent();
-        }
-
-        private void LoadWindow()
-        {
-            if (window == null)
-            {
-                window = Window.GetWindow(App.Current.MainWindow) as MainWindow;
-            }
-        }
-
-        private void addNewBalloonType_Click(object sender, RoutedEventArgs e)
-        {
-            LoadWindow();
-            window.ExecutePage(AppPages.Settings_BalloonsTypes_Add_Page);
         }
     }
 }

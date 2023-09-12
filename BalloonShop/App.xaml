@@ -1,16 +1,18 @@
-﻿<Application x:Class="BalloonShop.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:BalloonShop"
-             StartupUri="/Views/MainWindow.xaml">
+﻿<Application
+    x:Class="BalloonShop.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:BalloonShop"
+    StartupUri="/Views/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Helpers/Styles/UIColors.xaml"/>
-                <ResourceDictionary Source="/Helpers/Styles/ButtonStyles.xaml"/>
-                <ResourceDictionary Source="/Helpers/Styles/TextBlockStyles.xaml"/>
-                <ResourceDictionary Source="/Helpers/Styles/ScrollStyles.xaml"/>
-                <ResourceDictionary Source="/Helpers/Styles/LabelStyles.xaml"/>
+                <ResourceDictionary Source="/Helpers/Styles/UIColors.xaml" />
+                <ResourceDictionary Source="/Helpers/Styles/ButtonStyles.xaml" />
+                <ResourceDictionary Source="/Helpers/Styles/TextBlockStyles.xaml" />
+                <ResourceDictionary Source="/Helpers/Styles/ScrollStyles.xaml" />
+                <ResourceDictionary Source="/Helpers/Styles/LabelStyles.xaml" />
+                <ResourceDictionary Source="/Helpers/Styles/TextBoxStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
