@@ -4,8 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:BalloonShop.Pages"
-    xmlns:viewModel="clr-namespace:BalloonShop.ViewModels"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="clr-namespace:BalloonShop.ViewModels"
     d:DesignHeight="800"
     d:DesignWidth="1200"
     mc:Ignorable="d">
@@ -20,7 +20,55 @@
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
 
-        <Image Grid.Row="0" Source="\Images\Temp\balloon-range.jpg" />
+        <ListView
+            Grid.Row="0"
+            HorizontalContentAlignment="Center"
+            Background="Transparent"
+            BorderBrush="Transparent"
+            ItemsSource="{Binding BalloonTypes}"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel HorizontalAlignment="Center" Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        Margin="5"
+                        BorderBrush="{StaticResource backColor1}"
+                        BorderThickness="1"
+                        CornerRadius="10">
+                        <Grid Width="200" Margin="20">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="150" />
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
+
+                            <Rectangle
+                                Grid.Row="0"
+                                Width="150"
+                                Height="150"
+                                RadiusX="5"
+                                RadiusY="5">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="{Binding Image}" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+
+                            <TextBlock
+                                Grid.Row="1"
+                                Style="{StaticResource simpleText}"
+                                Text="{Binding Name}" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
 
         <Button
             Name="addColorButton"

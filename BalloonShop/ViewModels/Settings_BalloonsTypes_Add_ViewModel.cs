@@ -1,13 +1,17 @@
 ﻿using BalloonShop.Helpers;
 using BalloonShop.Models.BalloonType;
 using BalloonShop.Services;
+using BalloonShop.Views;
 using Microsoft.Win32;
+using System.Windows;
 using System.Windows.Input;
 
 namespace BalloonShop.ViewModels;
 
 public class Settings_BalloonsTypes_Add_ViewModel : ViewModelBase
 {
+    private MainWindow window;
+
     private BalloonTypeModel _productType;
     private string? _imageSource;
 
@@ -44,6 +48,14 @@ public class Settings_BalloonsTypes_Add_ViewModel : ViewModelBase
         AddProductTypeCommand = new ViewModelCommand(ExecuteAddProductTypeCommand);
     }
 
+    private void LoadWindow()
+    {
+        if (window == null)
+        {
+            window = Window.GetWindow(App.Current.MainWindow) as MainWindow;
+        }
+    }
+
     private void ExecuteAddProductTypeCommand(object obj)
     {
         if(!string.IsNullOrEmpty(ImageSource))
@@ -51,10 +63,13 @@ public class Settings_BalloonsTypes_Add_ViewModel : ViewModelBase
             ProductType.ImageByteCode = ImageHelper.ConvertImageToByteArray(ImageSource);
         }
 
-        ProductTypeModelService.AddProductType(ProductType);
+        BalloonTypeModelService.AddProductType(ProductType);
 
         ProductType = new BalloonTypeModel();
         ImageSource = Constants.ImageSourceDefaultValue;
+
+        LoadWindow();
+        window.ExecutePage(AppPages.Settings_BalloonsTypes_Page);
     }
 
     private void ExecuteClearProductTypeCommand(object obj)

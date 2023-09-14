@@ -10,7 +10,7 @@ namespace BalloonShop.Views
     {
         App_LatexBalloons_Page,
         App_FoilBalloons_Page,
-        App_Settings_Pagу,
+        App_Settings_Page,
         LatexBalloons_WithImages_Page,
         LatexBalloons_WithoutImage_Page,
         LatexBalloons_SetsOfBalloons_Page,
@@ -76,52 +76,52 @@ namespace BalloonShop.Views
             switch (page)
             {
                 case AppPages.App_LatexBalloons_Page:
-                    container.Content = app_LatexBalloons_Page;
+                    container.Content = app_LatexBalloons_Page = new();
                     titleText.Text = "Латексні кульки";
                     titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\icons8-hearts_balloons-60_grey.png", UriKind.Relative));
                     break;
                 case AppPages.App_FoilBalloons_Page:
-                    container.Content = app_FoilBalloons_Page;
+                    container.Content = app_FoilBalloons_Page = new();
                     titleText.Text = "Фольговані кульки";
                     titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\icons8-star-64_grey.png", UriKind.Relative));
                     break;
-                case AppPages.App_Settings_Pagу:
-                    container.Content = app_Settings_Page;
+                case AppPages.App_Settings_Page:
+                    container.Content = app_Settings_Page = new();
                     titleText.Text = "Налаштування";
                     titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\icons8-settings-50_grey.png", UriKind.Relative));
                     break;
                 case AppPages.LatexBalloons_WithImages_Page:
-                    container.Content = latexBalloons_WithImages_Page;
+                    container.Content = latexBalloons_WithImages_Page = new();
                     titleText.Text = "Латексні кульки з малюнком";
                     titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\LatexBalloonsIcons\\LatexBalloons_WithImage_Icon.png", UriKind.Relative));
                     break;
                 case AppPages.LatexBalloons_WithoutImage_Page:
-                    container.Content = latexBalloons_WithoutImage_Page;
+                    container.Content = latexBalloons_WithoutImage_Page = new();
                     titleText.Text = "Латексні кульки без малюнку";
                     titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\LatexBalloonsIcons\\LatexBalloons_WithoutImage_Icon.png", UriKind.Relative));
                     break;
                 case AppPages.LatexBalloons_SetsOfBalloons_Page:
-                    container.Content = latexBalloons_SetsOfBalloons_Page;
+                    container.Content = latexBalloons_SetsOfBalloons_Page = new();
                     titleText.Text = "Сети латексних кульок";
                     titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\LatexBalloonsIcons\\LatexBalloons_Sets_Icon.png", UriKind.Relative));
                     break;
                 case AppPages.LatexBalloons_Hearts_Page:
-                    container.Content = latexBalloons_Hearts_Page;
+                    container.Content = latexBalloons_Hearts_Page = new();
                     titleText.Text = "Латексні кульки серця";
                     titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\LatexBalloonsIcons\\LatexBalloons_Hearts_Icon.png", UriKind.Relative));
                     break;
                 case AppPages.Settings_ColorSettings_Page:
-                    container.Content = settings_ColorSettings_Page;
+                    container.Content = settings_ColorSettings_Page = new();
                     titleText.Text = "Налаштування кольорів";
                     titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\icons8-color-94_grey.png", UriKind.Relative));
                     break;
                 case AppPages.Settings_BalloonsTypes_Page:
-                    container.Content = settings_BalloonsTypes_Page;
+                    container.Content = settings_BalloonsTypes_Page = new();
                     titleText.Text = "Типи кульок";
                     titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\Balloon_Types.png", UriKind.Relative));
                     break;
                 case AppPages.Settings_BalloonsTypes_Add_Page:
-                    container.Content = settings_BalloonsTypes_Add_Page;
+                    container.Content = settings_BalloonsTypes_Add_Page = new();
                     titleText.Text = "Додати новий тип кульок";
                     titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\Balloon_Types.png", UriKind.Relative));
                     break;
@@ -151,7 +151,7 @@ namespace BalloonShop.Views
         private void ShowSettings_Click(object sender, RoutedEventArgs e)
         {
             LoadWindow();
-            window.ExecutePage(AppPages.App_Settings_Pagу);
+            window.ExecutePage(AppPages.App_Settings_Page);
         }
     }
 }
