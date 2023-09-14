@@ -1,14 +1,15 @@
 ﻿using BalloonShop.Models.FoilBalloon;
 using BalloonShop.Models.LatexBalloon;
 using System.Collections.ObjectModel;
+using System.Windows.Media.Imaging;
 
-namespace BalloonShop.Models.ProductType;
+namespace BalloonShop.Models.BalloonType;
 
-public class ProductTypeModel : ModelBase
+public class BalloonTypeModel : ModelBase
 {
     private string _name;
-    private string _imageUri;
-    private string _relatedProduct;
+    private BitmapImage _image;
+    //private string _relatedProduct;
     private ObservableCollection<LatexBalloonModel> _latexBalloons;
     private ObservableCollection<FoilBalloonModel> _foilBalloons;
 
@@ -22,24 +23,27 @@ public class ProductTypeModel : ModelBase
             OnPropertyChanged(nameof(Name));
         }
     }
-    public string ImageUri
+    public byte[]? ImageByteCode { get; set; }
+    public BitmapImage Image
     {
-        get { return _imageUri; }
+        get { return _image; }
         set
         {
-            _imageUri = value;
-            OnPropertyChanged(nameof(ImageUri));
+            _image = value;
+            OnPropertyChanged(nameof(Image));
         }
     }
-    public string RelatedProduct
-    {
-        get { return _relatedProduct; }
-        set
-        {
-            _relatedProduct = value;
-            OnPropertyChanged(nameof(RelatedProduct));
-        }
-    }
+
+    //public string RelatedProduct
+    //{
+    //    get { return _relatedProduct; }
+    //    set
+    //    {
+    //        _relatedProduct = value;
+    //        OnPropertyChanged(nameof(RelatedProduct));
+    //    }
+    //}
+
     public ObservableCollection<LatexBalloonModel> LatexBalloons
     {
         get { return _latexBalloons; }

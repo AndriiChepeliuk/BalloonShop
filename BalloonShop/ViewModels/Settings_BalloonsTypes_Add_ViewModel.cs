@@ -1,16 +1,17 @@
 ﻿using BalloonShop.Helpers;
-using BalloonShop.Models.ProductType;
+using BalloonShop.Models.BalloonType;
+using BalloonShop.Services;
 using Microsoft.Win32;
-using System;
 using System.Windows.Input;
 
 namespace BalloonShop.ViewModels;
 
 public class Settings_BalloonsTypes_Add_ViewModel : ViewModelBase
 {
-    private ProductTypeModel _productType;
+    private BalloonTypeModel _productType;
+    private string? _imageSource;
 
-    public ProductTypeModel ProductType
+    public BalloonTypeModel ProductType
     {
         get { return _productType; }
         set
@@ -19,23 +20,47 @@ public class Settings_BalloonsTypes_Add_ViewModel : ViewModelBase
             OnPropertyChanged(nameof(ProductType));
         }
     }
+    public string ImageSource
+    {
+        get { return _imageSource; }
+        set
+        {
+            _imageSource = value;
+            OnPropertyChanged(nameof(ImageSource));
+        }
+    }
 
     public ICommand ChoosePictureCommand { get; }
     public ICommand ClearProductTypeCommand { get; }
+    public ICommand AddProductTypeCommand { get; }
 
     public Settings_BalloonsTypes_Add_ViewModel()
     {
-        ProductType = new ProductTypeModel();
-        ProductType.ImageUri = Constants.ImageSourceDefaultValue;
+        ProductType = new BalloonTypeModel();
+        ImageSource = Constants.ImageSourceDefaultValue;
 
         ChoosePictureCommand = new ViewModelCommand(ExecuteChoosePictureCommand);
         ClearProductTypeCommand = new ViewModelCommand(ExecuteClearProductTypeCommand);
+        AddProductTypeCommand = new ViewModelCommand(ExecuteAddProductTypeCommand);
+    }
+
+    private void ExecuteAddProductTypeCommand(object obj)
+    {
+        if(!string.IsNullOrEmpty(ImageSource))
+        {
+            ProductType.ImageByteCode = ImageHelper.ConvertImageToByteArray(ImageSource);
+        }
+
+        ProductTypeModelService.AddProductType(ProductType);
+
+        ProductType = new BalloonTypeModel();
+        ImageSource = Constants.ImageSourceDefaultValue;
     }
 
     private void ExecuteClearProductTypeCommand(object obj)
     {
         ProductType = new();
-        ProductType.ImageUri = Constants.ImageSourceDefaultValue;
+        ImageSource = Constants.ImageSourceDefaultValue;
     }
 
     private void ExecuteChoosePictureCommand(object obj)
@@ -47,7 +72,7 @@ public class Settings_BalloonsTypes_Add_ViewModel : ViewModelBase
           "Portable Network Graphic (*.png)|*.png";
         if (openFileDialog.ShowDialog() == true)
         {
-            ProductType.ImageUri = openFileDialog.FileName;
+            ImageSource = openFileDialog.FileName;
         }
     }
 }

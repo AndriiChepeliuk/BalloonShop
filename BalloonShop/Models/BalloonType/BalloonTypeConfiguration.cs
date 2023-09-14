@@ -1,19 +1,21 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BalloonShop.Models.ProductType;
+namespace BalloonShop.Models.BalloonType;
 
-public class ProductTypeConfiguration : IEntityTypeConfiguration<ProductTypeModel>
+public class BalloonTypeConfiguration : IEntityTypeConfiguration<BalloonTypeModel>
 {
-    public void Configure(EntityTypeBuilder<ProductTypeModel> builder)
+    public void Configure(EntityTypeBuilder<BalloonTypeModel> builder)
     {
         builder
-            .HasMany(productType => productType.LatexBalloons)
+            .HasMany(balloonType => balloonType.LatexBalloons)
             .WithOne(latexBalloon => latexBalloon.ProductType)
             .HasForeignKey(latexBalloon => latexBalloon.ProductTypeId);
         builder
-            .HasMany(productType => productType.FoilBalloons)
+            .HasMany(balloonType => balloonType.FoilBalloons)
             .WithOne(foilBalloon => foilBalloon.ProductType)
             .HasForeignKey(foilBalloon => foilBalloon.ProductTypeId);
+        builder
+            .Ignore(balloonType => balloonType.Image);
     }
 }

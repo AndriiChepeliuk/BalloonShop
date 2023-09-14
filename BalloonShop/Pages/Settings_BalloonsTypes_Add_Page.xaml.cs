@@ -1,10 +1,4 @@
-﻿using BalloonShop.Helpers;
-using BalloonShop.Models.ProductType;
-using Microsoft.Win32;
-using System.ComponentModel;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
+﻿using System.Windows.Controls;
 
 namespace BalloonShop.Pages
 {

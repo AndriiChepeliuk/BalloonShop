@@ -3,7 +3,7 @@ using BalloonShop.Models.FoilBalloon;
 using BalloonShop.Models.LatexBalloon;
 using BalloonShop.Models.Manufacturer;
 using BalloonShop.Models.Material;
-using BalloonShop.Models.ProductType;
+using BalloonShop.Models.BalloonType;
 using Microsoft.EntityFrameworkCore;
 
 namespace BalloonShop.Data;
@@ -15,7 +15,7 @@ public class ApplicationContext : DbContext
     public DbSet<ColorModel> Colors { get; set; }
     public DbSet<ManufacturerModel> Manufacturers { get; set; }
     public DbSet<MaterialModel> Materials { get; set; }
-    public DbSet<ProductTypeModel> ProductTypes { get; set; }
+    public DbSet<BalloonTypeModel> BalloonTypes { get; set; }
 
     public ApplicationContext()
     {
@@ -34,6 +34,6 @@ public class ApplicationContext : DbContext
         modelBuilder.ApplyConfiguration(new ColorConfiguration());
         modelBuilder.ApplyConfiguration(new ManufacturerConfiguration());
         modelBuilder.ApplyConfiguration(new MaterialConfiguration());
-        modelBuilder.ApplyConfiguration(new ProductTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new BalloonTypeConfiguration());
     }
 }

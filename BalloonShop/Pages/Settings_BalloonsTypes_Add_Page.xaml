@@ -44,7 +44,7 @@
             RadiusX="5"
             RadiusY="5">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="{Binding ProductType.ImageUri}" />
+                <ImageBrush ImageSource="{Binding ImageSource}" />
             </Rectangle.Fill>
         </Rectangle>
 
@@ -59,6 +59,7 @@
             x:Name="addProduct"
             Grid.Row="7"
             Grid.Column="3"
+            Command="{Binding AddProductTypeCommand}"
             Content="Додати новий тип"
             Style="{StaticResource addButton_Rectangle}" />
 
@@ -77,12 +78,12 @@
             Назва типу
         </Label>
 
-        <Label
+        <!--<Label
             Grid.Row="2"
             Grid.Column="2"
             Style="{StaticResource propertyNameLabel}">
             Зв'язаний продукт
-        </Label>
+        </Label>-->
 
         <TextBox
             x:Name="propertyNameTextBox"
@@ -92,13 +93,13 @@
             Style="{StaticResource propertyValueTextBox}"
             Text="{Binding ProductType.Name}" />
 
-        <TextBox
+        <!--<TextBox
             x:Name="categoryTextBox"
             Grid.Row="2"
             Grid.Column="3"
             Grid.ColumnSpan="2"
             Style="{StaticResource propertyValueTextBox}"
-            Text="{Binding ProductType.RelatedProduct}" />
+            Text="{Binding ProductType.RelatedProduct}" />-->
 
     </Grid>
 </UserControl>
