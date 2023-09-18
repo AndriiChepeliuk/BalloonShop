@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:BalloonShop.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="clr-namespace:BalloonShop.UserControls"
     xmlns:viewModel="clr-namespace:BalloonShop.ViewModels"
     d:DesignHeight="800"
     d:DesignWidth="1200"
@@ -37,7 +38,7 @@
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border
+                    <!--<Border
                         Margin="5"
                         BorderBrush="{StaticResource backColor1}"
                         BorderThickness="1"
@@ -64,7 +65,12 @@
                                 Style="{StaticResource simpleText}"
                                 Text="{Binding Name}" />
                         </Grid>
-                    </Border>
+                    </Border>-->
+
+                    <uc:BalloonTypeElement
+                        Title="{Binding Name}"
+                        Margin="0,10"
+                        ImageBitmap="{Binding Image}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
 
