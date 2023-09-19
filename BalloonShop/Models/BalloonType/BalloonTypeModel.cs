@@ -8,6 +8,7 @@ namespace BalloonShop.Models.BalloonType;
 public class BalloonTypeModel : ModelBase
 {
     private string _name;
+    private string _balloonCategory;
     private string _balloonType;
     private BitmapImage _image;
     //private string _relatedProduct;
@@ -24,6 +25,15 @@ public class BalloonTypeModel : ModelBase
             OnPropertyChanged(nameof(Name));
         }
     }
+    public string BalloonCategory
+    {
+        get { return _balloonCategory; }
+        set
+        {
+            _balloonCategory = value;
+            OnPropertyChanged(nameof(BalloonCategory));
+        }
+    }
     public string BalloonType
     {
         get { return _balloonType; }
@@ -33,6 +43,7 @@ public class BalloonTypeModel : ModelBase
             OnPropertyChanged(nameof(BalloonType));
         }
     }
+
     public byte[]? ImageByteCode { get; set; }
     public BitmapImage Image
     {

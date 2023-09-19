@@ -98,7 +98,7 @@
             Grid.Column="3"
             Grid.ColumnSpan="2"
             Style="{StaticResource propertyValueTextBox}"
-            Text="{Binding BalloonType.BalloonType}" />
+            Text="{Binding BalloonType.BalloonCategory}" />
 
     </Grid>
 </UserControl>

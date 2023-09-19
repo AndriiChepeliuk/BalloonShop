@@ -62,6 +62,7 @@ public class Settings_LatexBalloons_BalloonsTypes_Add_ViewModel : ViewModelBase
         if (!string.IsNullOrEmpty(ImageSource))
         {
             BalloonType.ImageByteCode = ImageHelper.ConvertImageToByteArray(ImageSource);
+            BalloonType.BalloonType = "Латексні кульки";
         }
 
         BalloonTypeModelService.AddProductType(BalloonType);
