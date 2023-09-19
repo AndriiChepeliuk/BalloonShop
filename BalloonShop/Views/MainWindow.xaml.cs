@@ -16,6 +16,9 @@ namespace BalloonShop.Views
         LatexBalloons_SetsOfBalloons_Page,
         LatexBalloons_Hearts_Page,
         Settings_LatexBalloons_Page,
+        Settings_LatexBalloons_BalloonsTypes_Page,
+        Settings_LatexBalloons_BalloonsTypes_Add_Page,
+        Settings_LatexBalloons_Colors_Page,
         Settings_FoilBalloons_Page,
         Settings_ColorSettings_Page,
         Settings_BalloonsTypes_Page,
@@ -34,7 +37,12 @@ namespace BalloonShop.Views
         private Pages.LatexBalloons_SetsOfBalloons_Page latexBalloons_SetsOfBalloons_Page = new Pages.LatexBalloons_SetsOfBalloons_Page();
         private Pages.LatexBalloons_Hearts_Page latexBalloons_Hearts_Page = new Pages.LatexBalloons_Hearts_Page();
         private Pages.Settings_LatexBalloons_Page settings_LatexBalloons_Page = new Pages.Settings_LatexBalloons_Page();
+        private Pages.Settings_LatexBalloons_BalloonsTypes_Page settings_LatexBalloons_BalloonsTypes_Page = new Pages.Settings_LatexBalloons_BalloonsTypes_Page();
+        private Pages.Settings_LatexBalloons_BalloonsTypes_Add_Page settings_LatexBalloons_BalloonsTypes_Add_Page = new Pages.Settings_LatexBalloons_BalloonsTypes_Add_Page();
+        private Pages.Settings_LatexBalloons_Colors_Page settings_LatexBalloons_Colors_Page = new Pages.Settings_LatexBalloons_Colors_Page();
         private Pages.Settings_FoilBalloons_Page settings_FoilBalloons_Page = new Pages.Settings_FoilBalloons_Page();
+
+
         private Pages.Settings_ColorSettings_Page settings_ColorSettings_Page = new Pages.Settings_ColorSettings_Page();
         private Pages.Settings_BalloonsTypes_Page settings_BalloonsTypes_Page = new Pages.Settings_BalloonsTypes_Page();
         private Pages.Settings_BalloonsTypes_Add_Page settings_BalloonsTypes_Add_Page = new Pages.Settings_BalloonsTypes_Add_Page();
@@ -118,6 +126,21 @@ namespace BalloonShop.Views
                     container.Content = settings_LatexBalloons_Page = new();
                     titleText.Text = "Налаштування для латексних кульок";
                     titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\SettingsIcons\\latex-balloons_settings_icon_grey.png", UriKind.Relative));
+                    break;
+                case AppPages.Settings_LatexBalloons_BalloonsTypes_Page:
+                    container.Content = settings_LatexBalloons_BalloonsTypes_Page = new();
+                    titleText.Text = "Типи латексних кульок";
+                    titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\SettingsIcons\\balloon-types_grey.png", UriKind.Relative));
+                    break;
+                case AppPages.Settings_LatexBalloons_BalloonsTypes_Add_Page:
+                    container.Content = settings_LatexBalloons_BalloonsTypes_Add_Page = new();
+                    titleText.Text = "Додати новий тип латексних кульок";
+                    titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\SettingsIcons\\balloon-types_grey.png", UriKind.Relative));
+                    break;
+                case AppPages.Settings_LatexBalloons_Colors_Page:
+                    container.Content = settings_LatexBalloons_Colors_Page = new();
+                    titleText.Text = "Доступні кольори для латексних кульок";
+                    titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\SettingsIcons\\color-settings_grey.png", UriKind.Relative));
                     break;
                 case AppPages.Settings_FoilBalloons_Page:
                     container.Content = settings_FoilBalloons_Page = new();

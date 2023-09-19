@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BalloonShop.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,31 @@ namespace BalloonShop.Pages
     /// </summary>
     public partial class Settings_LatexBalloons_Page : UserControl
     {
+        private MainWindow window;
+
         public Settings_LatexBalloons_Page()
         {
             InitializeComponent();
+        }
+
+        private void LoadWindow()
+        {
+            if (window == null)
+            {
+                window = Window.GetWindow(App.Current.MainWindow) as MainWindow;
+            }
+        }
+
+        private void Settings_LatexBalloons_BalloonsTypes_Page_ElementClick(object sender, RoutedEventArgs e)
+        {
+            LoadWindow();
+            window.ExecutePage(AppPages.Settings_LatexBalloons_BalloonsTypes_Page);
+        }
+
+        private void Settings_LatexBalloons_Colors_Page_ElementClick(object sender, RoutedEventArgs e)
+        {
+            LoadWindow();
+            window.ExecutePage(AppPages.Settings_LatexBalloons_Colors_Page);
         }
     }
 }
