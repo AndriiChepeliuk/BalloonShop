@@ -8,6 +8,7 @@ namespace BalloonShop.Models.BalloonType;
 public class BalloonTypeModel : ModelBase
 {
     private string _name;
+    //private string _balloonType;
     private BitmapImage _image;
     //private string _relatedProduct;
     private ObservableCollection<LatexBalloonModel> _latexBalloons;
@@ -23,6 +24,16 @@ public class BalloonTypeModel : ModelBase
             OnPropertyChanged(nameof(Name));
         }
     }
+    //public string? BalloonType
+    //{
+    //    get { return _balloonType; }
+    //    set
+    //    {
+    //        _balloonType = value;
+    //        OnPropertyChanged(nameof(BalloonType));
+    //    }
+    //}
+
     public byte[]? ImageByteCode { get; set; }
     public BitmapImage Image
     {

@@ -47,5 +47,17 @@ namespace BalloonShop.Pages
             LoadWindow();
             window.ExecutePage(AppPages.Settings_BalloonsTypes_Page);
         }
+
+        private void Settings_LatexBalloons_Page_ElementClick(object sender, RoutedEventArgs e)
+        {
+            LoadWindow();
+            window.ExecutePage(AppPages.Settings_LatexBalloons_Page);
+        }
+
+        private void Settings_FoilBalloons_Page_ElementClick(object sender, RoutedEventArgs e)
+        {
+            LoadWindow();
+            window.ExecutePage(AppPages.Settings_FoilBalloons_Page);
+        }
     }
 }
