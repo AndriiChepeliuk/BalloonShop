@@ -26,12 +26,12 @@
                     Title="Латексні кульки"
                     Margin="0,10"
                     ElementClick="Settings_LatexBalloons_Page_ElementClick"
-                    ImageSource="\Images\Без назви-1.png" />
+                    ImageSource="\Data\MenuImages\Settings\latex-balloons_settings_icon_color.png" />
                 <uc:CategoryElement
                     Title="Фольговані кульки"
                     Margin="0,10"
                     ElementClick="Settings_FoilBalloons_Page_ElementClick"
-                    ImageSource="\Images\Без назви-2.png" />
+                    ImageSource="\Data\MenuImages\Settings\foil-balloons_settings_icon_color.png" />
             </WrapPanel>
         </ScrollViewer>
     </Grid>
