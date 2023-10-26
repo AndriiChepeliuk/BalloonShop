@@ -2,8 +2,15 @@
     x:Class="BalloonShop.Pages.Settings_LatexBalloons_BalloonsTypes_Page"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:BalloonShop.Pages"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:uc="clr-namespace:BalloonShop.UserControls"
-    xmlns:viewModel="clr-namespace:BalloonShop.ViewModels">
+    xmlns:viewModel="clr-namespace:BalloonShop.ViewModels"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
 
     <UserControl.DataContext>
         <viewModel:Settings_LatexBalloons_BalloonsTypes_ViewModel />
@@ -12,16 +19,22 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="50" />
+            <RowDefinition Height="70" />
         </Grid.RowDefinitions>
 
         <Button
             Name="addColorButton"
             Grid.Row="1"
+            Margin="10"
             HorizontalAlignment="Right"
+            materialDesign:RippleAssist.Feedback="GreenYellow"
+            Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
             Command="{Binding AddNewBalloonTypeCommand}"
-            Style="{StaticResource addButton_Circle}">
-            <Image Source="\Data\Icons\ButtonsIcons\icons8-add-button-96.png" />
+            Foreground="GreenYellow"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignIconButton}"
+            ToolTip="MaterialDesignIconButton">
+            <materialDesign:PackIcon Kind="PlusCircleOutline" />
         </Button>
     </Grid>
 </UserControl>
