@@ -18,11 +18,6 @@
                     ElementClick="Settings_ColorSettings_Page_ElementClick"
                     ImageSource="\Data\MenuImages\Settings\color-settings_color.png" />
                 <uc:CategoryElement
-                    Title="Типи кульок"
-                    Margin="0,10"
-                    ElementClick="Settings_BalloonsTypes_Page_ElementClick"
-                    ImageSource="\Data\MenuImages\Settings\balloon-types_color.png" />
-                <uc:CategoryElement
                     Title="Латексні кульки"
                     Margin="0,10"
                     ElementClick="Settings_LatexBalloons_Page_ElementClick"

@@ -44,8 +44,6 @@ namespace BalloonShop.Views
 
 
         private Pages.Settings_ColorSettings_Page settings_ColorSettings_Page = new Pages.Settings_ColorSettings_Page();
-        private Pages.Settings_BalloonsTypes_Page settings_BalloonsTypes_Page = new Pages.Settings_BalloonsTypes_Page();
-        private Pages.Settings_BalloonsTypes_Add_Page settings_BalloonsTypes_Add_Page = new Pages.Settings_BalloonsTypes_Add_Page();
 
         public MainWindow()
         {
@@ -151,16 +149,6 @@ namespace BalloonShop.Views
                     container.Content = settings_ColorSettings_Page = new();
                     titleText.Text = "Налаштування кольорів";
                     titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\SettingsIcons\\color-settings_grey.png", UriKind.Relative));
-                    break;
-                case AppPages.Settings_BalloonsTypes_Page:
-                    container.Content = settings_BalloonsTypes_Page = new();
-                    titleText.Text = "Типи кульок";
-                    titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\SettingsIcons\\balloon-types_grey.png", UriKind.Relative));
-                    break;
-                case AppPages.Settings_BalloonsTypes_Add_Page:
-                    container.Content = settings_BalloonsTypes_Add_Page = new();
-                    titleText.Text = "Додати новий тип кульок";
-                    titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\SettingsIcons\\balloon-types_grey.png", UriKind.Relative));
                     break;
             }
         }

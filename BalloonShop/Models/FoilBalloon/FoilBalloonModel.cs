@@ -1,7 +1,7 @@
 ﻿using BalloonShop.Models.Color;
+using BalloonShop.Models.FoilBalloonType;
 using BalloonShop.Models.Manufacturer;
 using BalloonShop.Models.Material;
-using BalloonShop.Models.BalloonType;
 
 namespace BalloonShop.Models.FoilBalloon;
 
@@ -22,7 +22,7 @@ public class FoilBalloonModel : ModelBase
     private string _code;
     private int _height;
     private int _width;
-    private BalloonTypeModel _productType;
+    private FoilBalloonTypeModel _productType;
     private ColorModel _color;
     private ManufacturerModel _manufacturer;
     private MaterialModel _material;
@@ -164,7 +164,7 @@ public class FoilBalloonModel : ModelBase
         }
     }
     public int ProductTypeId { get; set; }
-    public BalloonTypeModel ProductType
+    public FoilBalloonTypeModel ProductType
     {
         get { return _productType; }
         set

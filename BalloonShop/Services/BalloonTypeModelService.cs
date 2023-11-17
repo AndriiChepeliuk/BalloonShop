@@ -1,6 +1,6 @@
 ﻿using BalloonShop.Data;
 using BalloonShop.Helpers;
-using BalloonShop.Models.BalloonType;
+using BalloonShop.Models.LatexBalloonType;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,7 +8,7 @@ namespace BalloonShop.Services;
 
 public class BalloonTypeModelService
 {
-    public static void AddProductType(BalloonTypeModel productType)
+    public static void AddProductType(LatexBalloonTypeModel productType)
     {
         if (productType != null)
         {
@@ -20,11 +20,11 @@ public class BalloonTypeModelService
         }
     }
 
-    public static List<BalloonTypeModel> GetAllBalloonTypes()
+    public static List<LatexBalloonTypeModel> GetAllBalloonTypes()
     {
         using (var context = new ApplicationContext())
         {
-            var balloonTypes = context.BalloonTypes.OrderBy(x => x.Name).ToList();
+            var balloonTypes = context.LatexBalloonTypes.OrderBy(x => x.Name).ToList();
 
             foreach (var balloonType in balloonTypes)
             {
