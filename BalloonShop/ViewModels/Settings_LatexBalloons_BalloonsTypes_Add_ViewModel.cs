@@ -78,6 +78,9 @@ public class Settings_LatexBalloons_BalloonsTypes_Add_ViewModel : ViewModelBase
     {
         BalloonType = new();
         ImageSource = Constants.ImageSourceDefaultValue;
+
+        LoadWindow();
+        window.ExecutePage(AppPages.Settings_LatexBalloons_BalloonsTypes_Page);
     }
 
     private void ExecuteChoosePictureCommand(object obj)
