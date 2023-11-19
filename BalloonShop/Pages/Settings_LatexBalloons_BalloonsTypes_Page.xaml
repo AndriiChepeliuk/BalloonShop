@@ -39,35 +39,6 @@
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <!--<Border
-                        Margin="5"
-                        BorderBrush="{StaticResource backColor1}"
-                        BorderThickness="1"
-                        CornerRadius="10">
-                        <Grid Width="200" Margin="20">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="150" />
-                                <RowDefinition Height="30" />
-                            </Grid.RowDefinitions>
-
-                            <Rectangle
-                                Grid.Row="0"
-                                Width="150"
-                                Height="150"
-                                RadiusX="5"
-                                RadiusY="5">
-                                <Rectangle.Fill>
-                                    <ImageBrush ImageSource="{Binding Image}" />
-                                </Rectangle.Fill>
-                            </Rectangle>
-
-                            <TextBlock
-                                Grid.Row="1"
-                                Style="{StaticResource simpleText}"
-                                Text="{Binding Name}" />
-                        </Grid>
-                    </Border>-->
-
                     <uc:BalloonTypeElement
                         Title="{Binding Name}"
                         Margin="0,10"

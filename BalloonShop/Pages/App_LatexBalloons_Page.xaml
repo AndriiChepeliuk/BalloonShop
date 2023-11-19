@@ -2,9 +2,43 @@
     x:Class="BalloonShop.Pages.App_LatexBalloons_Page"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:uc="clr-namespace:BalloonShop.UserControls">
-    
-    <Grid x:Name="grid" Margin="20">
+    xmlns:uc="clr-namespace:BalloonShop.UserControls"
+    xmlns:viewModel="clr-namespace:BalloonShop.ViewModels">
+
+    <UserControl.DataContext>
+        <viewModel:App_LatexBalloons_ViewModel />
+    </UserControl.DataContext>
+
+    <ListView
+        Grid.Row="0"
+        Margin="10"
+        HorizontalContentAlignment="Center"
+        Background="Transparent"
+        BorderBrush="Transparent"
+        ItemsSource="{Binding BalloonTypes}"
+        MouseDoubleClick="ListView_MouseDoubleClick"
+        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+        ScrollViewer.VerticalScrollBarVisibility="Auto"
+        SelectedItem="{Binding SelectedBalloobType}">
+
+        <ListView.ItemsPanel>
+            <ItemsPanelTemplate>
+                <WrapPanel HorizontalAlignment="Left" Orientation="Horizontal" />
+            </ItemsPanelTemplate>
+        </ListView.ItemsPanel>
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <uc:BalloonTypeElement
+                    Title="{Binding Name}"
+                    Margin="0,10"
+                    ImageBitmap="{Binding Image}" />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+    </ListView>
+
+    <!--<Grid x:Name="grid" Margin="20">
         <ScrollViewer
             Width="{Binding ElementName=grid, Path=ActualWidth}"
             Padding="0,20"
@@ -36,5 +70,6 @@
 
             </WrapPanel>
         </ScrollViewer>
-    </Grid>
+    </Grid>-->
+
 </UserControl>
