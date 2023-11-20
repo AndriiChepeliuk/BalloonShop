@@ -26,7 +26,7 @@ public class Settings_LatexBalloons_BalloonsTypes_ViewModel : ViewModelBase
 
     public Settings_LatexBalloons_BalloonsTypes_ViewModel()
     {
-        BalloonTypes = new ObservableCollection<LatexBalloonTypeModel>(BalloonTypeModelService.GetAllBalloonTypes());
+        BalloonTypes = new ObservableCollection<LatexBalloonTypeModel>(LatexBalloonTypeModelService.GetAllLatexBalloonTypes());
         AddNewBalloonTypeCommand = new ViewModelCommand(ExecuteAddNewBalloonTypeCommand);
     }
 

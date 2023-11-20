@@ -147,8 +147,8 @@ namespace BalloonShop.Views
                     break;
                 case AppPages.Settings_ColorSettings_Page:
                     container.Content = settings_ColorSettings_Page = new();
-                    titleText.Text = "Налаштування кольорів";
-                    titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\SettingsIcons\\color-settings_grey.png", UriKind.Relative));
+                    titleText.Text = "Виробники";
+                    titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\SettingsIcons\\icons8-manufacture-100.png", UriKind.Relative));
                     break;
             }
         }

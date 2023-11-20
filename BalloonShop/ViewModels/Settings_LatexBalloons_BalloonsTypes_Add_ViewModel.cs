@@ -63,7 +63,7 @@ public class Settings_LatexBalloons_BalloonsTypes_Add_ViewModel : ViewModelBase
             BalloonType.ImageByteCode = ImageHelper.ConvertImageToByteArray(ImageSource);
         }
 
-        BalloonTypeModelService.AddProductType(BalloonType);
+        LatexBalloonTypeModelService.AddLatexBalloonType(BalloonType);
 
         ImageSource = Constants.ImageSourceDefaultValue;
 

@@ -15,5 +15,7 @@ public class ManufacturerConfiguration : IEntityTypeConfiguration<ManufacturerMo
             .HasMany(manufacturer => manufacturer.FoilBalloons)
             .WithOne(foilBalloon => foilBalloon.Manufacturer)
             .HasForeignKey(foilBalloon => foilBalloon.ManufacturerId);
+        builder
+            .Ignore(manufacturer => manufacturer.Image);
     }
 }

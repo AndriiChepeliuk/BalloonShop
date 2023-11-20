@@ -36,6 +36,7 @@
     <None Remove="Data\Icons\LatexBalloonsIcons\LatexBalloons_WithImage_Icon.png" />
     <None Remove="Data\Icons\LatexBalloonsIcons\LatexBalloons_WithoutImage_Icon.png" />
     <None Remove="Data\Icons\SettingsIcons\foil-balloons_settings_icon_grey.png" />
+    <None Remove="Data\Icons\SettingsIcons\icons8-manufacture-100.png" />
     <None Remove="Data\Icons\SettingsIcons\latex-balloons_settings_icon_grey.png" />
     <None Remove="Data\MenuImages\FoilBalloons\FoilBalloons_BigFigures_Orange.png" />
     <None Remove="Data\MenuImages\FoilBalloons\FoilBalloons_Digits_Orange.png" />
@@ -51,6 +52,7 @@
     <None Remove="Data\MenuImages\Settings\balloon-types_color.png" />
     <None Remove="Data\MenuImages\Settings\color-settings_color.png" />
     <None Remove="Data\MenuImages\Settings\foil-balloons_settings_icon_color.png" />
+    <None Remove="Data\MenuImages\Settings\icons8-manufacture-100.png" />
     <None Remove="Data\MenuImages\Settings\latex-balloons_settings_icon_color.png" />
     <None Remove="Data\MenuImages\Латексні_без_малюнку_оригінал.png" />
     <None Remove="Data\MenuImages\Латексні_з_малюнком_оригінал.png" />
@@ -102,6 +104,7 @@
     <Resource Include="Data\Icons\LatexBalloonsIcons\LatexBalloons_Sets_Icon.png" />
     <Resource Include="Data\Icons\LatexBalloonsIcons\LatexBalloons_WithImage_Icon.png" />
     <Resource Include="Data\Icons\LatexBalloonsIcons\LatexBalloons_WithoutImage_Icon.png" />
+    <Resource Include="Data\Icons\SettingsIcons\icons8-manufacture-100.png" />
     <Resource Include="Data\Icons\SettingsIcons\latex-balloons_settings_icon_grey.png" />
     <Resource Include="Data\Icons\SettingsIcons\foil-balloons_settings_icon_grey.png" />
     <Resource Include="Data\MenuImages\FoilBalloons\FoilBalloons_BigFigures_Orange.png" />
@@ -118,6 +121,7 @@
     <Resource Include="Data\MenuImages\Settings\balloon-types_color.png" />
     <Resource Include="Data\MenuImages\Settings\color-settings_color.png" />
     <Resource Include="Data\MenuImages\Settings\foil-balloons_settings_icon_color.png" />
+    <Resource Include="Data\MenuImages\Settings\icons8-manufacture-100.png" />
     <Resource Include="Data\MenuImages\Settings\latex-balloons_settings_icon_color.png" />
     <Resource Include="Data\System_Images\DefaultImage.jpg" />
     <Resource Include="Images\Temp\balloon-range.jpg" />

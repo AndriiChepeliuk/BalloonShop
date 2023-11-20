@@ -13,10 +13,10 @@
             <WrapPanel>
 
                 <uc:CategoryElement
-                    Title="Налаштування кольорів"
+                    Title="Виробники"
                     Margin="0,10"
                     ElementClick="Settings_ColorSettings_Page_ElementClick"
-                    ImageSource="\Data\MenuImages\Settings\color-settings_color.png" />
+                    ImageSource="\Data\MenuImages\Settings\icons8-manufacture-100.png" />
                 <uc:CategoryElement
                     Title="Латексні кульки"
                     Margin="0,10"

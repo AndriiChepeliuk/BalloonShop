@@ -21,7 +21,7 @@ public class LatexBalloonModel : ModelBase
     private decimal _balloonPriceWithHelium;
     private string _code;
     private LatexBalloonTypeModel _productType;
-    private ColorModel _color;
+    //private ColorModel _color;
     private ManufacturerModel _manufacturer;
     private MaterialModel _material;
 
@@ -153,16 +153,16 @@ public class LatexBalloonModel : ModelBase
             OnPropertyChanged(nameof(ProductType));
         }
     }
-    public int ColorId { get; set; }
-    public ColorModel Color
-    {
-        get { return _color; }
-        set
-        {
-            _color = value;
-            OnPropertyChanged(nameof(Color));
-        }
-    }
+    //public int ColorId { get; set; }
+    //public ColorModel Color
+    //{
+    //    get { return _color; }
+    //    set
+    //    {
+    //        _color = value;
+    //        OnPropertyChanged(nameof(Color));
+    //    }
+    //}
     public int ManufacturerId { get; set; }
     public ManufacturerModel Manufacturer
     {
