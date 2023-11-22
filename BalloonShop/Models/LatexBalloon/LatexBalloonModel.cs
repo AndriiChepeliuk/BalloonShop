@@ -21,7 +21,7 @@ public class LatexBalloonModel : ModelBase
     private LatexBalloonTypeModel _productType;
     //private ColorModel _color;
     //private ManufacturerModel _manufacturer;
-    private MaterialModel _material;
+    //private MaterialModel _material;
 
     public int Id { get; private set; }
     public string Name
@@ -172,14 +172,14 @@ public class LatexBalloonModel : ModelBase
     //        OnPropertyChanged(nameof(Manufacturer));
     //    }
     //}
-    public int MaterialId { get; set; }
-    public MaterialModel Material
-    {
-        get { return _material; }
-        set
-        {
-            _material = value;
-            OnPropertyChanged(nameof(Material));
-        }
-    }
+    //public int MaterialId { get; set; }
+    //public MaterialModel Material
+    //{
+    //    get { return _material; }
+    //    set
+    //    {
+    //        _material = value;
+    //        OnPropertyChanged(nameof(Material));
+    //    }
+    //}
 }

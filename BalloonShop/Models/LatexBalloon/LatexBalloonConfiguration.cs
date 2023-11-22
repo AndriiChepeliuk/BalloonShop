@@ -19,9 +19,9 @@ public class LatexBalloonConfiguration : IEntityTypeConfiguration<LatexBalloonMo
         //    .HasOne(latexBalloon => latexBalloon.Manufacturer)
         //    .WithMany(manufacturer => manufacturer.LatexBalloons)
         //    .HasForeignKey(latexBalloon => latexBalloon.ManufacturerId);
-        builder
-            .HasOne(latexBalloon => latexBalloon.Material)
-            .WithMany(material => material.LatexBalloons)
-            .HasForeignKey(latexBalloon => latexBalloon.MaterialId);
+        //builder
+        //    .HasOne(latexBalloon => latexBalloon.Material)
+        //    .WithMany(material => material.LatexBalloons)
+        //    .HasForeignKey(latexBalloon => latexBalloon.MaterialId);
     }
 }
