@@ -44,7 +44,7 @@ public class App_LatexBalloons_ViewModel : ViewModelBase
     private void ExecuteAddNewBalloonTypeCommand(object obj)
     {
         LoadWindow();
-        window.ExecutePage(AppPages.LatexBalloons_WithImages_Page);
+        window.ExecutePage(AppPages.LatexBalloons_Hearts_Page);
         window.titleText.Text = _selectedBalloobType.Name;
         window.titleImage.Source = _selectedBalloobType.Image;
     }

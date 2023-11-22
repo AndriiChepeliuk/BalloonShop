@@ -11,9 +11,6 @@ namespace BalloonShop.Views
         App_LatexBalloons_Page,
         App_FoilBalloons_Page,
         App_Settings_Page,
-        LatexBalloons_WithImages_Page,
-        LatexBalloons_WithoutImage_Page,
-        LatexBalloons_SetsOfBalloons_Page,
         LatexBalloons_Hearts_Page,
         Settings_LatexBalloons_Page,
         Settings_LatexBalloons_BalloonsTypes_Page,
@@ -32,9 +29,6 @@ namespace BalloonShop.Views
         private Pages.App_LatexBalloons_Page app_LatexBalloons_Page = new Pages.App_LatexBalloons_Page();
         private Pages.App_FoilBalloons_Page app_FoilBalloons_Page = new Pages.App_FoilBalloons_Page();
         private Pages.App_Settings_Page app_Settings_Page = new Pages.App_Settings_Page();
-        private Pages.LatexBalloons_WithImages_Page latexBalloons_WithImages_Page = new Pages.LatexBalloons_WithImages_Page();
-        private Pages.LatexBalloons_WithoutImage_Page latexBalloons_WithoutImage_Page = new Pages.LatexBalloons_WithoutImage_Page();
-        private Pages.LatexBalloons_SetsOfBalloons_Page latexBalloons_SetsOfBalloons_Page = new Pages.LatexBalloons_SetsOfBalloons_Page();
         private Pages.LatexBalloons_Hearts_Page latexBalloons_Hearts_Page = new Pages.LatexBalloons_Hearts_Page();
         private Pages.Settings_LatexBalloons_Page settings_LatexBalloons_Page = new Pages.Settings_LatexBalloons_Page();
         private Pages.Settings_LatexBalloons_BalloonsTypes_Page settings_LatexBalloons_BalloonsTypes_Page = new Pages.Settings_LatexBalloons_BalloonsTypes_Page();
@@ -99,21 +93,6 @@ namespace BalloonShop.Views
                     container.Content = app_Settings_Page = new();
                     titleText.Text = "Налаштування";
                     titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\icons8-settings-50_grey.png", UriKind.Relative));
-                    break;
-                case AppPages.LatexBalloons_WithImages_Page:
-                    container.Content = latexBalloons_WithImages_Page = new();
-                    titleText.Text = "Латексні кульки з малюнком";
-                    titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\LatexBalloonsIcons\\LatexBalloons_WithImage_Icon.png", UriKind.Relative));
-                    break;
-                case AppPages.LatexBalloons_WithoutImage_Page:
-                    container.Content = latexBalloons_WithoutImage_Page = new();
-                    titleText.Text = "Латексні кульки без малюнку";
-                    titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\LatexBalloonsIcons\\LatexBalloons_WithoutImage_Icon.png", UriKind.Relative));
-                    break;
-                case AppPages.LatexBalloons_SetsOfBalloons_Page:
-                    container.Content = latexBalloons_SetsOfBalloons_Page = new();
-                    titleText.Text = "Сети латексних кульок";
-                    titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\LatexBalloonsIcons\\LatexBalloons_Sets_Icon.png", UriKind.Relative));
                     break;
                 case AppPages.LatexBalloons_Hearts_Page:
                     container.Content = latexBalloons_Hearts_Page = new();
