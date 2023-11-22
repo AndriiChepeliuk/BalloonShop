@@ -2,6 +2,7 @@
 using BalloonShop.Services;
 using BalloonShop.Views;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 
@@ -44,6 +45,8 @@ public class App_LatexBalloons_ViewModel : ViewModelBase
     {
         LoadWindow();
         window.ExecutePage(AppPages.LatexBalloons_WithImages_Page);
+        window.titleText.Text = _selectedBalloobType.Name;
+        window.titleImage.Source = _selectedBalloobType.Image;
     }
 
     private void LoadWindow()
