@@ -52,6 +52,7 @@
     <None Remove="Data\MenuImages\Settings\balloon-types_color.png" />
     <None Remove="Data\MenuImages\Settings\color-settings_color.png" />
     <None Remove="Data\MenuImages\Settings\foil-balloons_settings_icon_color.png" />
+    <None Remove="Data\MenuImages\Settings\icons8-gold-bars-96.png" />
     <None Remove="Data\MenuImages\Settings\icons8-manufacture-100.png" />
     <None Remove="Data\MenuImages\Settings\latex-balloons_settings_icon_color.png" />
     <None Remove="Data\MenuImages\Латексні_без_малюнку_оригінал.png" />
@@ -121,6 +122,7 @@
     <Resource Include="Data\MenuImages\Settings\balloon-types_color.png" />
     <Resource Include="Data\MenuImages\Settings\color-settings_color.png" />
     <Resource Include="Data\MenuImages\Settings\foil-balloons_settings_icon_color.png" />
+    <Resource Include="Data\MenuImages\Settings\icons8-gold-bars-96.png" />
     <Resource Include="Data\MenuImages\Settings\icons8-manufacture-100.png" />
     <Resource Include="Data\MenuImages\Settings\latex-balloons_settings_icon_color.png" />
     <Resource Include="Data\System_Images\DefaultImage.jpg" />

@@ -15,10 +15,10 @@ public class LatexBalloonConfiguration : IEntityTypeConfiguration<LatexBalloonMo
         //    .HasOne(latexBalloon => latexBalloon.Color)
         //    .WithMany(color => color.LatexBalloons)
         //    .HasForeignKey(latexBalloon => latexBalloon.ColorId);
-        builder
-            .HasOne(latexBalloon => latexBalloon.Manufacturer)
-            .WithMany(manufacturer => manufacturer.LatexBalloons)
-            .HasForeignKey(latexBalloon => latexBalloon.ManufacturerId);
+        //builder
+        //    .HasOne(latexBalloon => latexBalloon.Manufacturer)
+        //    .WithMany(manufacturer => manufacturer.LatexBalloons)
+        //    .HasForeignKey(latexBalloon => latexBalloon.ManufacturerId);
         builder
             .HasOne(latexBalloon => latexBalloon.Material)
             .WithMany(material => material.LatexBalloons)

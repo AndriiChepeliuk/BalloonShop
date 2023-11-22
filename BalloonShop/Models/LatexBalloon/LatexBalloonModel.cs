@@ -1,6 +1,4 @@
-﻿using BalloonShop.Models.Color;
-using BalloonShop.Models.LatexBalloonType;
-using BalloonShop.Models.Manufacturer;
+﻿using BalloonShop.Models.LatexBalloonType;
 using BalloonShop.Models.Material;
 
 namespace BalloonShop.Models.LatexBalloon;
@@ -22,7 +20,7 @@ public class LatexBalloonModel : ModelBase
     private string _code;
     private LatexBalloonTypeModel _productType;
     //private ColorModel _color;
-    private ManufacturerModel _manufacturer;
+    //private ManufacturerModel _manufacturer;
     private MaterialModel _material;
 
     public int Id { get; private set; }
@@ -163,16 +161,17 @@ public class LatexBalloonModel : ModelBase
     //        OnPropertyChanged(nameof(Color));
     //    }
     //}
-    public int ManufacturerId { get; set; }
-    public ManufacturerModel Manufacturer
-    {
-        get { return _manufacturer; }
-        set
-        {
-            _manufacturer = value;
-            OnPropertyChanged(nameof(Manufacturer));
-        }
-    }
+
+    //public int ManufacturerId { get; set; }
+    //public ManufacturerModel Manufacturer
+    //{
+    //    get { return _manufacturer; }
+    //    set
+    //    {
+    //        _manufacturer = value;
+    //        OnPropertyChanged(nameof(Manufacturer));
+    //    }
+    //}
     public int MaterialId { get; set; }
     public MaterialModel Material
     {

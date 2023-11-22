@@ -10,7 +10,7 @@ public class ManufacturerModel : ModelBase
     private string _name;
     private BitmapImage _image;
     //private string _relatedProduct;
-    private ObservableCollection<LatexBalloonModel> _latexBalloons;
+    //private ObservableCollection<LatexBalloonModel> _latexBalloons;
     private ObservableCollection<FoilBalloonModel> _foilBalloons;
 
     public int Id { get; private set; }
@@ -42,15 +42,15 @@ public class ManufacturerModel : ModelBase
     //        OnPropertyChanged(nameof(RelatedProduct));
     //    }
     //}
-    public ObservableCollection<LatexBalloonModel> LatexBalloons
-    {
-        get { return _latexBalloons; }
-        set
-        {
-            _latexBalloons = value;
-            OnPropertyChanged(nameof(LatexBalloons));
-        }
-    }
+    //public ObservableCollection<LatexBalloonModel> LatexBalloons
+    //{
+    //    get { return _latexBalloons; }
+    //    set
+    //    {
+    //        _latexBalloons = value;
+    //        OnPropertyChanged(nameof(LatexBalloons));
+    //    }
+    //}
     public ObservableCollection<FoilBalloonModel> FoilBalloons
     {
         get { return _foilBalloons; }
