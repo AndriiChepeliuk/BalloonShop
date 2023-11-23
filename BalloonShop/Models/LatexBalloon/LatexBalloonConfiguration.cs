@@ -8,9 +8,11 @@ public class LatexBalloonConfiguration : IEntityTypeConfiguration<LatexBalloonMo
     public void Configure(EntityTypeBuilder<LatexBalloonModel> builder)
     {
         builder
-            .HasOne(latexBalloon => latexBalloon.ProductType)
+            .HasOne(latexBalloon => latexBalloon.LatexBalloonType)
             .WithMany(productType => productType.LatexBalloons)
-            .HasForeignKey(latexBalloon => latexBalloon.ProductTypeId);
+            .HasForeignKey(latexBalloon => latexBalloon.LatexBalloonTypeId);
+        builder
+            .Ignore(latexBalloon => latexBalloon.Image);
         //builder
         //    .HasOne(latexBalloon => latexBalloon.Color)
         //    .WithMany(color => color.LatexBalloons)

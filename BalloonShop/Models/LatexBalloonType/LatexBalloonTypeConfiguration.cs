@@ -9,8 +9,8 @@ public class LatexBalloonTypeConfiguration : IEntityTypeConfiguration<LatexBallo
     {
         builder
             .HasMany(balloonType => balloonType.LatexBalloons)
-            .WithOne(latexBalloon => latexBalloon.ProductType)
-            .HasForeignKey(latexBalloon => latexBalloon.ProductTypeId);
+            .WithOne(latexBalloon => latexBalloon.LatexBalloonType)
+            .HasForeignKey(latexBalloon => latexBalloon.LatexBalloonTypeId);
         builder
             .Ignore(balloonType => balloonType.Image);
     }

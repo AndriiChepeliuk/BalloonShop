@@ -1,5 +1,6 @@
 ﻿using BalloonShop.Models.LatexBalloonType;
 using BalloonShop.Models.Material;
+using System.Windows.Media.Imaging;
 
 namespace BalloonShop.Models.LatexBalloon;
 
@@ -7,7 +8,8 @@ public class LatexBalloonModel : ModelBase
 {
     private string _name;
     private string _description;
-    private string _imageUri;
+    private BitmapImage _image;
+    private int _quantity;
     private int _sizeInInches;
     private int _sizeInCentimeters;
     private float _volume;
@@ -18,7 +20,7 @@ public class LatexBalloonModel : ModelBase
     private decimal _balloonPriceWithAir;
     private decimal _balloonPriceWithHelium;
     private string _code;
-    private LatexBalloonTypeModel _productType;
+    private LatexBalloonTypeModel _latexBalloonType;
     //private ColorModel _color;
     //private ManufacturerModel _manufacturer;
     //private MaterialModel _material;
@@ -42,13 +44,23 @@ public class LatexBalloonModel : ModelBase
             OnPropertyChanged(nameof(Description));
         }
     }
-    public string ImageUri
+    public byte[]? ImageByteCode { get; set; }
+    public BitmapImage Image
     {
-        get { return _imageUri; }
+        get { return _image; }
         set
         {
-            _imageUri = value;
-            OnPropertyChanged(nameof(ImageUri));
+            _image = value;
+            OnPropertyChanged(nameof(Image));
+        }
+    }
+    public int Quantity
+    {
+        get { return _quantity; }
+        set
+        {
+            _quantity = value;
+            OnPropertyChanged(nameof(Quantity));
         }
     }
     public int SizeInInches
@@ -141,14 +153,14 @@ public class LatexBalloonModel : ModelBase
             OnPropertyChanged(nameof(Code));
         }
     }
-    public int ProductTypeId { get; set; }
-    public LatexBalloonTypeModel ProductType
+    public int LatexBalloonTypeId { get; set; }
+    public LatexBalloonTypeModel LatexBalloonType
     {
-        get { return _productType; }
+        get { return _latexBalloonType; }
         set
         {
-            _productType = value;
-            OnPropertyChanged(nameof(ProductType));
+            _latexBalloonType = value;
+            OnPropertyChanged(nameof(LatexBalloonType));
         }
     }
     //public int ColorId { get; set; }
