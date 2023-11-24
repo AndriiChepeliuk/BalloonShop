@@ -11,6 +11,8 @@ namespace BalloonShop.Views
         App_LatexBalloons_Page,
         App_FoilBalloons_Page,
         App_Settings_Page,
+        LatexBalloons_Balloons_Page,
+        LatexBalloons_Balloons_AddNew_Page,
         LatexBalloons_Hearts_Page,
         Settings_LatexBalloons_Page,
         Settings_LatexBalloons_BalloonsTypes_Page,
@@ -29,6 +31,8 @@ namespace BalloonShop.Views
         private Pages.App_LatexBalloons_Page app_LatexBalloons_Page = new Pages.App_LatexBalloons_Page();
         private Pages.App_FoilBalloons_Page app_FoilBalloons_Page = new Pages.App_FoilBalloons_Page();
         private Pages.App_Settings_Page app_Settings_Page = new Pages.App_Settings_Page();
+        private Pages.LatexBalloons_Balloons_Page latexBalloons_Balloons_Page = new Pages.LatexBalloons_Balloons_Page();
+        private Pages.LatexBalloons_Balloons_AddNew_Page latexBalloons_Balloons_AddNew_Page = new Pages.LatexBalloons_Balloons_AddNew_Page();
         private Pages.LatexBalloons_Hearts_Page latexBalloons_Hearts_Page = new Pages.LatexBalloons_Hearts_Page();
         private Pages.Settings_LatexBalloons_Page settings_LatexBalloons_Page = new Pages.Settings_LatexBalloons_Page();
         private Pages.Settings_LatexBalloons_BalloonsTypes_Page settings_LatexBalloons_BalloonsTypes_Page = new Pages.Settings_LatexBalloons_BalloonsTypes_Page();
@@ -88,6 +92,12 @@ namespace BalloonShop.Views
                     container.Content = app_FoilBalloons_Page = new();
                     titleText.Text = "Фольговані кульки";
                     titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\icons8-star-64_grey.png", UriKind.Relative));
+                    break;
+                case AppPages.LatexBalloons_Balloons_Page:
+                    container.Content = latexBalloons_Balloons_Page = new();
+                    break;
+                case AppPages.LatexBalloons_Balloons_AddNew_Page:
+                    container.Content = latexBalloons_Balloons_AddNew_Page = new();
                     break;
                 case AppPages.App_Settings_Page:
                     container.Content = app_Settings_Page = new();
