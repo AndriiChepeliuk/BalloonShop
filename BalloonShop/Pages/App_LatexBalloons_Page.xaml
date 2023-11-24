@@ -16,7 +16,7 @@
         Background="Transparent"
         BorderBrush="Transparent"
         ItemsSource="{Binding BalloonTypes}"
-        MouseDoubleClick="ListView_MouseDoubleClick"
+        MouseDoubleClick="ShowSpecificGroupOfLatexBalloons_MouseDoubleClick"
         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
         ScrollViewer.VerticalScrollBarVisibility="Auto"
         SelectedItem="{Binding SelectedBalloobType}">

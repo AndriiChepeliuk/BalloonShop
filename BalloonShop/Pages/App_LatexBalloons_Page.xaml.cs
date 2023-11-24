@@ -61,12 +61,12 @@ namespace BalloonShop.Pages
         //    window.ExecutePage(AppPages.LatexBalloons_Hearts_Page);
         //}
 
-        private void ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void ShowSpecificGroupOfLatexBalloons_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var dataContext = DataContext as App_LatexBalloons_ViewModel;
             if (dataContext != null)
             {
-                dataContext.AddNewBalloonTypeCommand.Execute(this);
+                dataContext.ShowSpecificGroupOfLatexBalloons_Command.Execute(this);
             }
         }
     }

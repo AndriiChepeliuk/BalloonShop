@@ -33,15 +33,15 @@ public class App_LatexBalloons_ViewModel : ViewModelBase
         }
     }
 
-    public ICommand AddNewBalloonTypeCommand { get; }
+    public ICommand ShowSpecificGroupOfLatexBalloons_Command { get; }
 
     public App_LatexBalloons_ViewModel()
     {
         BalloonTypes = new ObservableCollection<LatexBalloonTypeModel>(LatexBalloonTypeModelService.GetAllLatexBalloonTypes());
-        AddNewBalloonTypeCommand = new ViewModelCommand(ExecuteAddNewBalloonTypeCommand);
+        ShowSpecificGroupOfLatexBalloons_Command = new ViewModelCommand(ExecuteShowSpecificGroupOfLatexBalloons_Command);
     }
 
-    private void ExecuteAddNewBalloonTypeCommand(object obj)
+    private void ExecuteShowSpecificGroupOfLatexBalloons_Command(object obj)
     {
         LoadWindow();
         window.ExecutePage(AppPages.LatexBalloons_Balloons_Page);
