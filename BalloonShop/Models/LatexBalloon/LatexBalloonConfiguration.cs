@@ -12,7 +12,8 @@ public class LatexBalloonConfiguration : IEntityTypeConfiguration<LatexBalloonMo
             .WithMany(productType => productType.LatexBalloons)
             .HasForeignKey(latexBalloon => latexBalloon.LatexBalloonTypeId);
         builder
-            .Ignore(latexBalloon => latexBalloon.Image);
+            .Ignore(latexBalloon => latexBalloon.Image)
+            .Ignore(latexBalloon => latexBalloon.PhotoImage);
         //builder
         //    .HasOne(latexBalloon => latexBalloon.Color)
         //    .WithMany(color => color.LatexBalloons)

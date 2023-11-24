@@ -9,6 +9,7 @@ public class LatexBalloonModel : ModelBase
     private string _name;
     private string _description;
     private BitmapImage _image;
+    private BitmapImage _photoImage;
     private int _quantity;
     private int _sizeInInches;
     private int _sizeInCentimeters;
@@ -45,6 +46,7 @@ public class LatexBalloonModel : ModelBase
         }
     }
     public byte[]? ImageByteCode { get; set; }
+    public byte[]? PhotoImageByteCode { get; set; }
     public BitmapImage Image
     {
         get { return _image; }
@@ -52,6 +54,15 @@ public class LatexBalloonModel : ModelBase
         {
             _image = value;
             OnPropertyChanged(nameof(Image));
+        }
+    }
+    public BitmapImage PhotoImage
+    {
+        get { return _photoImage; }
+        set
+        {
+            _photoImage = value;
+            OnPropertyChanged(nameof(PhotoImage));
         }
     }
     public int Quantity
