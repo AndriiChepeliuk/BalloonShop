@@ -6,15 +6,25 @@
     xmlns:local="clr-namespace:BalloonShop.Pages"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="clr-namespace:BalloonShop.ViewModels"
     d:DesignHeight="900"
     d:DesignWidth="1400"
     mc:Ignorable="d">
+
+    <UserControl.DataContext>
+        <viewModel:LatexBalloons_Balloons_ViewModel />
+    </UserControl.DataContext>
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="70" />
         </Grid.RowDefinitions>
+
+        <Image
+            x:Name="ImageComm"
+            Grid.Row="0"
+            Source="\Images\Temp\Латексні\Sertsya.jpg" />
 
         <Button
             Name="addLatexBalloonButton"
@@ -23,7 +33,7 @@
             HorizontalAlignment="Right"
             materialDesign:RippleAssist.Feedback="GreenYellow"
             Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
-            Command="{Binding AddNewBalloonTypeCommand}"
+            Command="{Binding ShowImageCommand}"
             Foreground="GreenYellow"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
             Style="{StaticResource MaterialDesignIconButton}"
