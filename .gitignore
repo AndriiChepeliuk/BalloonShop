@@ -362,3 +362,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /BalloonShop/Data/BalloonShopDataDB.db
+/BalloonShop/Data/BalloonShopDataDB.db-shm
+/BalloonShop/Data/BalloonShopDataDB.db-wal
