@@ -14,7 +14,7 @@ public class LatexBalloons_Balloons_ViewModel : ViewModelBase
     private LatexBalloonTypeModel _latexBalloonType;
     private ObservableCollection<LatexBalloonModel> _latexBalloons;
 
-    public ICommand ShowImageCommand { get; }
+    public ICommand ShowLatexBalloons_Balloons_AddNew_PageCommand { get; }
 
     public LatexBalloonTypeModel LatexBalloonType
     {
@@ -35,16 +35,18 @@ public class LatexBalloons_Balloons_ViewModel : ViewModelBase
         }
     }
 
-
     public LatexBalloons_Balloons_ViewModel()
     {
-        ShowImageCommand = new ViewModelCommand(ExecuteShowImageCommand);
+        ShowLatexBalloons_Balloons_AddNew_PageCommand = new ViewModelCommand(ExecuteShowLatexBalloons_Balloons_AddNew_PageCommand);
     }
 
-    private void ExecuteShowImageCommand(object obj)
+    private void ExecuteShowLatexBalloons_Balloons_AddNew_PageCommand(object obj)
     {
         LoadWindow();
-        var tt = window.container.DataContext;
+        window.ExecutePage(AppPages.LatexBalloons_Balloons_AddNew_Page);
+        window.DataContext = new LatexBalloons_Balloons_AddNew_ViewModel();
+        window.titleText.Text = "Додати нову латексну кульку";
+        //window.titleImage.Source = _latexBalloonType.Image;
     }
 
     private void LoadWindow()

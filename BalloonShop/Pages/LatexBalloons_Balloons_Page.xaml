@@ -33,7 +33,7 @@
             HorizontalAlignment="Right"
             materialDesign:RippleAssist.Feedback="GreenYellow"
             Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
-            Command="{Binding ShowImageCommand}"
+            Command="{Binding ShowLatexBalloons_Balloons_AddNew_PageCommand}"
             Foreground="GreenYellow"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
             Style="{StaticResource MaterialDesignIconButton}"
