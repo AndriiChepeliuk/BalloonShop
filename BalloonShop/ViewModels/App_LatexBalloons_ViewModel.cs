@@ -46,7 +46,7 @@ public class App_LatexBalloons_ViewModel : ViewModelBase
         LoadWindow();
         //window.ExecutePage(AppPages.LatexBalloons_Balloons_Page);
         window.container.Content = new Pages.LatexBalloons_Balloons_Page();
-        var newViewModel = new LatexBalloons_Balloons_ViewModel();
+        var newViewModel = new LatexBalloons_Balloons_ViewModel(_selectedBalloobType);
         newViewModel.LatexBalloonType = _selectedBalloobType;
         newViewModel.LatexBalloons = new ObservableCollection<LatexBalloonModel>(LatexBalloonModelService.GetAllLatexBalloons());
 

@@ -21,10 +21,16 @@
             <RowDefinition Height="70" />
         </Grid.RowDefinitions>
 
-        <Image
-            x:Name="ImageComm"
+        <TextBox
+            x:Name="propertyNameTextBox"
             Grid.Row="0"
-            Source="\Images\Temp\Латексні\Sertsya.jpg" />
+            VerticalAlignment="Center"
+            materialDesign:HintAssist.Hint="Назва типу"
+            FontSize="14"
+            FontWeight="Medium"
+            Foreground="{StaticResource whiteColor}"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            Text="{Binding LatexBalloonType.Name}" />
 
         <Button
             Name="addLatexBalloonButton"

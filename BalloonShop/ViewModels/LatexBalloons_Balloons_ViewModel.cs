@@ -36,10 +36,12 @@ public class LatexBalloons_Balloons_ViewModel : ViewModelBase
         }
     }
 
-    public LatexBalloons_Balloons_ViewModel()
+    public LatexBalloons_Balloons_ViewModel() : this(new LatexBalloonTypeModel()) { }
+    public LatexBalloons_Balloons_ViewModel(LatexBalloonTypeModel latexBalloonType)
     {
         ShowLatexBalloons_Balloons_AddNew_PageCommand = new ViewModelCommand(ExecuteShowLatexBalloons_Balloons_AddNew_PageCommand);
         TestCommand = new ViewModelCommand(ExecuteTestCommand);
+        LatexBalloonType = latexBalloonType;
     }
 
     private void ExecuteTestCommand(object obj)

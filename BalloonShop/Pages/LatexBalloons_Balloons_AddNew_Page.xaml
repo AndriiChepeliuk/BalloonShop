@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:BalloonShop.Pages"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="clr-namespace:BalloonShop.ViewModels"
     d:DesignHeight="900"
@@ -15,8 +16,69 @@
     </UserControl.DataContext>
 
     <Grid>
-        <Image
-            x:Name="ImageComm"
-            Source="\Images\Temp\Латексні\Sets.jpg" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Rectangle
+            Grid.Row="1"
+            Grid.RowSpan="3"
+            Width="150"
+            Height="150"
+            Margin="25,0,25,0"
+            RadiusX="5"
+            RadiusY="5">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="{Binding ImageSource}" />
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle
+            Grid.Row="4"
+            Grid.RowSpan="6"
+            Width="150"
+            Height="150"
+            Margin="25,0,25,0"
+            RadiusX="5"
+            RadiusY="5">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="{Binding PhotoImageSource}" />
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <TextBox
+            x:Name="propertyNameTextBox"
+            Grid.Row="1"
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            VerticalAlignment="Center"
+            materialDesign:HintAssist.Hint="Назва типу"
+            FontSize="14"
+            FontWeight="Medium"
+            Foreground="{StaticResource whiteColor}"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            Text="{Binding SelectedBalloobType.Name}" />
     </Grid>
 </UserControl>

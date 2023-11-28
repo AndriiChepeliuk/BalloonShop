@@ -1,4 +1,6 @@
-﻿using BalloonShop.Models.LatexBalloonType;
+﻿using BalloonShop.Helpers;
+using BalloonShop.Models.LatexBalloon;
+using BalloonShop.Models.LatexBalloonType;
 using BalloonShop.Services;
 using BalloonShop.Views;
 using System.Collections.ObjectModel;
@@ -10,17 +12,10 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
 {
     private MainWindow window;
     private LatexBalloonTypeModel _selectedBalloobType;
-    private ObservableCollection<LatexBalloonTypeModel> _balloonTypes;
+    private LatexBalloonModel _newLatexBalloon;
+    private string? _imageSource;
+    private string? _photoImageSource;
 
-    public ObservableCollection<LatexBalloonTypeModel> BalloonTypes
-    {
-        get { return _balloonTypes; }
-        set
-        {
-            _balloonTypes = value;
-            OnPropertyChanged(nameof(BalloonTypes));
-        }
-    }
     public LatexBalloonTypeModel SelectedBalloobType
     {
         get { return _selectedBalloobType; }
@@ -30,10 +25,40 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
             OnPropertyChanged(nameof(SelectedBalloobType));
         }
     }
+    public LatexBalloonModel NewLatexBalloon
+    {
+        get { return _newLatexBalloon; }
+        set
+        {
+            _newLatexBalloon = value;
+            OnPropertyChanged(nameof(NewLatexBalloon));
+        }
+    }
+    public string ImageSource
+    {
+        get { return _imageSource; }
+        set
+        {
+            _imageSource = value;
+            OnPropertyChanged(nameof(ImageSource));
+        }
+    }
+    public string PhotoImageSource
+    {
+        get { return _photoImageSource; }
+        set
+        {
+            _photoImageSource = value;
+            OnPropertyChanged(nameof(PhotoImageSource));
+        }
+    }
 
     public LatexBalloons_Balloons_AddNew_ViewModel()
     {
-        BalloonTypes = new ObservableCollection<LatexBalloonTypeModel>(LatexBalloonTypeModelService.GetAllLatexBalloonTypes());
+        NewLatexBalloon = new LatexBalloonModel();
+        NewLatexBalloon.Name = "Name";
+        ImageSource = Constants.ImageSourceDefaultValue;
+        PhotoImageSource = Constants.ImageSourceDefaultValue;
     }
 
     private void LoadWindow()
