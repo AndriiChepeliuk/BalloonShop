@@ -38,38 +38,4 @@
 
     </ListView>
 
-    <!--<Grid x:Name="grid" Margin="20">
-        <ScrollViewer
-            Width="{Binding ElementName=grid, Path=ActualWidth}"
-            Padding="0,20"
-            VerticalAlignment="Center"
-            HorizontalScrollBarVisibility="Disabled"
-            VerticalScrollBarVisibility="Auto">
-            <WrapPanel>
-
-                <uc:CategoryElement
-                    Title="Без малюнка"
-                    Margin="0,10"
-                    ElementClick="LatexBalloons_WithoutImage_Page_ElementClick"
-                    ImageSource="\Data\MenuImages\LatexBalloons\LatexBalloons_WithoutImage_Orange.png" />
-                <uc:CategoryElement
-                    Title="З малюнком"
-                    Margin="0,10"
-                    ElementClick="LatexBalloons_WithImages_Page_ElementClick"
-                    ImageSource="\Data\MenuImages\LatexBalloons\LatexBalloons_WithImage_Orange.png" />
-                <uc:CategoryElement
-                    Title="Набори кульок"
-                    Margin="0,10"
-                    ElementClick="LatexBalloons_SetsOfBalloons_Page_ElementClick"
-                    ImageSource="\Data\MenuImages\LatexBalloons\LatexBalloons_Sets_Orange.png" />
-                <uc:CategoryElement
-                    Title="Серця"
-                    Margin="0,10"
-                    ElementClick="LatexBalloons_Hearts_Page_ElementClick"
-                    ImageSource="\Data\MenuImages\LatexBalloons\LatexBalloons_Hearts_Orange.png" />
-
-            </WrapPanel>
-        </ScrollViewer>
-    </Grid>-->
-
 </UserControl>

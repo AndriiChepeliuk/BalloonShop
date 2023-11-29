@@ -137,22 +137,22 @@ public class LatexBalloonModel : ModelBase
             OnPropertyChanged(nameof(BalloonPrice));
         }
     }
-    public decimal BalloonCostWithAir
+    public decimal BalloonPriceWithAir
     {
         get { return _balloonPriceWithAir; }
         set
         {
             _balloonPriceWithAir = value;
-            OnPropertyChanged(nameof(BalloonCostWithAir));
+            OnPropertyChanged(nameof(BalloonPriceWithAir));
         }
     }
-    public decimal BalloonCostWithHelium
+    public decimal BalloonPriceWithHelium
     {
         get { return _balloonPriceWithHelium; }
         set
         {
             _balloonPriceWithHelium = value;
-            OnPropertyChanged(nameof(BalloonCostWithHelium));
+            OnPropertyChanged(nameof(BalloonPriceWithHelium));
         }
     }
     public string Code

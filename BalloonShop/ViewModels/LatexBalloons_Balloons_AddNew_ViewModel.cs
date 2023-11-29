@@ -11,18 +11,19 @@ namespace BalloonShop.ViewModels;
 public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
 {
     private MainWindow window;
-    private LatexBalloonTypeModel _selectedBalloobType;
+    private LatexBalloonTypeModel _balloobType;
     private LatexBalloonModel _newLatexBalloon;
     private string? _imageSource;
     private string? _photoImageSource;
+    private decimal _balloonCostWithHelium;
 
-    public LatexBalloonTypeModel SelectedBalloobType
+    public LatexBalloonTypeModel BalloobType
     {
-        get { return _selectedBalloobType; }
+        get { return _balloobType; }
         set
         {
-            _selectedBalloobType = value;
-            OnPropertyChanged(nameof(SelectedBalloobType));
+            _balloobType = value;
+            OnPropertyChanged(nameof(BalloobType));
         }
     }
     public LatexBalloonModel NewLatexBalloon
@@ -52,13 +53,21 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
             OnPropertyChanged(nameof(PhotoImageSource));
         }
     }
+    public decimal BalloonCostWithHelium
+    {
+        get { return _balloonCostWithHelium; }
+        set
+        {
+            _balloonCostWithHelium = value;
+            OnPropertyChanged(nameof(BalloonCostWithHelium));
+        }
+    }
 
     public LatexBalloons_Balloons_AddNew_ViewModel()
     {
-        NewLatexBalloon = new LatexBalloonModel();
-        NewLatexBalloon.Name = "Name";
         ImageSource = Constants.ImageSourceDefaultValue;
         PhotoImageSource = Constants.ImageSourceDefaultValue;
+        NewLatexBalloon = new LatexBalloonModel() { IsFlying = true, Quantity = 1, SizeInInches = 12 };
     }
 
     private void LoadWindow()

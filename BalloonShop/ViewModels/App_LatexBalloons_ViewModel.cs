@@ -44,14 +44,10 @@ public class App_LatexBalloons_ViewModel : ViewModelBase
     private void ExecuteShowSpecificGroupOfLatexBalloons_Command(object obj)
     {
         LoadWindow();
-        //window.ExecutePage(AppPages.LatexBalloons_Balloons_Page);
-        window.container.Content = new Pages.LatexBalloons_Balloons_Page();
-        var newViewModel = new LatexBalloons_Balloons_ViewModel(_selectedBalloobType);
-        newViewModel.LatexBalloonType = _selectedBalloobType;
-        newViewModel.LatexBalloons = new ObservableCollection<LatexBalloonModel>(LatexBalloonModelService.GetAllLatexBalloons());
 
-        window.DataContext = newViewModel;
-        window.titleText.Text = newViewModel.LatexBalloonType.Name;//_selectedBalloobType.Name;
+        window.container.Content = new Pages.LatexBalloons_Balloons_Page(_selectedBalloobType);
+
+        window.titleText.Text = _selectedBalloobType.Name;
         window.titleImage.Source = _selectedBalloobType.Image;
     }
 

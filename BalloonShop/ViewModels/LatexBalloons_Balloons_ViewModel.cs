@@ -15,7 +15,6 @@ public class LatexBalloons_Balloons_ViewModel : ViewModelBase
     private ObservableCollection<LatexBalloonModel> _latexBalloons;
 
     public ICommand ShowLatexBalloons_Balloons_AddNew_PageCommand { get; }
-    public ICommand TestCommand { get; }
 
     public LatexBalloonTypeModel LatexBalloonType
     {
@@ -36,30 +35,17 @@ public class LatexBalloons_Balloons_ViewModel : ViewModelBase
         }
     }
 
-    public LatexBalloons_Balloons_ViewModel() : this(new LatexBalloonTypeModel()) { }
-    public LatexBalloons_Balloons_ViewModel(LatexBalloonTypeModel latexBalloonType)
+    public LatexBalloons_Balloons_ViewModel()
     {
         ShowLatexBalloons_Balloons_AddNew_PageCommand = new ViewModelCommand(ExecuteShowLatexBalloons_Balloons_AddNew_PageCommand);
-        TestCommand = new ViewModelCommand(ExecuteTestCommand);
-        LatexBalloonType = latexBalloonType;
-    }
-
-    private void ExecuteTestCommand(object obj)
-    {
-        LoadWindow();
-        window.titleText.Text = "Додати нову латексну кульку";
     }
 
     private void ExecuteShowLatexBalloons_Balloons_AddNew_PageCommand(object obj)
     {
         LoadWindow();
-        //window.ExecutePage(AppPages.LatexBalloons_Balloons_AddNew_Page);
-        window.container.Content = new Pages.LatexBalloons_Balloons_AddNew_Page();
-        var newViewModel = new LatexBalloons_Balloons_AddNew_ViewModel();
-        newViewModel.SelectedBalloobType = _latexBalloonType;
+        window.container.Content = new Pages.LatexBalloons_Balloons_AddNew_Page(_latexBalloonType);
 
-        window.DataContext = newViewModel;
-        window.titleText.Text = "Додати нову латексну кульку";
+        window.titleText.Text = "Додати нову латексну кульку" + " '" + _latexBalloonType.Name + "'";
         //window.titleImage.Source = _latexBalloonType.Image;
     }
 
