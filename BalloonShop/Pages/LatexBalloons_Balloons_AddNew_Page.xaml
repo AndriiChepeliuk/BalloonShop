@@ -55,9 +55,16 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <Rectangle
+        <Button
+            x:Name="addImageSource"
             Grid.Row="4"
-            Grid.RowSpan="6"
+            Command="{Binding ChooseImageSourceCommand}"
+            Content="Вибрати зображення"
+            Style="{StaticResource simpleButton}" Margin="25,10,25,10" />
+
+        <Rectangle
+            Grid.Row="6"
+            Grid.RowSpan="3"
             Width="150"
             Height="150"
             Margin="25,0,25,0"
@@ -67,6 +74,13 @@
                 <ImageBrush ImageSource="{Binding PhotoImageSource}" />
             </Rectangle.Fill>
         </Rectangle>
+
+        <Button
+            x:Name="addPhotoImageSource"
+            Grid.Row="9"
+            Command="{Binding ChoosePhotoImageSourceCommand}"
+            Content="Вибрати зображення"
+            Style="{StaticResource simpleButton}" Margin="25,10,25,10" />
 
         <materialDesign:Chip
             Grid.Row="1"
@@ -211,6 +225,6 @@
             Foreground="{StaticResource whiteColor}"
             IsEnabled="False"
             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            Text="{Binding BalloonCostWithHelium}" />
+            Text="{Binding NewLatexBalloon.BalloonCostWithHelium}" />
     </Grid>
 </UserControl>

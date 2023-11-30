@@ -3,8 +3,11 @@ using BalloonShop.Models.LatexBalloon;
 using BalloonShop.Models.LatexBalloonType;
 using BalloonShop.Services;
 using BalloonShop.Views;
+using Microsoft.Win32;
+using System;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Input;
 
 namespace BalloonShop.ViewModels;
 
@@ -15,7 +18,6 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
     private LatexBalloonModel _newLatexBalloon;
     private string? _imageSource;
     private string? _photoImageSource;
-    private decimal _balloonCostWithHelium;
 
     public LatexBalloonTypeModel BalloobType
     {
@@ -53,21 +55,44 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
             OnPropertyChanged(nameof(PhotoImageSource));
         }
     }
-    public decimal BalloonCostWithHelium
-    {
-        get { return _balloonCostWithHelium; }
-        set
-        {
-            _balloonCostWithHelium = value;
-            OnPropertyChanged(nameof(BalloonCostWithHelium));
-        }
-    }
+
+    public ICommand ChooseImageSourceCommand { get; }
+    public ICommand ChoosePhotoImageSourceCommand { get; }
 
     public LatexBalloons_Balloons_AddNew_ViewModel()
     {
+        ChooseImageSourceCommand = new ViewModelCommand(ExecuteChooseImageSourceCommand);
+        ChoosePhotoImageSourceCommand = new ViewModelCommand(ExecuteChoosePhotoImageSourceCommand);
+
         ImageSource = Constants.ImageSourceDefaultValue;
         PhotoImageSource = Constants.ImageSourceDefaultValue;
         NewLatexBalloon = new LatexBalloonModel() { IsFlying = true, Quantity = 1, SizeInInches = 12 };
+    }
+
+    private void ExecuteChoosePhotoImageSourceCommand(object obj)
+    {
+        OpenFileDialog openFileDialog = new OpenFileDialog();
+        openFileDialog.Title = "Виберіть зображення";
+        openFileDialog.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+          "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+          "Portable Network Graphic (*.png)|*.png";
+        if (openFileDialog.ShowDialog() == true)
+        {
+            PhotoImageSource = openFileDialog.FileName;
+        }
+    }
+
+    private void ExecuteChooseImageSourceCommand(object obj)
+    {
+        OpenFileDialog openFileDialog = new OpenFileDialog();
+        openFileDialog.Title = "Виберіть зображення";
+        openFileDialog.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
+          "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+          "Portable Network Graphic (*.png)|*.png";
+        if (openFileDialog.ShowDialog() == true)
+        {
+            ImageSource = openFileDialog.FileName;
+        }
     }
 
     private void LoadWindow()

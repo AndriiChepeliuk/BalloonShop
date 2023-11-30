@@ -17,6 +17,7 @@ public class LatexBalloonModel : ModelBase
     private bool _isFlying;
     private decimal _balloonCost;
     private decimal _heliumCost;
+    private decimal _balloonCostWithHelium;
     private decimal _balloonPrice;
     private decimal _balloonPriceWithAir;
     private decimal _balloonPriceWithHelium;
@@ -117,6 +118,16 @@ public class LatexBalloonModel : ModelBase
         {
             _balloonCost = value;
             OnPropertyChanged(nameof(BalloonCost));
+            BalloonCostWithHelium = _balloonCost + _heliumCost;
+        }
+    }
+    public decimal BalloonCostWithHelium
+    {
+        get { return _balloonCostWithHelium; }
+        set
+        {
+            _balloonCostWithHelium = value;
+            OnPropertyChanged(nameof(BalloonCostWithHelium));
         }
     }
     public decimal HeliumCost
