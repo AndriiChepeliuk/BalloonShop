@@ -58,9 +58,10 @@
         <Button
             x:Name="addImageSource"
             Grid.Row="4"
+            Margin="25,10,25,10"
             Command="{Binding ChooseImageSourceCommand}"
             Content="Вибрати зображення"
-            Style="{StaticResource simpleButton}" Margin="25,10,25,10" />
+            Style="{StaticResource simpleButton}" />
 
         <Rectangle
             Grid.Row="6"
@@ -78,9 +79,10 @@
         <Button
             x:Name="addPhotoImageSource"
             Grid.Row="9"
+            Margin="25,10,25,10"
             Command="{Binding ChoosePhotoImageSourceCommand}"
             Content="Вибрати зображення"
-            Style="{StaticResource simpleButton}" Margin="25,10,25,10" />
+            Style="{StaticResource simpleButton}" />
 
         <materialDesign:Chip
             Grid.Row="1"
@@ -226,5 +228,20 @@
             IsEnabled="False"
             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
             Text="{Binding NewLatexBalloon.BalloonCostWithHelium}" />
+
+        <Button
+            x:Name="addProduct"
+            Grid.Row="12"
+            Grid.Column="2"
+            Width="160"
+            Margin="20,9,20,9"
+            materialDesign:RippleAssist.Feedback="GreenYellow"
+            BorderBrush="GreenYellow"
+            Command="{Binding AddNewLatexBalloonCommand}"
+            Content="Додати новий тип"
+            Foreground="GreenYellow"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignOutlinedSecondaryDarkButton}"
+            ToolTip="MaterialDesignFlatButton" />
     </Grid>
 </UserControl>

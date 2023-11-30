@@ -4,8 +4,6 @@ using BalloonShop.Models.LatexBalloonType;
 using BalloonShop.Services;
 using BalloonShop.Views;
 using Microsoft.Win32;
-using System;
-using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 
@@ -58,15 +56,30 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
 
     public ICommand ChooseImageSourceCommand { get; }
     public ICommand ChoosePhotoImageSourceCommand { get; }
+    public ICommand AddNewLatexBalloonCommand { get; }
 
     public LatexBalloons_Balloons_AddNew_ViewModel()
     {
         ChooseImageSourceCommand = new ViewModelCommand(ExecuteChooseImageSourceCommand);
         ChoosePhotoImageSourceCommand = new ViewModelCommand(ExecuteChoosePhotoImageSourceCommand);
+        AddNewLatexBalloonCommand = new ViewModelCommand(ExecuteAddNewLatexBalloonCommand);
 
         ImageSource = Constants.ImageSourceDefaultValue;
         PhotoImageSource = Constants.ImageSourceDefaultValue;
         NewLatexBalloon = new LatexBalloonModel() { IsFlying = true, Quantity = 1, SizeInInches = 12 };
+    }
+
+    private void ExecuteAddNewLatexBalloonCommand(object obj)
+    {
+        if (!string.IsNullOrEmpty(ImageSource) || !string.IsNullOrEmpty(PhotoImageSource))
+        {
+            NewLatexBalloon.ImageByteCode = ImageHelper.ConvertImageToByteArray(ImageSource);
+            NewLatexBalloon.PhotoImageByteCode = ImageHelper.ConvertImageToByteArray(PhotoImageSource);
+        }
+
+        LatexBalloonModelService.AddLatexBalloon(NewLatexBalloon, _balloobType.Id);
+
+        ImageSource = PhotoImageSource = Constants.ImageSourceDefaultValue;
     }
 
     private void ExecuteChoosePhotoImageSourceCommand(object obj)

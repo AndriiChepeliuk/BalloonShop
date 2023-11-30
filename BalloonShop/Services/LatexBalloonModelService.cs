@@ -9,14 +9,20 @@ namespace BalloonShop.Services;
 
 public class LatexBalloonModelService
 {
-    public static void AddLatexBalloon(LatexBalloonModel latexBalloon)
+    public static void AddLatexBalloon(LatexBalloonModel latexBalloon, int lateBalloonTypeId)
     {
-        if (latexBalloon == null)
+        if (latexBalloon != null)
         {
             using (var context = new ApplicationContext())
             {
-                context.LatexBalloons.AddAsync(latexBalloon);
-                context.SaveChanges();
+                var balloonType = context.LatexBalloonTypes.Find(lateBalloonTypeId);
+
+                if (balloonType != null)
+                {
+                    latexBalloon.LatexBalloonType = balloonType;
+                    context.LatexBalloons.AddAsync(latexBalloon);
+                    context.SaveChanges();
+                }
             }
         }
     }
@@ -27,7 +33,7 @@ public class LatexBalloonModelService
         {
             var latexBalloons = context.LatexBalloons.OrderBy(x => x.Name).ToList();
 
-            foreach (var latexballoon  in latexBalloons)
+            foreach (var latexballoon in latexBalloons)
             {
                 latexballoon.Image = ImageHelper.ConvertByteArrayToBitmapImage(latexballoon.ImageByteCode);
             }
