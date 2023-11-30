@@ -42,6 +42,14 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <Label
+            Grid.Row="0"
+            Margin="25,0,0,0"
+            VerticalAlignment="Bottom"
+            Foreground="{StaticResource fontColor3}">
+            Титульне зображення
+        </Label>
+
         <Rectangle
             Grid.Row="1"
             Grid.RowSpan="3"
@@ -58,10 +66,21 @@
         <Button
             x:Name="addImageSource"
             Grid.Row="4"
-            Margin="25,10,25,10"
+            Width="150"
+            Padding="0"
             Command="{Binding ChooseImageSourceCommand}"
             Content="Вибрати зображення"
-            Style="{StaticResource simpleButton}" />
+            FontSize="12"
+            Style="{StaticResource MaterialDesignFlatSecondaryLightButton}"
+            ToolTip="MaterialDesignFlatButton" />
+
+        <Label
+            Grid.Row="5"
+            Margin="25,0,0,0"
+            VerticalAlignment="Bottom"
+            Foreground="{StaticResource fontColor3}">
+            Реальне фото
+        </Label>
 
         <Rectangle
             Grid.Row="6"
@@ -79,11 +98,14 @@
         <Button
             x:Name="addPhotoImageSource"
             Grid.Row="9"
-            Margin="25,10,25,10"
+            Width="150"
+            Padding="0"
             Command="{Binding ChoosePhotoImageSourceCommand}"
             Content="Вибрати зображення"
-            Style="{StaticResource simpleButton}" />
-
+            FontSize="12"
+            Style="{StaticResource MaterialDesignFlatSecondaryLightButton}"
+            ToolTip="MaterialDesignFlatButton" />
+        
         <materialDesign:Chip
             Grid.Row="1"
             Grid.Column="2"
@@ -230,7 +252,7 @@
             Text="{Binding NewLatexBalloon.BalloonCostWithHelium}" />
 
         <Button
-            x:Name="addProduct"
+            x:Name="addNewLatexBalloon"
             Grid.Row="12"
             Grid.Column="2"
             Width="160"

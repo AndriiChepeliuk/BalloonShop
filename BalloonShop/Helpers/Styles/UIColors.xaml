@@ -13,6 +13,7 @@
     <SolidColorBrush x:Key="blackColor" Color="#000000" />
     <SolidColorBrush x:Key="fontColor1" Color="#969696" />
     <SolidColorBrush x:Key="fontColor2" Color="#C8C8C8" />
+    <SolidColorBrush x:Key="fontColor3" Color="#FF5722" />
 
     <!--  Panel Colors  -->
     <SolidColorBrush x:Key="panelColor" Color="#E30528" />
