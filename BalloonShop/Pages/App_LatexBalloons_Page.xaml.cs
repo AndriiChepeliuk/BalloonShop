@@ -1,4 +1,5 @@
-﻿using BalloonShop.Views;
+﻿using BalloonShop.ViewModels;
+using BalloonShop.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,28 +37,37 @@ namespace BalloonShop.Pages
             }
         }
 
-        private void LatexBalloons_WithImages_Page_ElementClick(object sender, RoutedEventArgs e)
-        {
-            LoadWindow();
-            window.ExecutePage(AppPages.LatexBalloons_WithImages_Page);
-        }
+        //private void LatexBalloons_WithImages_Page_ElementClick(object sender, RoutedEventArgs e)
+        //{
+        //    LoadWindow();
+        //    window.ExecutePage(AppPages.LatexBalloons_WithImages_Page);
+        //}
 
-        private void LatexBalloons_WithoutImage_Page_ElementClick(object sender, RoutedEventArgs e)
-        {
-            LoadWindow();
-            window.ExecutePage(AppPages.LatexBalloons_WithoutImage_Page);
-        }
+        //private void LatexBalloons_WithoutImage_Page_ElementClick(object sender, RoutedEventArgs e)
+        //{
+        //    LoadWindow();
+        //    window.ExecutePage(AppPages.LatexBalloons_WithoutImage_Page);
+        //}
 
-        private void LatexBalloons_SetsOfBalloons_Page_ElementClick(object sender, RoutedEventArgs e)
-        {
-            LoadWindow();
-            window.ExecutePage(AppPages.LatexBalloons_SetsOfBalloons_Page);
-        }
+        //private void LatexBalloons_SetsOfBalloons_Page_ElementClick(object sender, RoutedEventArgs e)
+        //{
+        //    LoadWindow();
+        //    window.ExecutePage(AppPages.LatexBalloons_SetsOfBalloons_Page);
+        //}
 
-        private void LatexBalloons_Hearts_Page_ElementClick(object sender, RoutedEventArgs e)
+        //private void LatexBalloons_Hearts_Page_ElementClick(object sender, RoutedEventArgs e)
+        //{
+        //    LoadWindow();
+        //    window.ExecutePage(AppPages.LatexBalloons_Hearts_Page);
+        //}
+
+        private void ShowSpecificGroupOfLatexBalloons_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            LoadWindow();
-            window.ExecutePage(AppPages.LatexBalloons_Hearts_Page);
+            var dataContext = DataContext as App_LatexBalloons_ViewModel;
+            if (dataContext != null)
+            {
+                dataContext.ShowSpecificGroupOfLatexBalloons_Command.Execute(this);
+            }
         }
     }
 }

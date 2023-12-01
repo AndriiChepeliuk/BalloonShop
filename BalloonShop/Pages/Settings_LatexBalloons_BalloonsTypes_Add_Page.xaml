@@ -33,7 +33,8 @@
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="47*" />
+            <RowDefinition Height="53*"/>
         </Grid.RowDefinitions>
 
         <Rectangle
@@ -42,7 +43,7 @@
             Width="150"
             Height="150"
             RadiusX="5"
-            RadiusY="5">
+            RadiusY="5" Margin="25,0,25,0">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="{Binding ImageSource}" />
             </Rectangle.Fill>
@@ -53,7 +54,7 @@
             Grid.Row="4"
             Command="{Binding ChoosePictureCommand}"
             Content="Вибрати зображення"
-            Style="{StaticResource simpleButton}" />
+            Style="{StaticResource simpleButton}" Margin="25,10,25,10" />
 
         <Button
             x:Name="addProduct"
@@ -67,7 +68,7 @@
             Foreground="GreenYellow"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
             Style="{StaticResource MaterialDesignOutlinedSecondaryDarkButton}"
-            ToolTip="MaterialDesignFlatButton" />
+            ToolTip="MaterialDesignFlatButton" Margin="20,9,20,9" />
 
         <Button
             x:Name="cancel"
@@ -81,7 +82,7 @@
             Foreground="Red"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
             Style="{StaticResource MaterialDesignOutlinedSecondaryDarkButton}"
-            ToolTip="MaterialDesignFlatButton" />
+            ToolTip="MaterialDesignFlatButton" Margin="20,9,20,9" />
 
         <TextBox
             x:Name="propertyNameTextBox"
@@ -113,14 +114,14 @@
             Grid.Row="3"
             Grid.Column="2"
             Grid.ColumnSpan="2"
-            Margin="0,10,0,0"
+            Margin="0,16,0,0"
             materialDesign:ComboBoxAssist.MaxLength="2"
             materialDesign:HintAssist.Hint="Search"
             materialDesign:HintAssist.HintOpacity=".26"
             FontSize="14"
             FontWeight="Medium"
             Foreground="Aqua"
-            IsEditable="True">
+            IsEditable="True" VerticalAlignment="Top">
             <ComboBoxItem Content="Apple" />
             <ComboBoxItem Content="Banana" />
             <ComboBoxItem Content="Pear" />

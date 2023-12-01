@@ -1,9 +1,8 @@
 ﻿using BalloonShop.Helpers;
-using BalloonShop.Models.BalloonType;
+using BalloonShop.Models.LatexBalloonType;
 using BalloonShop.Services;
 using BalloonShop.Views;
 using Microsoft.Win32;
-using System;
 using System.Windows;
 using System.Windows.Input;
 
@@ -13,10 +12,10 @@ public class Settings_LatexBalloons_BalloonsTypes_Add_ViewModel : ViewModelBase
 {
     private MainWindow window;
 
-    private BalloonTypeModel _balloonType;
+    private LatexBalloonTypeModel _balloonType;
     private string? _imageSource;
 
-    public BalloonTypeModel BalloonType
+    public LatexBalloonTypeModel BalloonType
     {
         get { return _balloonType; }
         set
@@ -41,7 +40,7 @@ public class Settings_LatexBalloons_BalloonsTypes_Add_ViewModel : ViewModelBase
 
     public Settings_LatexBalloons_BalloonsTypes_Add_ViewModel()
     {
-        BalloonType = new BalloonTypeModel();
+        BalloonType = new LatexBalloonTypeModel();
         ImageSource = Constants.ImageSourceDefaultValue;
 
         ChoosePictureCommand = new ViewModelCommand(ExecuteChoosePictureCommand);
@@ -62,12 +61,10 @@ public class Settings_LatexBalloons_BalloonsTypes_Add_ViewModel : ViewModelBase
         if (!string.IsNullOrEmpty(ImageSource))
         {
             BalloonType.ImageByteCode = ImageHelper.ConvertImageToByteArray(ImageSource);
-            BalloonType.BalloonType = "Латексні кульки";
         }
 
-        BalloonTypeModelService.AddProductType(BalloonType);
+        LatexBalloonTypeModelService.AddLatexBalloonType(BalloonType);
 
-        BalloonType = new BalloonTypeModel();
         ImageSource = Constants.ImageSourceDefaultValue;
 
         LoadWindow();

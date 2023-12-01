@@ -1,6 +1,6 @@
-﻿using BalloonShop.Models.BalloonType;
+﻿using BalloonShop.Models.LatexBalloonType;
+using BalloonShop.Services;
 using BalloonShop.Views;
-using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
@@ -10,9 +10,9 @@ namespace BalloonShop.ViewModels;
 public class Settings_LatexBalloons_BalloonsTypes_ViewModel : ViewModelBase
 {
     private MainWindow window;
-    private ObservableCollection<BalloonTypeModel> _balloonTypes;
+    private ObservableCollection<LatexBalloonTypeModel> _balloonTypes;
 
-    public ObservableCollection<BalloonTypeModel> BalloonTypes
+    public ObservableCollection<LatexBalloonTypeModel> BalloonTypes
     {
         get { return _balloonTypes; }
         set
@@ -26,6 +26,7 @@ public class Settings_LatexBalloons_BalloonsTypes_ViewModel : ViewModelBase
 
     public Settings_LatexBalloons_BalloonsTypes_ViewModel()
     {
+        BalloonTypes = new ObservableCollection<LatexBalloonTypeModel>(LatexBalloonTypeModelService.GetAllLatexBalloonTypes());
         AddNewBalloonTypeCommand = new ViewModelCommand(ExecuteAddNewBalloonTypeCommand);
     }
 

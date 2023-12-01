@@ -1,4 +1,5 @@
-﻿using BalloonShop.ViewModels;
+﻿using BalloonShop.Models.LatexBalloonType;
+using BalloonShop.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,24 +15,27 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BalloonShop.Views
+namespace BalloonShop.Pages
 {
     /// <summary>
-    /// Interaction logic for LatexBalloonsView.xaml
+    /// Interaction logic for LatexBalloons_Balloons_Page.xaml
     /// </summary>
-    public partial class LatexBalloonsView : UserControl
+    public partial class LatexBalloons_Balloons_Page : UserControl
     {
-        public LatexBalloonsView()
+        public LatexBalloons_Balloons_Page()
         {
             InitializeComponent();
         }
 
-        private void ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        public LatexBalloons_Balloons_Page(LatexBalloonTypeModel balloobType)
         {
-            var dataContext = DataContext as LatexBalloonsViewModel;
+            InitializeComponent();
+
+            var dataContext = DataContext as LatexBalloons_Balloons_ViewModel;
+
             if (dataContext != null)
             {
-                dataContext.SelectedMenuItem.ShowNextViewCommand.Execute(this);
+                dataContext.LatexBalloonType = balloobType;
             }
         }
     }

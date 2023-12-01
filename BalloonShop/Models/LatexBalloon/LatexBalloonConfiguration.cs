@@ -8,20 +8,23 @@ public class LatexBalloonConfiguration : IEntityTypeConfiguration<LatexBalloonMo
     public void Configure(EntityTypeBuilder<LatexBalloonModel> builder)
     {
         builder
-            .HasOne(latexBalloon => latexBalloon.ProductType)
+            .HasOne(latexBalloon => latexBalloon.LatexBalloonType)
             .WithMany(productType => productType.LatexBalloons)
-            .HasForeignKey(latexBalloon => latexBalloon.ProductTypeId);
+            .HasForeignKey(latexBalloon => latexBalloon.LatexBalloonTypeId);
         builder
-            .HasOne(latexBalloon => latexBalloon.Color)
-            .WithMany(color => color.LatexBalloons)
-            .HasForeignKey(latexBalloon => latexBalloon.ColorId);
-        builder
-            .HasOne(latexBalloon => latexBalloon.Manufacturer)
-            .WithMany(manufacturer => manufacturer.LatexBalloons)
-            .HasForeignKey(latexBalloon => latexBalloon.ManufacturerId);
-        builder
-            .HasOne(latexBalloon => latexBalloon.Material)
-            .WithMany(material => material.LatexBalloons)
-            .HasForeignKey(latexBalloon => latexBalloon.MaterialId);
+            .Ignore(latexBalloon => latexBalloon.Image)
+            .Ignore(latexBalloon => latexBalloon.PhotoImage);
+        //builder
+        //    .HasOne(latexBalloon => latexBalloon.Color)
+        //    .WithMany(color => color.LatexBalloons)
+        //    .HasForeignKey(latexBalloon => latexBalloon.ColorId);
+        //builder
+        //    .HasOne(latexBalloon => latexBalloon.Manufacturer)
+        //    .WithMany(manufacturer => manufacturer.LatexBalloons)
+        //    .HasForeignKey(latexBalloon => latexBalloon.ManufacturerId);
+        //builder
+        //    .HasOne(latexBalloon => latexBalloon.Material)
+        //    .WithMany(material => material.LatexBalloons)
+        //    .HasForeignKey(latexBalloon => latexBalloon.MaterialId);
     }
 }

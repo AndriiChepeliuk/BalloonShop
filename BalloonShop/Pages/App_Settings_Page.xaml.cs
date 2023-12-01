@@ -42,12 +42,6 @@ namespace BalloonShop.Pages
             window.ExecutePage(AppPages.Settings_ColorSettings_Page);
         }
 
-        private void Settings_BalloonsTypes_Page_ElementClick(object sender, RoutedEventArgs e)
-        {
-            LoadWindow();
-            window.ExecutePage(AppPages.Settings_BalloonsTypes_Page);
-        }
-
         private void Settings_LatexBalloons_Page_ElementClick(object sender, RoutedEventArgs e)
         {
             LoadWindow();
