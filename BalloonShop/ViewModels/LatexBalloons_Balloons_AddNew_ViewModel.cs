@@ -96,7 +96,15 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
 
         ImageSource = Constants.ImageSourceDefaultValue;
         PhotoImageSource = Constants.ImageSourceDefaultValue;
-        NewLatexBalloon = new LatexBalloonModel() { IsFlying = true, Quantity = 1, SizeInInches = 12 };
+        NewLatexBalloon = new LatexBalloonModel()
+        {
+            IsFlying = true,
+            Quantity = 1,
+            SizeInInches = 12,
+            BalloonPriceMarkupInPercentage = 0,
+            BalloonPriceWithAirMarkupInPercentage = 0,
+            BalloonPriceWithHeliumMarkupInPercentage = 0
+        };
     }
 
     private void ExecuteAddNewLatexBalloonCommand(object obj)
