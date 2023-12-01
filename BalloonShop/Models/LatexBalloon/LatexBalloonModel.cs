@@ -1,5 +1,8 @@
 ﻿using BalloonShop.Models.LatexBalloonType;
 using BalloonShop.Models.Material;
+using BalloonShop.Services;
+using System;
+using System.Numerics;
 using System.Windows.Media.Imaging;
 
 namespace BalloonShop.Models.LatexBalloon;
@@ -21,6 +24,9 @@ public class LatexBalloonModel : ModelBase
     private decimal _balloonPrice;
     private decimal _balloonPriceWithAir;
     private decimal _balloonPriceWithHelium;
+    private int _balloonPriceMarkupInPercentage;
+    private int _balloonPriceWithAirMarkupInPercentage;
+    private int _balloonPriceWithHeliumMarkupInPercentage;
     //private string _code;
     private LatexBalloonTypeModel _latexBalloonType;
     //private ColorModel _color;
@@ -82,6 +88,12 @@ public class LatexBalloonModel : ModelBase
         {
             _sizeInInches = value;
             OnPropertyChanged(nameof(SizeInInches));
+            SizeInCentimeters = (int)(_sizeInInches * 2.54);
+            HeliumCost = Math.Round(LatexBalloonModelService.CalculateHeliumCost(_sizeInCentimeters), 2);
+            BalloonCostWithHelium = Math.Round(_balloonCost + _heliumCost, 2);
+            BalloonPriceMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPrice) / (double)_balloonCost) - 100;
+            BalloonPriceWithAirMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPriceWithAir) / (double)_balloonCost) - 100;
+            BalloonPriceWithHeliumMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPriceWithHelium) / (double)_balloonCostWithHelium) - 100;
         }
     }
     public int SizeInCentimeters
@@ -119,6 +131,9 @@ public class LatexBalloonModel : ModelBase
             _balloonCost = value;
             OnPropertyChanged(nameof(BalloonCost));
             BalloonCostWithHelium = _balloonCost + _heliumCost;
+            BalloonPriceMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPrice) / (double)_balloonCost) - 100;
+            BalloonPriceWithAirMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPriceWithAir) / (double)_balloonCost) - 100;
+            BalloonPriceWithHeliumMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPriceWithHelium) / (double)_balloonCostWithHelium) - 100;
         }
     }
     public decimal BalloonCostWithHelium
@@ -146,6 +161,7 @@ public class LatexBalloonModel : ModelBase
         {
             _balloonPrice = value;
             OnPropertyChanged(nameof(BalloonPrice));
+            BalloonPriceMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPrice) / (double)_balloonCost) - 100;
         }
     }
     public decimal BalloonPriceWithAir
@@ -155,6 +171,7 @@ public class LatexBalloonModel : ModelBase
         {
             _balloonPriceWithAir = value;
             OnPropertyChanged(nameof(BalloonPriceWithAir));
+            BalloonPriceWithAirMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPriceWithAir) / (double)_balloonCost) - 100;
         }
     }
     public decimal BalloonPriceWithHelium
@@ -164,6 +181,34 @@ public class LatexBalloonModel : ModelBase
         {
             _balloonPriceWithHelium = value;
             OnPropertyChanged(nameof(BalloonPriceWithHelium));
+            BalloonPriceWithHeliumMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPriceWithHelium) / (double)_balloonCostWithHelium) - 100;
+        }
+    }
+    public int BalloonPriceMarkupInPercentage
+    {
+        get { return _balloonPriceMarkupInPercentage; }
+        set
+        {
+            _balloonPriceMarkupInPercentage = value;
+            OnPropertyChanged(nameof(BalloonPriceMarkupInPercentage));
+        }
+    }
+    public int BalloonPriceWithAirMarkupInPercentage
+    {
+        get { return _balloonPriceWithAirMarkupInPercentage; }
+        set
+        {
+            _balloonPriceWithAirMarkupInPercentage = value;
+            OnPropertyChanged(nameof(BalloonPriceWithAirMarkupInPercentage));
+        }
+    }
+    public int BalloonPriceWithHeliumMarkupInPercentage
+    {
+        get { return _balloonPriceWithHeliumMarkupInPercentage; }
+        set
+        {
+            _balloonPriceWithHeliumMarkupInPercentage = value;
+            OnPropertyChanged(nameof(BalloonPriceWithHeliumMarkupInPercentage));
         }
     }
     //public string Code

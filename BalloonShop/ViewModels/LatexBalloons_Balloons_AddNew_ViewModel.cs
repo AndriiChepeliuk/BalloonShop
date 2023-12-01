@@ -16,6 +16,9 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
     private LatexBalloonModel _newLatexBalloon;
     private string? _imageSource;
     private string? _photoImageSource;
+    private int _balloonPriceMarkupInPercentage;
+    private int _balloonPriceWithAirMarkupInPercentage;
+    private int _balloonPriceWithHeliumMarkupInPercentage;
 
     public LatexBalloonTypeModel BalloobType
     {
@@ -51,6 +54,33 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
         {
             _photoImageSource = value;
             OnPropertyChanged(nameof(PhotoImageSource));
+        }
+    }
+    public int BalloonPriceMarkupInPercentage
+    {
+        get { return _balloonPriceMarkupInPercentage; }
+        set
+        {
+            _balloonPriceMarkupInPercentage = value;
+            OnPropertyChanged(nameof(BalloonPriceMarkupInPercentage));
+        }
+    }
+    public int BalloonPriceWithAirMarkupInPercentage
+    {
+        get { return _balloonPriceWithAirMarkupInPercentage; }
+        set
+        {
+            _balloonPriceWithAirMarkupInPercentage = value;
+            OnPropertyChanged(nameof(BalloonPriceWithAirMarkupInPercentage));
+        }
+    }
+    public int BalloonPriceWithHeliumMarkupInPercentage
+    {
+        get { return _balloonPriceWithHeliumMarkupInPercentage; }
+        set
+        {
+            _balloonPriceWithHeliumMarkupInPercentage = value;
+            OnPropertyChanged(nameof(BalloonPriceWithHeliumMarkupInPercentage));
         }
     }
 

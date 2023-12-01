@@ -2,6 +2,7 @@
 using BalloonShop.Helpers;
 using BalloonShop.Models.LatexBalloon;
 using BalloonShop.Models.LatexBalloonType;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,6 +26,15 @@ public class LatexBalloonModelService
                 }
             }
         }
+    }
+
+    public static decimal CalculateHeliumCost(int DiameterOfTheBalloon)
+    {
+        var HeliumСubicMeterCost = (double)Constants.HeliumCanisterCost / 5.7;
+        var SphereVolume = (4 * Math.PI * Math.Pow(DiameterOfTheBalloon/2, 3))/3000000;
+
+        decimal cost = (decimal)(HeliumСubicMeterCost * SphereVolume);
+        return cost;
     }
 
     public static List<LatexBalloonModel> GetAllLatexBalloons()
