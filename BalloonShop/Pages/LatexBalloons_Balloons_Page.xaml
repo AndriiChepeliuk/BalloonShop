@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:BalloonShop.Pages"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="clr-namespace:BalloonShop.UserControls"
     xmlns:viewModel="clr-namespace:BalloonShop.ViewModels"
     d:DesignHeight="900"
     d:DesignWidth="1400"
@@ -21,16 +22,36 @@
             <RowDefinition Height="70" />
         </Grid.RowDefinitions>
 
-        <TextBox
-            x:Name="propertyNameTextBox"
+        <ListView
             Grid.Row="0"
-            VerticalAlignment="Center"
-            materialDesign:HintAssist.Hint="Назва типу"
-            FontSize="14"
-            FontWeight="Medium"
-            Foreground="{StaticResource whiteColor}"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            Text="{Binding LatexBalloonType.Name}" />
+            Margin="10"
+            HorizontalContentAlignment="Center"
+            Background="Transparent"
+            BorderBrush="Transparent"
+            ItemsSource="{Binding LatexBalloons}"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel HorizontalAlignment="Left" Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <uc:LatexBalloonEntityElement
+                        Margin="0,10"
+                        BalloonCount="{Binding Quantity}"
+                        BalloonName="{Binding Name}"
+                        BalloonPrice="{Binding BalloonPrice}"
+                        BalloonPriceWithAir="{Binding BalloonPriceWithAir}"
+                        BalloonPriceWithHelium="{Binding BalloonPriceWithHelium}"
+                        ImageBitmap="{Binding Image}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
 
         <Button
             Name="addLatexBalloonButton"

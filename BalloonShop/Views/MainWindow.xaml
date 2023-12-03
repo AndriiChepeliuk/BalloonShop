@@ -56,11 +56,11 @@
 
                     <!--#region Logo-->
                     <StackPanel
-                        Height="35"
+                        Height="55"
                         Margin="15,25,0,40"
                         Orientation="Horizontal">
 
-                        <Image Source="\Data\Icons\BalloonShop.png" />
+                        <Image Source="\Data\System_Images\PandikShop.png" />
 
                         <TextBlock
                             Margin="10,0,10,0"
@@ -69,7 +69,7 @@
                             FontSize="20"
                             FontWeight="Medium"
                             Foreground="{StaticResource fontColor1}"
-                            Text="Balloon Shop" />
+                            Text="Pandik Shop" />
 
                     </StackPanel>
                     <!--#endregion-->

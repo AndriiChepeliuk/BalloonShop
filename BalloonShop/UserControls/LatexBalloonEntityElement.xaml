@@ -6,29 +6,100 @@
 
     <Border
         Width="230"
-        Height="350"
+        Height="400"
         Margin="15,0"
-        Padding="20"
+        Padding="5"
         BorderBrush="{StaticResource backColor1}"
         BorderThickness="1"
         CornerRadius="10"
         FocusVisualStyle="{x:Null}">
 
         <StackPanel VerticalAlignment="Center">
-            <Image
-                Width="200"
-                Height="200"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Source="{Binding ElementName=balloonTypeElement, Path=ImageBitmap}" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Width="200"
+                    Height="200"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Source="{Binding ElementName=latexBalloonEntityElement, Path=ImageBitmap}" />
 
-            <TextBlock
-                Margin="0,30,0,0"
-                FontSize="18"
-                FontWeight="SemiBold"
-                Style="{StaticResource simpleText}"
-                Text="{Binding ElementName=balloonTypeElement, Path=BalloonName}"
-                TextAlignment="Center" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                    Text="{Binding ElementName=latexBalloonEntityElement, Path=BalloonName}"
+                    TextAlignment="Center" />
+
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    VerticalAlignment="Center"
+                    Foreground="LightGreen"
+                    Style="{StaticResource MaterialDesignBody2TextBlock}"
+                    Text="{Binding ElementName=latexBalloonEntityElement, StringFormat={}В наявності {0} од., Path=BalloonCount}"
+                    TextAlignment="Center" />
+
+                <Image
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Source="..\Data\Icons\icons8-on-air-60.png" />
+
+                <Image
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    Source="..\Data\Icons\icons8-helium-64.png" />
+
+                <TextBlock
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    FontWeight="Bold"
+                    Foreground="Gold"
+                    Style="{StaticResource MaterialDesignBody2TextBlock}"
+                    Text="{Binding ElementName=latexBalloonEntityElement, StringFormat={}{0} ₴, Path=BalloonPrice}"
+                    TextAlignment="Center" />
+
+                <TextBlock
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    FontWeight="Bold"
+                    Foreground="LightBlue"
+                    Style="{StaticResource MaterialDesignBody2TextBlock}"
+                    Text="{Binding ElementName=latexBalloonEntityElement, StringFormat={}{0} ₴, Path=BalloonPriceWithAir}"
+                    TextAlignment="Center" />
+
+                <TextBlock
+                    Grid.Row="4"
+                    Grid.Column="2"
+                    VerticalAlignment="Center"
+                    FontWeight="Bold"
+                    Foreground="LightPink"
+                    Style="{StaticResource MaterialDesignBody2TextBlock}"
+                    Text="{Binding ElementName=latexBalloonEntityElement, StringFormat={}{0} ₴, Path=BalloonPriceWithHelium}"
+                    TextAlignment="Center" />
+
+            </Grid>
+
 
         </StackPanel>
     </Border>

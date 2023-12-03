@@ -14,12 +14,40 @@ namespace BalloonShop.UserControls
             InitializeComponent();
         }
 
-        public string Title
+        public string BalloonName
         {
-            get { return (string)GetValue(TitleProperty); }
-            set { SetValue(TitleProperty, value); }
+            get { return (string)GetValue(BalloonNameProperty); }
+            set { SetValue(BalloonNameProperty, value); }
         }
-        public static readonly DependencyProperty TitleProperty = DependencyProperty.Register("BalloonName", typeof(string), typeof(LatexBalloonEntityElement));
+        public static readonly DependencyProperty BalloonNameProperty = DependencyProperty.Register("BalloonName", typeof(string), typeof(LatexBalloonEntityElement));
+
+        public string BalloonCount
+        {
+            get { return (string)GetValue(BalloonCountProperty); }
+            set { SetValue(BalloonCountProperty, value); }
+        }
+        public static readonly DependencyProperty BalloonCountProperty = DependencyProperty.Register("BalloonCount", typeof(string), typeof(LatexBalloonEntityElement));
+
+        public decimal BalloonPrice
+        {
+            get { return (decimal)GetValue(BalloonPriceProperty); }
+            set { SetValue(BalloonPriceProperty, value); }
+        }
+        public static readonly DependencyProperty BalloonPriceProperty = DependencyProperty.Register("BalloonPrice", typeof(decimal), typeof(LatexBalloonEntityElement));
+
+        public decimal BalloonPriceWithAir
+        {
+            get { return (decimal)GetValue(BalloonPriceWithAirProperty); }
+            set { SetValue(BalloonPriceWithAirProperty, value); }
+        }
+        public static readonly DependencyProperty BalloonPriceWithAirProperty = DependencyProperty.Register("BalloonPriceWithAir", typeof(decimal), typeof(LatexBalloonEntityElement));
+
+        public decimal BalloonPriceWithHelium
+        {
+            get { return (decimal)GetValue(BalloonPriceWithHeliumProperty); }
+            set { SetValue(BalloonPriceWithHeliumProperty, value); }
+        }
+        public static readonly DependencyProperty BalloonPriceWithHeliumProperty = DependencyProperty.Register("BalloonPriceWithHelium", typeof(decimal), typeof(LatexBalloonEntityElement));
 
         public BitmapImage ImageBitmap
         {
