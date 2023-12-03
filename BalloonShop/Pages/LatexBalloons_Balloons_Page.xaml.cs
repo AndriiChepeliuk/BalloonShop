@@ -1,7 +1,9 @@
-﻿using BalloonShop.Models.LatexBalloonType;
+﻿using BalloonShop.Models.LatexBalloon;
+using BalloonShop.Models.LatexBalloonType;
 using BalloonShop.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +29,7 @@ namespace BalloonShop.Pages
             InitializeComponent();
         }
 
-        public LatexBalloons_Balloons_Page(LatexBalloonTypeModel balloobType)
+        public LatexBalloons_Balloons_Page(LatexBalloonTypeModel balloobType, ObservableCollection<LatexBalloonModel> latexBalloonsOfSpecificType)
         {
             InitializeComponent();
 
@@ -36,6 +38,7 @@ namespace BalloonShop.Pages
             if (dataContext != null)
             {
                 dataContext.LatexBalloonType = balloobType;
+                dataContext.LatexBalloons = latexBalloonsOfSpecificType;
             }
         }
     }

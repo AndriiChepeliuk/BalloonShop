@@ -13,6 +13,7 @@ public class App_LatexBalloons_ViewModel : ViewModelBase
     private MainWindow window;
     private LatexBalloonTypeModel _selectedBalloobType;
     private ObservableCollection<LatexBalloonTypeModel> _balloonTypes;
+    private ObservableCollection<LatexBalloonModel> _latexBalloonsOfSpecificType;
 
     public LatexBalloonTypeModel SelectedBalloobType
     {
@@ -32,6 +33,15 @@ public class App_LatexBalloons_ViewModel : ViewModelBase
             OnPropertyChanged(nameof(BalloonTypes));
         }
     }
+    public ObservableCollection<LatexBalloonModel> LatexBalloonsOfSpecificType
+    {
+        get { return _latexBalloonsOfSpecificType; }
+        set
+        {
+            _latexBalloonsOfSpecificType = value;
+            OnPropertyChanged(nameof(LatexBalloonsOfSpecificType));
+        }
+    }
 
     public ICommand ShowSpecificGroupOfLatexBalloons_Command { get; }
 
@@ -43,9 +53,13 @@ public class App_LatexBalloons_ViewModel : ViewModelBase
 
     private void ExecuteShowSpecificGroupOfLatexBalloons_Command(object obj)
     {
+        LatexBalloonsOfSpecificType = new ObservableCollection<LatexBalloonModel>(
+            LatexBalloonModelService.GetLatexBalloonsWithSpecificType(_selectedBalloobType.Id)
+            );
+
         LoadWindow();
 
-        window.container.Content = new Pages.LatexBalloons_Balloons_Page(_selectedBalloobType);
+        window.container.Content = new Pages.LatexBalloons_Balloons_Page(_selectedBalloobType, _latexBalloonsOfSpecificType);
 
         window.titleText.Text = _selectedBalloobType.Name;
         window.titleImage.Source = _selectedBalloobType.Image;
