@@ -46,23 +46,25 @@ public class LatexBalloonModelService
             foreach (var latexballoon in latexBalloons)
             {
                 latexballoon.Image = ImageHelper.ConvertByteArrayToBitmapImage(latexballoon.ImageByteCode);
+                latexballoon.PhotoImage = ImageHelper.ConvertByteArrayToBitmapImage(latexballoon.PhotoImageByteCode);
             }
 
             return latexBalloons;
         }
     }
 
-    public static List<LatexBalloonModel> GetLatexBalloonsWithSpecificType(LatexBalloonTypeModel latexBalloonType)
+    public static List<LatexBalloonModel> GetLatexBalloonsWithSpecificType(int lateBalloonTypeId)
     {
         using (var context = new ApplicationContext())
         {
-            var dbLatexBalloonType = context.LatexBalloonTypes.Find(latexBalloonType);
+            var dbLatexBalloonType = context.LatexBalloonTypes.Find(lateBalloonTypeId);
 
             var latexBalloons = context.LatexBalloons.Where(x => x.LatexBalloonType == dbLatexBalloonType).OrderBy(x => x.Name).ToList();
 
             foreach (var latexballoon in latexBalloons)
             {
                 latexballoon.Image = ImageHelper.ConvertByteArrayToBitmapImage(latexballoon.ImageByteCode);
+                latexballoon.PhotoImage = ImageHelper.ConvertByteArrayToBitmapImage(latexballoon.PhotoImageByteCode);
             }
 
             return latexBalloons;
