@@ -18,6 +18,8 @@ public class LatexBalloonModel : ModelBase
     private int _sizeInCentimeters;
     private float _volume;
     private bool _isFlying;
+    private bool _isSetOfBalloons;
+    private int _countOfBalloonsInSet;
     private decimal _balloonCost;
     private decimal _heliumCost;
     private decimal _balloonCostWithHelium;
@@ -89,8 +91,8 @@ public class LatexBalloonModel : ModelBase
             _sizeInInches = value;
             OnPropertyChanged(nameof(SizeInInches));
             SizeInCentimeters = (int)(_sizeInInches * 2.54);
-            HeliumCost = Math.Round(LatexBalloonModelService.CalculateHeliumCost(_sizeInCentimeters), 2);
-            BalloonCostWithHelium = Math.Round(_balloonCost + _heliumCost, 2);
+            HeliumCost = Math.Round(LatexBalloonModelService.CalculateHeliumCost(_sizeInCentimeters, _countOfBalloonsInSet), 2);
+            BalloonCostWithHelium = Math.Round((_balloonCost + _heliumCost), 2);
             BalloonPriceMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPrice) / (double)_balloonCost) - 100;
             BalloonPriceWithAirMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPriceWithAir) / (double)_balloonCost) - 100;
             BalloonPriceWithHeliumMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPriceWithHelium) / (double)_balloonCostWithHelium) - 100;
@@ -121,6 +123,37 @@ public class LatexBalloonModel : ModelBase
         {
             _isFlying = value;
             OnPropertyChanged(nameof(IsFlying));
+        }
+    }
+    public bool IsSetOfBalloons
+    {
+        get { return _isSetOfBalloons; }
+        set
+        {
+            _isSetOfBalloons = value;
+            OnPropertyChanged(nameof(IsSetOfBalloons));
+            if (!value)
+            {
+                BalloonPriceMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPrice) / (double)_balloonCost) - 100;
+                BalloonPriceWithAirMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPriceWithAir) / (double)_balloonCost) - 100;
+                BalloonPriceWithHeliumMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPriceWithHelium) / (double)_balloonCostWithHelium) - 100;
+                CountOfBalloonsInSet = 1;
+            }
+
+        }
+    }
+    public int CountOfBalloonsInSet
+    {
+        get { return _countOfBalloonsInSet; }
+        set
+        {
+            _countOfBalloonsInSet = value;
+            OnPropertyChanged(nameof(CountOfBalloonsInSet));
+            HeliumCost = Math.Round(LatexBalloonModelService.CalculateHeliumCost(_sizeInCentimeters, _countOfBalloonsInSet), 2);
+            BalloonCostWithHelium = Math.Round((_balloonCost + _heliumCost), 2);
+            BalloonPriceMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPrice) / (double)_balloonCost) - 100;
+            BalloonPriceWithAirMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPriceWithAir) / (double)_balloonCost) - 100;
+            BalloonPriceWithHeliumMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPriceWithHelium) / (double)_balloonCostWithHelium) - 100;
         }
     }
     public decimal BalloonCost
@@ -189,7 +222,12 @@ public class LatexBalloonModel : ModelBase
         get { return _balloonPriceMarkupInPercentage; }
         set
         {
-            _balloonPriceMarkupInPercentage = value;
+            if (_balloonPrice != 0)
+            {
+                _balloonPriceMarkupInPercentage = value;
+            }
+            else _balloonPriceMarkupInPercentage = 0;
+
             OnPropertyChanged(nameof(BalloonPriceMarkupInPercentage));
         }
     }
@@ -198,7 +236,12 @@ public class LatexBalloonModel : ModelBase
         get { return _balloonPriceWithAirMarkupInPercentage; }
         set
         {
-            _balloonPriceWithAirMarkupInPercentage = value;
+            if (_balloonPriceWithAir != 0)
+            {
+                _balloonPriceWithAirMarkupInPercentage = value;
+            }
+            else _balloonPriceWithAirMarkupInPercentage = 0;
+
             OnPropertyChanged(nameof(BalloonPriceWithAirMarkupInPercentage));
         }
     }
@@ -207,7 +250,12 @@ public class LatexBalloonModel : ModelBase
         get { return _balloonPriceWithHeliumMarkupInPercentage; }
         set
         {
-            _balloonPriceWithHeliumMarkupInPercentage = value;
+            if (_balloonPriceWithHelium != 0)
+            {
+                _balloonPriceWithHeliumMarkupInPercentage = value;
+            }
+            else _balloonPriceWithHeliumMarkupInPercentage = 0;
+
             OnPropertyChanged(nameof(BalloonPriceWithHeliumMarkupInPercentage));
         }
     }

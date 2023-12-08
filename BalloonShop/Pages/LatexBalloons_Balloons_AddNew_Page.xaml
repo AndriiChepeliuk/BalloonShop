@@ -105,7 +105,7 @@
             FontSize="12"
             Style="{StaticResource MaterialDesignFlatSecondaryLightButton}"
             ToolTip="MaterialDesignFlatButton" />
-        
+
         <materialDesign:Chip
             Grid.Row="1"
             Grid.Column="2"
@@ -116,6 +116,14 @@
                 <Image Height="25" Source="{Binding BalloobType.Image}" />
             </materialDesign:Chip.Icon>
         </materialDesign:Chip>
+
+        <CheckBox
+            Grid.Row="1"
+            Grid.Column="3"
+            IsChecked="{Binding IsSetOfBalloons}"
+            Style="{StaticResource MaterialDesignFilterChipSecondaryCheckBox}">
+            Сет кульок
+        </CheckBox>
 
         <TextBox
             x:Name="newLatexBalloon_Name_TextBox"
@@ -154,6 +162,20 @@
             Foreground="{StaticResource whiteColor}"
             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
             Text="{Binding NewLatexBalloon.Quantity}" />
+
+        <TextBox
+            x:Name="newLatexBalloon_CountOfBalloonsInSet_TextBox"
+            Grid.Row="1"
+            Grid.Column="4"
+            Margin="10,0,0,0"
+            VerticalAlignment="Center"
+            materialDesign:HintAssist.Hint="Кількість кульок в одному сеті"
+            FontSize="14"
+            FontWeight="Medium"
+            Foreground="{StaticResource whiteColor}"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            Text="{Binding NewLatexBalloon.CountOfBalloonsInSet}"
+            Visibility="{Binding VisibilityOfCountOfBalloonsInSetField}" />
 
         <TextBox
             x:Name="newLatexBalloon_SizeInInches_TextBox"

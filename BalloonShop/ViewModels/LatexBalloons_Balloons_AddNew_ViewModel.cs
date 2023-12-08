@@ -16,6 +16,8 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
     private LatexBalloonModel _newLatexBalloon;
     private string? _imageSource;
     private string? _photoImageSource;
+    private string _visibilityOfCountOfBalloonsInSetField;
+    private bool _isSetOfBalloons;
     private int _balloonPriceMarkupInPercentage;
     private int _balloonPriceWithAirMarkupInPercentage;
     private int _balloonPriceWithHeliumMarkupInPercentage;
@@ -54,6 +56,33 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
         {
             _photoImageSource = value;
             OnPropertyChanged(nameof(PhotoImageSource));
+        }
+    }
+    public string VisibilityOfCountOfBalloonsInSetField
+    {
+        get { return _visibilityOfCountOfBalloonsInSetField; }
+        set
+        {
+            _visibilityOfCountOfBalloonsInSetField = value;
+            OnPropertyChanged(nameof(VisibilityOfCountOfBalloonsInSetField));
+        }
+    }
+    public bool IsSetOfBalloons
+    {
+        get { return _isSetOfBalloons; }
+        set
+        {
+            _isSetOfBalloons = value;
+            NewLatexBalloon.IsSetOfBalloons = value;
+            if (value)
+            {
+                VisibilityOfCountOfBalloonsInSetField = "Visible";
+            }
+            else
+            {
+                VisibilityOfCountOfBalloonsInSetField = "Hidden";
+            }
+            OnPropertyChanged(nameof(IsSetOfBalloons));
         }
     }
     public int BalloonPriceMarkupInPercentage
@@ -96,9 +125,11 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
 
         ImageSource = Constants.ImageSourceDefaultValue;
         PhotoImageSource = Constants.ImageSourceDefaultValue;
+        VisibilityOfCountOfBalloonsInSetField = "Hidden";
         NewLatexBalloon = new LatexBalloonModel()
         {
             IsFlying = true,
+            CountOfBalloonsInSet = 1,
             Quantity = 1,
             SizeInInches = 12,
             BalloonPriceMarkupInPercentage = 0,
