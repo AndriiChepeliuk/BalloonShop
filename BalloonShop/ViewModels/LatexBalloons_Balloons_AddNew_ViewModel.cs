@@ -16,8 +16,8 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
     private LatexBalloonModel _newLatexBalloon;
     private string? _imageSource;
     private string? _photoImageSource;
-    private string _visibilityOfCountOfBalloonsInSetField;
     private bool _isSetOfBalloons;
+    private bool _isOneBalloon;
     private int _balloonPriceMarkupInPercentage;
     private int _balloonPriceWithAirMarkupInPercentage;
     private int _balloonPriceWithHeliumMarkupInPercentage;
@@ -58,13 +58,13 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
             OnPropertyChanged(nameof(PhotoImageSource));
         }
     }
-    public string VisibilityOfCountOfBalloonsInSetField
+    public bool IsOneBalloon
     {
-        get { return _visibilityOfCountOfBalloonsInSetField; }
+        get { return _isOneBalloon; }
         set
         {
-            _visibilityOfCountOfBalloonsInSetField = value;
-            OnPropertyChanged(nameof(VisibilityOfCountOfBalloonsInSetField));
+            _isOneBalloon = value;
+            OnPropertyChanged(nameof(IsOneBalloon));
         }
     }
     public bool IsSetOfBalloons
@@ -74,14 +74,7 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
         {
             _isSetOfBalloons = value;
             NewLatexBalloon.IsSetOfBalloons = value;
-            if (value)
-            {
-                VisibilityOfCountOfBalloonsInSetField = "Visible";
-            }
-            else
-            {
-                VisibilityOfCountOfBalloonsInSetField = "Hidden";
-            }
+            IsOneBalloon = !value;
             OnPropertyChanged(nameof(IsSetOfBalloons));
         }
     }
@@ -125,7 +118,7 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
 
         ImageSource = Constants.ImageSourceDefaultValue;
         PhotoImageSource = Constants.ImageSourceDefaultValue;
-        VisibilityOfCountOfBalloonsInSetField = "Hidden";
+        IsOneBalloon = true;
         NewLatexBalloon = new LatexBalloonModel()
         {
             IsFlying = true,

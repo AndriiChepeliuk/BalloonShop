@@ -15,6 +15,10 @@
         <viewModel:LatexBalloons_Balloons_AddNew_ViewModel />
     </UserControl.DataContext>
 
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter" />
+    </UserControl.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" />
@@ -122,7 +126,7 @@
             Grid.Column="3"
             IsChecked="{Binding IsSetOfBalloons}"
             Style="{StaticResource MaterialDesignFilterChipSecondaryCheckBox}">
-            Сет кульок
+            Набір кульок
         </CheckBox>
 
         <TextBox
@@ -141,8 +145,12 @@
         <TextBox
             x:Name="newLatexBalloon_Description_TextBox"
             Grid.Row="3"
+            Grid.RowSpan="2"
             Grid.Column="2"
             Grid.ColumnSpan="2"
+            Height="100"
+            AcceptsReturn="True"
+            TextWrapping="Wrap"
             VerticalAlignment="Center"
             materialDesign:HintAssist.Hint="Короткий опис"
             FontSize="14"
@@ -151,187 +159,409 @@
             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
             Text="{Binding NewLatexBalloon.Description}" />
 
-        <TextBox
-            x:Name="newLatexBalloon_Quantity_TextBox"
-            Grid.Row="4"
-            Grid.Column="2"
-            VerticalAlignment="Center"
-            materialDesign:HintAssist.Hint="Кількість"
-            FontSize="14"
-            FontWeight="Medium"
-            Foreground="{StaticResource whiteColor}"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            Text="{Binding NewLatexBalloon.Quantity}" />
-
-        <TextBox
-            x:Name="newLatexBalloon_CountOfBalloonsInSet_TextBox"
-            Grid.Row="1"
-            Grid.Column="4"
-            Margin="10,0,0,0"
-            VerticalAlignment="Center"
-            materialDesign:HintAssist.Hint="Кількість кульок в одному сеті"
-            FontSize="14"
-            FontWeight="Medium"
-            Foreground="{StaticResource whiteColor}"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            Text="{Binding NewLatexBalloon.CountOfBalloonsInSet}"
-            Visibility="{Binding VisibilityOfCountOfBalloonsInSetField}" />
-
-        <TextBox
-            x:Name="newLatexBalloon_SizeInInches_TextBox"
+        <StackPanel
+            x:Name="fieldsForOneBalloon"
             Grid.Row="5"
+            Grid.RowSpan="8"
             Grid.Column="2"
-            VerticalAlignment="Center"
-            materialDesign:HintAssist.Hint="Діаметр в дюймах"
-            FontSize="14"
-            FontWeight="Medium"
-            Foreground="{StaticResource whiteColor}"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            Text="{Binding NewLatexBalloon.SizeInInches}" />
+            Grid.ColumnSpan="3"
+            Visibility="{Binding Path=IsOneBalloon, Converter={StaticResource booleanToVisibilityConverter}}">
 
-        <TextBox
-            x:Name="newLatexBalloon_SizeInCentimeters_TextBox"
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+
+                <TextBox
+                    x:Name="newLatexBalloon_Quantity_TextBox"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Кількість кульок"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.Quantity}" />
+
+                <TextBox
+                    x:Name="newLatexBalloon_SizeInInches_TextBox"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Діаметр в дюймах"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.SizeInInches}" />
+
+                <TextBox
+                    x:Name="newLatexBalloon_SizeInCentimeters_TextBox"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Діаметр в сантиметрах"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    IsEnabled="False"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.SizeInCentimeters}" />
+
+                <CheckBox
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    IsChecked="{Binding NewLatexBalloon.IsFlying}"
+                    Style="{StaticResource MaterialDesignFilterChipSecondaryCheckBox}">
+                    Літає з гелієм
+                </CheckBox>
+
+                <TextBox
+                    x:Name="newLatexBalloon_BalloonCost_TextBox"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Собівартість кульки"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.BalloonCost}" />
+
+                <TextBox
+                    x:Name="newLatexBalloon_HeliumCost_TextBox"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Собівартість гелію"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    IsEnabled="False"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.HeliumCost}" />
+
+                <TextBox
+                    x:Name="newLatexBalloon_BalloonCostWithHelium_TextBox"
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Собівартість кульки з гелієм"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    IsEnabled="False"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.BalloonCostWithHelium}" />
+
+                <TextBox
+                    x:Name="newLatexBalloon_BalloonPrice_TextBox"
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Ціна кульки"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.BalloonPrice}" />
+
+                <TextBox
+                    x:Name="newLatexBalloon_BalloonPriceMarkupInPercentage_TextBox"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Націнка на вартості кульки"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    IsEnabled="False"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.BalloonPriceMarkupInPercentage, StringFormat={}{0} %}" />
+
+                <TextBox
+                    x:Name="newLatexBalloon_BalloonPriceWithAir_TextBox"
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Ціна кульки з повітрям"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.BalloonPriceWithAir}" />
+
+                <TextBox
+                    x:Name="newLatexBalloon_BalloonPriceWithAirMarkupInPercentage_TextBox"
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Націнка на вартості кульки з повітрям"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    IsEnabled="False"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.BalloonPriceWithAirMarkupInPercentage, StringFormat={}{0} %}" />
+
+                <TextBox
+                    x:Name="newLatexBalloon_BalloonPriceWithHelium_TextBox"
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Ціна кульки з гелієм"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.BalloonPriceWithHelium}" />
+
+                <TextBox
+                    x:Name="newLatexBalloon_BalloonPriceWithHeliumMarkupInPercentage_TextBox"
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Націнка на вартості кульки з гелієм"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    IsEnabled="False"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.BalloonPriceWithHeliumMarkupInPercentage, StringFormat={}{0} %}" />
+
+            </Grid>
+        </StackPanel>
+
+        <StackPanel
+            x:Name="fieldsForSetOfBalloons"
             Grid.Row="5"
-            Grid.Column="3"
-            Margin="10,0,0,0"
-            VerticalAlignment="Center"
-            materialDesign:HintAssist.Hint="Діаметр в сантиметрах"
-            FontSize="14"
-            FontWeight="Medium"
-            Foreground="{StaticResource whiteColor}"
-            IsEnabled="False"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            Text="{Binding NewLatexBalloon.SizeInCentimeters}" />
-
-        <CheckBox
-            Grid.Row="6"
+            Grid.RowSpan="8"
             Grid.Column="2"
-            IsChecked="{Binding NewLatexBalloon.IsFlying}"
-            Style="{StaticResource MaterialDesignFilterChipSecondaryCheckBox}">
-            Літає з гелієм
-        </CheckBox>
+            Grid.ColumnSpan="3"
+            Visibility="{Binding Path=IsSetOfBalloons, Converter={StaticResource booleanToVisibilityConverter}}">
 
-        <TextBox
-            x:Name="newLatexBalloon_BalloonCost_TextBox"
-            Grid.Row="7"
-            Grid.Column="2"
-            VerticalAlignment="Center"
-            materialDesign:HintAssist.Hint="Собівартість кульки"
-            FontSize="14"
-            FontWeight="Medium"
-            Foreground="{StaticResource whiteColor}"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            Text="{Binding NewLatexBalloon.BalloonCost}" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
 
-        <TextBox
-            x:Name="newLatexBalloon_HeliumCost_TextBox"
-            Grid.Row="7"
-            Grid.Column="3"
-            Margin="10,0,0,0"
-            VerticalAlignment="Center"
-            materialDesign:HintAssist.Hint="Собівартість гелію"
-            FontSize="14"
-            FontWeight="Medium"
-            Foreground="{StaticResource whiteColor}"
-            IsEnabled="False"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            Text="{Binding NewLatexBalloon.HeliumCost}" />
+                <TextBox
+                    x:Name="newSetOfLatexBalloons_Quantity_TextBox"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Кількість наборів кульок"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.Quantity}" />
 
-        <TextBox
-            x:Name="newLatexBalloon_BalloonPrice_TextBox"
-            Grid.Row="8"
-            Grid.Column="2"
-            VerticalAlignment="Center"
-            materialDesign:HintAssist.Hint="Ціна кульки"
-            FontSize="14"
-            FontWeight="Medium"
-            Foreground="{StaticResource whiteColor}"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            Text="{Binding NewLatexBalloon.BalloonPrice}" />
+                <TextBox
+                    x:Name="newLatexBalloon_CountOfBalloonsInSet_TextBox"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Кількість кульок в одному наборі"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.CountOfBalloonsInSet}"
+                    Visibility="{Binding Path=IsSetOfBalloons, Converter={StaticResource booleanToVisibilityConverter}}" />
 
-        <TextBox
-            x:Name="newLatexBalloon_BalloonPriceMarkupInPercentage_TextBox"
-            Grid.Row="8"
-            Grid.Column="3"
-            Margin="10,0,0,0"
-            VerticalAlignment="Center"
-            materialDesign:HintAssist.Hint="Націнка на вартості кульки"
-            FontSize="14"
-            FontWeight="Medium"
-            Foreground="{StaticResource whiteColor}"
-            IsEnabled="False"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            Text="{Binding NewLatexBalloon.BalloonPriceMarkupInPercentage, StringFormat={}{0} %}" />
+                <TextBox
+                    x:Name="newSetOfLatexBalloons_SizeInInches_TextBox"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Діаметр в дюймах"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.SizeInInches}" />
 
-        <TextBox
-            x:Name="newLatexBalloon_BalloonPriceWithAir_TextBox"
-            Grid.Row="9"
-            Grid.Column="2"
-            VerticalAlignment="Center"
-            materialDesign:HintAssist.Hint="Ціна кульки з повітрям"
-            FontSize="14"
-            FontWeight="Medium"
-            Foreground="{StaticResource whiteColor}"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            Text="{Binding NewLatexBalloon.BalloonPriceWithAir}" />
+                <TextBox
+                    x:Name="newSetOfLatexBalloons_SizeInCentimeters_TextBox"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Діаметр в сантиметрах"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    IsEnabled="False"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.SizeInCentimeters}" />
 
-        <TextBox
-            x:Name="newLatexBalloon_BalloonPriceWithAirMarkupInPercentage_TextBox"
-            Grid.Row="9"
-            Grid.Column="3"
-            Margin="10,0,0,0"
-            VerticalAlignment="Center"
-            materialDesign:HintAssist.Hint="Націнка на вартості кульки з повітрям"
-            FontSize="14"
-            FontWeight="Medium"
-            Foreground="{StaticResource whiteColor}"
-            IsEnabled="False"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            Text="{Binding NewLatexBalloon.BalloonPriceWithAirMarkupInPercentage, StringFormat={}{0} %}" />
+                <CheckBox
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    IsChecked="{Binding NewLatexBalloon.IsFlying}"
+                    Style="{StaticResource MaterialDesignFilterChipSecondaryCheckBox}">
+                    Літає з гелієм
+                </CheckBox>
 
-        <TextBox
-            x:Name="newLatexBalloon_BalloonPriceWithHelium_TextBox"
-            Grid.Row="10"
-            Grid.Column="2"
-            VerticalAlignment="Center"
-            materialDesign:HintAssist.Hint="Ціна кульки з гелієм"
-            FontSize="14"
-            FontWeight="Medium"
-            Foreground="{StaticResource whiteColor}"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            Text="{Binding NewLatexBalloon.BalloonPriceWithHelium}" />
+                <TextBox
+                    x:Name="newSetOfLatexBalloons_BalloonCost_TextBox"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Собівартість набору"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.BalloonCost}" />
 
-        <TextBox
-            x:Name="newLatexBalloon_BalloonPriceWithHeliumMarkupInPercentage_TextBox"
-            Grid.Row="10"
-            Grid.Column="3"
-            Margin="10,0,0,0"
-            VerticalAlignment="Center"
-            materialDesign:HintAssist.Hint="Націнка на вартості кульки з гелієм"
-            FontSize="14"
-            FontWeight="Medium"
-            Foreground="{StaticResource whiteColor}"
-            IsEnabled="False"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            Text="{Binding NewLatexBalloon.BalloonPriceWithHeliumMarkupInPercentage, StringFormat={}{0} %}" />
+                <TextBox
+                    x:Name="newSetOfLatexBalloons_HeliumCost_TextBox"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Собівартість гелію"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    IsEnabled="False"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.HeliumCost}" />
 
-        <TextBox
-            x:Name="newLatexBalloon_BalloonCostWithHelium_TextBox"
-            Grid.Row="7"
-            Grid.Column="4"
-            Margin="10,0,0,0"
-            VerticalAlignment="Center"
-            materialDesign:HintAssist.Hint="Собівартість кульки з гелієм"
-            FontSize="14"
-            FontWeight="Medium"
-            Foreground="{StaticResource whiteColor}"
-            IsEnabled="False"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            Text="{Binding NewLatexBalloon.BalloonCostWithHelium}" />
+                <TextBox
+                    x:Name="newSetOfLatexBalloons_BalloonCostWithHelium_TextBox"
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Собівартість набору з гелієм"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    IsEnabled="False"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.BalloonCostWithHelium}" />
+
+                <TextBox
+                    x:Name="newSetOfLatexBalloons_BalloonPrice_TextBox"
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Ціна набору"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.BalloonPrice}" />
+
+                <TextBox
+                    x:Name="newSetOfLatexBalloons_BalloonPriceMarkupInPercentage_TextBox"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Націнка на вартості набору"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    IsEnabled="False"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.BalloonPriceMarkupInPercentage, StringFormat={}{0} %}" />
+
+                <TextBox
+                    x:Name="newSetOfLatexBalloons_BalloonPriceWithAir_TextBox"
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Ціна набору з повітрям"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.BalloonPriceWithAir}" />
+
+                <TextBox
+                    x:Name="newSetOfLatexBalloons_BalloonPriceWithAirMarkupInPercentage_TextBox"
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Націнка на вартості набору з повітрям"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    IsEnabled="False"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.BalloonPriceWithAirMarkupInPercentage, StringFormat={}{0} %}" />
+
+                <TextBox
+                    x:Name="newSetOfLatexBalloons_BalloonPriceWithHelium_TextBox"
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Ціна набору з гелієм"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.BalloonPriceWithHelium}" />
+
+                <TextBox
+                    x:Name="newSetOfLatexBalloons_BalloonPriceWithHeliumMarkupInPercentage_TextBox"
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    materialDesign:HintAssist.Hint="Націнка на вартості набору з гелієм"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    Foreground="{StaticResource whiteColor}"
+                    IsEnabled="False"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding NewLatexBalloon.BalloonPriceWithHeliumMarkupInPercentage, StringFormat={}{0} %}" />
+
+            </Grid>
+        </StackPanel>
 
         <Button
             x:Name="addNewLatexBalloon"
-            Grid.Row="12"
+            Grid.Row="13"
             Grid.Column="2"
             Width="160"
             Margin="20,9,20,9"
