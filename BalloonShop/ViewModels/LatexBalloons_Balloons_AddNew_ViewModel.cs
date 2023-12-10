@@ -16,6 +16,8 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
     private LatexBalloonModel _newLatexBalloon;
     private string? _imageSource;
     private string? _photoImageSource;
+    private bool _isSetOfBalloons;
+    private bool _isOneBalloon;
     private int _balloonPriceMarkupInPercentage;
     private int _balloonPriceWithAirMarkupInPercentage;
     private int _balloonPriceWithHeliumMarkupInPercentage;
@@ -54,6 +56,26 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
         {
             _photoImageSource = value;
             OnPropertyChanged(nameof(PhotoImageSource));
+        }
+    }
+    public bool IsOneBalloon
+    {
+        get { return _isOneBalloon; }
+        set
+        {
+            _isOneBalloon = value;
+            OnPropertyChanged(nameof(IsOneBalloon));
+        }
+    }
+    public bool IsSetOfBalloons
+    {
+        get { return _isSetOfBalloons; }
+        set
+        {
+            _isSetOfBalloons = value;
+            NewLatexBalloon.IsSetOfBalloons = value;
+            IsOneBalloon = !value;
+            OnPropertyChanged(nameof(IsSetOfBalloons));
         }
     }
     public int BalloonPriceMarkupInPercentage
@@ -96,9 +118,11 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
 
         ImageSource = Constants.ImageSourceDefaultValue;
         PhotoImageSource = Constants.ImageSourceDefaultValue;
+        IsOneBalloon = true;
         NewLatexBalloon = new LatexBalloonModel()
         {
             IsFlying = true,
+            CountOfBalloonsInSet = 1,
             Quantity = 1,
             SizeInInches = 12,
             BalloonPriceMarkupInPercentage = 0,
