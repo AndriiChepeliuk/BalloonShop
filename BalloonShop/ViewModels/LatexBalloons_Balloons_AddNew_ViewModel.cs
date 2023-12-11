@@ -117,7 +117,7 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
     {
         ChooseImageSourceCommand = new ViewModelCommand(ExecuteChooseImageSourceCommand);
         ChoosePhotoImageSourceCommand = new ViewModelCommand(ExecuteChoosePhotoImageSourceCommand);
-        AddNewLatexBalloonCommand = new ViewModelCommand(ExecuteAddNewLatexBalloonCommand);
+        AddNewLatexBalloonCommand = new ViewModelCommand(ExecuteAddNewLatexBalloonCommand, CanExecuteAddNewLatexBalloonCommand);
         CancelAddingNewLatexBalloonCommand = new ViewModelCommand(ExecuteCancelAddingNewLatexBalloonCommand);
 
         ImageSource = Constants.ImageSourceDefaultValue;
@@ -133,6 +133,11 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
             BalloonPriceWithAirMarkupInPercentage = 0,
             BalloonPriceWithHeliumMarkupInPercentage = 0
         };
+    }
+
+    private bool CanExecuteAddNewLatexBalloonCommand(object obj)
+    {
+        return !(string.IsNullOrWhiteSpace(NewLatexBalloon.Name) || string.IsNullOrWhiteSpace(NewLatexBalloon.Description));
     }
 
     private void ExecuteCancelAddingNewLatexBalloonCommand(object obj)
