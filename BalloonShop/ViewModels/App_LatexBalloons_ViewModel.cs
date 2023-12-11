@@ -53,16 +53,20 @@ public class App_LatexBalloons_ViewModel : ViewModelBase
 
     private void ExecuteShowSpecificGroupOfLatexBalloons_Command(object obj)
     {
-        LatexBalloonsOfSpecificType = new ObservableCollection<LatexBalloonModel>(
-            LatexBalloonModelService.GetLatexBalloonsWithSpecificType(_selectedBalloobType.Id)
-            );
+        if (_selectedBalloobType != null)
+        {
+            LatexBalloonsOfSpecificType = new ObservableCollection<LatexBalloonModel>(
+                        LatexBalloonModelService.GetLatexBalloonsWithSpecificType(_selectedBalloobType.Id)
+                        );
 
-        LoadWindow();
+            LoadWindow();
 
-        window.container.Content = new Pages.LatexBalloons_Balloons_Page(_selectedBalloobType, _latexBalloonsOfSpecificType);
+            window.container.Content = new Pages.LatexBalloons_Balloons_Page(_selectedBalloobType, _latexBalloonsOfSpecificType);
 
-        window.titleText.Text = _selectedBalloobType.Name;
-        window.titleImage.Source = _selectedBalloobType.Image;
+            window.titleText.Text = _selectedBalloobType.Name;
+            window.titleImage.Source = _selectedBalloobType.Image;
+        }
+
     }
 
     private void LoadWindow()

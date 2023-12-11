@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:domain="clr-namespace:BalloonShop.Helpers.ValidationRules"
     xmlns:local="clr-namespace:BalloonShop.Pages"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -139,8 +140,15 @@
             FontSize="14"
             FontWeight="Medium"
             Foreground="{StaticResource whiteColor}"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            Text="{Binding NewLatexBalloon.Name}" />
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+            <TextBox.Text>
+                <Binding Path="NewLatexBalloon.Name" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <domain:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
 
         <TextBox
             x:Name="newLatexBalloon_Description_TextBox"
@@ -149,15 +157,22 @@
             Grid.Column="2"
             Grid.ColumnSpan="2"
             Height="100"
-            AcceptsReturn="True"
-            TextWrapping="Wrap"
             VerticalAlignment="Center"
             materialDesign:HintAssist.Hint="Короткий опис"
+            AcceptsReturn="True"
             FontSize="14"
             FontWeight="Medium"
             Foreground="{StaticResource whiteColor}"
             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            Text="{Binding NewLatexBalloon.Description}" />
+            TextWrapping="Wrap">
+            <TextBox.Text>
+                <Binding Path="NewLatexBalloon.Description" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <domain:NotEmptyValidationRule ValidatesOnTargetUpdated="True" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
 
         <StackPanel
             x:Name="fieldsForOneBalloon"
@@ -348,6 +363,7 @@
                     IsEnabled="False"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     Text="{Binding NewLatexBalloon.BalloonPriceWithHeliumMarkupInPercentage, StringFormat={}{0} %}" />
+
 
             </Grid>
         </StackPanel>
@@ -571,6 +587,20 @@
             Content="Додати новий тип"
             Foreground="GreenYellow"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignOutlinedSecondaryDarkButton}"
+            ToolTip="MaterialDesignFlatButton" />
+
+        <Button
+            x:Name="CancelAddingNewLatexBalloon"
+            Grid.Row="13"
+            Grid.Column="3"
+            Width="160"
+            Margin="20,9,20,9"
+            materialDesign:RippleAssist.Feedback="Red"
+            BorderBrush="Red"
+            Command="{Binding CancelAddingNewLatexBalloonCommand}"
+            Content="Відмінити"
+            Foreground="Red"
             Style="{StaticResource MaterialDesignOutlinedSecondaryDarkButton}"
             ToolTip="MaterialDesignFlatButton" />
     </Grid>
