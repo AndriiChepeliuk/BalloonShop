@@ -15,6 +15,7 @@ public class LatexBalloons_Balloons_ViewModel : ViewModelBase
     private ObservableCollection<LatexBalloonModel> _latexBalloons;
 
     public ICommand ShowLatexBalloons_Balloons_AddNew_PageCommand { get; }
+    public ICommand GoBackToLatexBalloons_PageCommand { get; }
 
     public LatexBalloonTypeModel LatexBalloonType
     {
@@ -38,6 +39,13 @@ public class LatexBalloons_Balloons_ViewModel : ViewModelBase
     public LatexBalloons_Balloons_ViewModel()
     {
         ShowLatexBalloons_Balloons_AddNew_PageCommand = new ViewModelCommand(ExecuteShowLatexBalloons_Balloons_AddNew_PageCommand);
+        GoBackToLatexBalloons_PageCommand = new ViewModelCommand(ExecuteGoBackToLatexBalloons_PageCommand);
+    }
+
+    private void ExecuteGoBackToLatexBalloons_PageCommand(object obj)
+    {
+        LoadWindow();
+        window.ExecutePage(AppPages.App_LatexBalloons_Page);
     }
 
     private void ExecuteShowLatexBalloons_Balloons_AddNew_PageCommand(object obj)
