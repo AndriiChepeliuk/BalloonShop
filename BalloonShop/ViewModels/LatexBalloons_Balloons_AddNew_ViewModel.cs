@@ -164,7 +164,16 @@ public class LatexBalloons_Balloons_AddNew_ViewModel : ViewModelBase
 
         LatexBalloonModelService.AddLatexBalloon(NewLatexBalloon, _balloobType.Id);
 
-        ImageSource = PhotoImageSource = Constants.ImageSourceDefaultValue;
+        var latexBalloonsOfSpecificType = new ObservableCollection<LatexBalloonModel>(
+                        LatexBalloonModelService.GetLatexBalloonsWithSpecificType(_balloobType.Id)
+                        );
+
+        LoadWindow();
+
+        window.container.Content = new Pages.LatexBalloons_Balloons_Page(_balloobType, latexBalloonsOfSpecificType);
+
+        window.titleText.Text = _balloobType.Name;
+        window.titleImage.Source = _balloobType.Image;
     }
 
     private void ExecuteChoosePhotoImageSourceCommand(object obj)
