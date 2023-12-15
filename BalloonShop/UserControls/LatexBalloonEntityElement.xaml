@@ -18,8 +18,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="200" />
-                    <RowDefinition Height="35" />
-                    <RowDefinition Height="35" />
+                    <RowDefinition Height="70" />
                     <RowDefinition Height="35" />
                     <RowDefinition Height="35" />
                     <RowDefinition Height="35" />
@@ -44,6 +43,7 @@
                     Grid.Column="0"
                     Grid.ColumnSpan="3"
                     VerticalAlignment="Center"
+                    TextWrapping="Wrap"
                     Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                     Text="{Binding ElementName=latexBalloonEntityElement, Path=BalloonName}"
                     TextAlignment="Center" />
