@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace BalloonShop.Pages
 {
     /// <summary>
-    /// Interaction logic for LatexBalloons_Hearts_Page.xaml
+    /// Interaction logic for LatexBalloons_SpecificLatexBalloon_Page.xaml
     /// </summary>
-    public partial class LatexBalloons_Hearts_Page : UserControl
+    public partial class LatexBalloons_SpecificLatexBalloon_Page : UserControl
     {
-        public LatexBalloons_Hearts_Page()
+        public LatexBalloons_SpecificLatexBalloon_Page()
         {
             InitializeComponent();
         }

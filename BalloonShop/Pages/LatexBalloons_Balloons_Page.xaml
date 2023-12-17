@@ -30,7 +30,8 @@
             BorderBrush="Transparent"
             ItemsSource="{Binding LatexBalloons}"
             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-            ScrollViewer.VerticalScrollBarVisibility="Auto">
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            SelectedItem="{Binding SelectedLatexBalloon}">
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -61,7 +62,7 @@
             </Grid.ColumnDefinitions>
 
             <Button
-                Name="bakcToLatexBalloonCategoriesButton"
+                Name="backToLatexBalloonCategoriesButton"
                 Grid.Column="0"
                 Margin="10"
                 HorizontalAlignment="Center"

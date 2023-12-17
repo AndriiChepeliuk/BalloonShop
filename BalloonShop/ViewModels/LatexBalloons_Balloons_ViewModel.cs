@@ -13,6 +13,7 @@ public class LatexBalloons_Balloons_ViewModel : ViewModelBase
     private MainWindow window;
     private LatexBalloonTypeModel _latexBalloonType;
     private ObservableCollection<LatexBalloonModel> _latexBalloons;
+    private LatexBalloonModel _selectedLatexBalloon;
 
     public ICommand ShowLatexBalloons_Balloons_AddNew_PageCommand { get; }
     public ICommand GoBackToLatexBalloons_PageCommand { get; }
@@ -33,6 +34,15 @@ public class LatexBalloons_Balloons_ViewModel : ViewModelBase
         {
             _latexBalloons = value;
             OnPropertyChanged(nameof(LatexBalloons));
+        }
+    }
+    public LatexBalloonModel SelectedLatexBalloon
+    {
+        get { return _selectedLatexBalloon; }
+        set
+        {
+            _selectedLatexBalloon = value;
+            OnPropertyChanged(nameof(SelectedLatexBalloon));
         }
     }
 
