@@ -1,6 +1,8 @@
 ﻿using BalloonShop.Models.LatexBalloon;
+using BalloonShop.Services;
 using BalloonShop.Views;
 using System;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 
@@ -30,7 +32,13 @@ public class LatexBalloons_SpecificLatexBalloon_ViewModel : ViewModelBase
 
     private void ExecuteGoBackToLatexBalloonsOfSpecCategorie_PageCommand(object obj)
     {
-        throw new NotImplementedException();
+        var latexBalloonsOfSpecificType = new ObservableCollection<LatexBalloonModel>(
+                        LatexBalloonModelService.GetLatexBalloonsWithSpecificType(_latexBalloon.LatexBalloonType.Id)
+                        );
+        LoadWindow();
+        window.container.Content = new Pages.LatexBalloons_Balloons_Page(_latexBalloon.LatexBalloonType, latexBalloonsOfSpecificType);
+
+        window.titleText.Text = _latexBalloon.LatexBalloonType.Name;
     }
 
     private void LoadWindow()

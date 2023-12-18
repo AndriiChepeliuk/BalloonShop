@@ -21,6 +21,8 @@
             <RowDefinition Height="70" />
         </Grid.RowDefinitions>
 
+        <Label Content="{Binding LatexBalloon.Name}" />
+
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="70" />
@@ -35,7 +37,7 @@
                 HorizontalAlignment="Center"
                 materialDesign:RippleAssist.Feedback="GreenYellow"
                 Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
-                Command="{Binding GoBackToLatexBalloons_PageCommand}"
+                Command="{Binding GoBackToLatexBalloonsOfSpecCategorie_PageCommand}"
                 Foreground="GreenYellow"
                 Style="{StaticResource MaterialDesignIconButton}"
                 ToolTip="MaterialDesignIconButton">

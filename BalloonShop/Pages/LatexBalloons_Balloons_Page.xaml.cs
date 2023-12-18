@@ -41,5 +41,15 @@ namespace BalloonShop.Pages
                 dataContext.LatexBalloons = latexBalloonsOfSpecificType;
             }
         }
+
+        private void ShowSpecificLatexBalloon_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            var dataContext = DataContext as LatexBalloons_Balloons_ViewModel;
+
+            if (dataContext != null)
+            {
+                dataContext.ShowSpecificLatexBalloon_PageCommand.Execute(this);
+            }
+        }
     }
 }

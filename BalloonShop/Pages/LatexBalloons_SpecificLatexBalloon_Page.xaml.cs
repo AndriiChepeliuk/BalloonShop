@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BalloonShop.Models.LatexBalloon;
+using BalloonShop.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,17 @@ namespace BalloonShop.Pages
         public LatexBalloons_SpecificLatexBalloon_Page()
         {
             InitializeComponent();
+        }
+        public LatexBalloons_SpecificLatexBalloon_Page(LatexBalloonModel latexBalloon)
+        {
+            InitializeComponent();
+
+            var dataContext = DataContext as LatexBalloons_SpecificLatexBalloon_ViewModel;
+
+            if (dataContext != null)
+            {
+                dataContext.LatexBalloon = latexBalloon;
+            }
         }
     }
 }

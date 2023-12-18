@@ -61,7 +61,7 @@ namespace BalloonShop.Pages
         //    window.ExecutePage(AppPages.LatexBalloons_Hearts_Page);
         //}
 
-        private void ShowSpecificGroupOfLatexBalloons_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void ShowSpecificGroupOfLatexBalloons_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             var dataContext = DataContext as App_LatexBalloons_ViewModel;
             if (dataContext != null)

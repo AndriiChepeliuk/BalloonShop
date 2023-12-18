@@ -29,6 +29,7 @@
             Background="Transparent"
             BorderBrush="Transparent"
             ItemsSource="{Binding LatexBalloons}"
+            MouseLeftButtonUp="ShowSpecificLatexBalloon_MouseLeftButtonUp"
             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
             ScrollViewer.VerticalScrollBarVisibility="Auto"
             SelectedItem="{Binding SelectedLatexBalloon}">
@@ -89,7 +90,6 @@
                 <materialDesign:PackIcon Kind="PlusCircleOutline" />
             </Button>
         </Grid>
-
 
     </Grid>
 </UserControl>
