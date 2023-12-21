@@ -50,22 +50,19 @@ public class LatexBalloons_Balloons_ViewModel : ViewModelBase
     public LatexBalloons_Balloons_ViewModel()
     {
         ShowLatexBalloons_Balloons_AddNew_PageCommand = new ViewModelCommand(ExecuteShowLatexBalloons_Balloons_AddNew_PageCommand);
-        ShowSpecificLatexBalloon_PageCommand = new ViewModelCommand(ExecuteShowSpecificLatexBalloon_PageCommand,
-            CanExecuteShowSpecificLatexBalloon_PageCommand);
+        ShowSpecificLatexBalloon_PageCommand = new ViewModelCommand(ExecuteShowSpecificLatexBalloon_PageCommand);
         GoBackToLatexBalloons_PageCommand = new ViewModelCommand(ExecuteGoBackToLatexBalloons_PageCommand);
-    }
-
-    private bool CanExecuteShowSpecificLatexBalloon_PageCommand(object obj)
-    {
-        return _selectedLatexBalloon == null;
     }
 
     private void ExecuteShowSpecificLatexBalloon_PageCommand(object obj)
     {
-        LoadWindow();
+        if (_selectedLatexBalloon != null)
+        {
+            LoadWindow();
 
-        window.container.Content = new Pages.LatexBalloons_SpecificLatexBalloon_Page(_selectedLatexBalloon);
-        window.titleText.Text = _selectedLatexBalloon.Name;
+            window.container.Content = new Pages.LatexBalloons_SpecificLatexBalloon_Page(_selectedLatexBalloon);
+            window.titleText.Text = _selectedLatexBalloon.Name;
+        }
     }
 
     private void ExecuteGoBackToLatexBalloons_PageCommand(object obj)
