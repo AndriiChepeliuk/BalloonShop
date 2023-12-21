@@ -68,7 +68,7 @@
                             FontFamily="Montserrat"
                             FontSize="20"
                             FontWeight="Medium"
-                            Foreground="{StaticResource fontColor1}"
+                            Foreground="White"
                             Text="Pandik Shop" />
 
                     </StackPanel>

@@ -51,35 +51,148 @@
                 Grid.Column="2"
                 Margin="5">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="10" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="15" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="120" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
                 <Border
                     Grid.Row="0"
-                    Grid.RowSpan="7"
+                    Grid.RowSpan="20"
                     Grid.Column="0"
                     BorderBrush="{StaticResource backColor1}"
-                    BorderThickness="1 0 0 0 " />
+                    BorderThickness="1,0,0,0" />
 
                 <TextBlock
                     Grid.Row="0"
                     Grid.Column="1"
+                    Grid.ColumnSpan="2"
                     HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
                     Foreground="LightGreen"
                     Style="{StaticResource MaterialDesignBody2TextBlock}"
                     Text="{Binding LatexBalloon.Quantity, StringFormat={}В наявності {0} од.}"
+                    TextAlignment="Center" />
+
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    FontStyle="Italic"
+                    Foreground="{StaticResource fontColor2}"
+                    Style="{StaticResource MaterialDesignBody2TextBlock}"
+                    Text="{Binding LatexBalloon.Id, StringFormat={}Код:  {0}}"
+                    TextAlignment="Center" />
+
+                <TextBlock
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Foreground="Gold"
+                    Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                    Text="{Binding LatexBalloon.BalloonPrice, StringFormat={}{0} ₴}"
+                    TextAlignment="Center" />
+
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="3"
+                    Width="100"
+                    HorizontalAlignment="Left"
+                    materialDesign:RippleAssist.Feedback="Gold"
+                    BorderBrush="Gold"
+                    Content="Додати"
+                    Foreground="Gold"
+                    Style="{StaticResource MaterialDesignFlatSecondaryLightButton}" />
+
+                <Image
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Source="..\Data\Icons\icons8-on-air-60.png" />
+
+                <TextBlock
+                    Grid.Row="4"
+                    Grid.Column="2"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Foreground="LightBlue"
+                    Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                    Text="{Binding LatexBalloon.BalloonPriceWithAir, StringFormat={}{0} ₴}"
+                    TextAlignment="Center" />
+
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="3"
+                    Width="100"
+                    HorizontalAlignment="Left"
+                    materialDesign:RippleAssist.Feedback="LightBlue"
+                    BorderBrush="LightBlue"
+                    Content="Додати"
+                    Foreground="LightBlue"
+                    Style="{StaticResource MaterialDesignFlatSecondaryLightButton}" />
+
+                <Image
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    Source="..\Data\Icons\icons8-helium-64.png" />
+
+                <TextBlock
+                    Grid.Row="5"
+                    Grid.Column="2"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Foreground="LightPink"
+                    Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                    Text="{Binding LatexBalloon.BalloonPriceWithHelium, StringFormat={}{0} ₴}"
+                    TextAlignment="Center" />
+
+                <Button
+                    Grid.Row="5"
+                    Grid.Column="3"
+                    Width="100"
+                    HorizontalAlignment="Left"
+                    materialDesign:RippleAssist.Feedback="LightPink"
+                    BorderBrush="LightPink"
+                    Content="Додати"
+                    Foreground="LightPink"
+                    Style="{StaticResource MaterialDesignFlatSecondaryLightButton}" />
+
+                <TextBlock
+                    Grid.Row="7"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="3"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Foreground="{StaticResource fontColor2}"
+                    Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                    Text="{Binding LatexBalloon.SizeInInches, StringFormat={}{0} дюймів}"
+                    TextAlignment="Center" />
+
+                <TextBlock
+                    Grid.Row="8"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="3"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Foreground="{StaticResource fontColor2}"
+                    Style="{StaticResource MaterialDesignBody1TextBlock}"
+                    Text="{Binding LatexBalloon.Volume, StringFormat={}Об\'єм кулі:  {0} м³}"
                     TextAlignment="Center" />
 
             </Grid>
