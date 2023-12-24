@@ -16,7 +16,7 @@ public class LatexBalloonModel : ModelBase
     private int _quantity;
     private int _sizeInInches;
     private int _sizeInCentimeters;
-    private float _volume;
+    private double _volume;
     private bool _isFlying;
     private bool _isSetOfBalloons;
     private int _countOfBalloonsInSet;
@@ -91,7 +91,7 @@ public class LatexBalloonModel : ModelBase
             _sizeInInches = value;
             OnPropertyChanged(nameof(SizeInInches));
             SizeInCentimeters = (int)(_sizeInInches * 2.54);
-            HeliumCost = Math.Round(LatexBalloonModelService.CalculateHeliumCost(_sizeInCentimeters, _countOfBalloonsInSet), 2);
+            HeliumCost = Math.Round(LatexBalloonModelService.CalculateHeliumCost(_sizeInCentimeters, _countOfBalloonsInSet, ref _volume), 2);
             BalloonCostWithHelium = Math.Round((_balloonCost + _heliumCost), 2);
             BalloonPriceMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPrice) / (double)_balloonCost) - 100;
             BalloonPriceWithAirMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPriceWithAir) / (double)_balloonCost) - 100;
@@ -107,7 +107,7 @@ public class LatexBalloonModel : ModelBase
             OnPropertyChanged(nameof(SizeInCentimeters));
         }
     }
-    public float Volume
+    public double Volume
     {
         get { return _volume; }
         set
@@ -149,7 +149,7 @@ public class LatexBalloonModel : ModelBase
         {
             _countOfBalloonsInSet = value;
             OnPropertyChanged(nameof(CountOfBalloonsInSet));
-            HeliumCost = Math.Round(LatexBalloonModelService.CalculateHeliumCost(_sizeInCentimeters, _countOfBalloonsInSet), 2);
+            HeliumCost = Math.Round(LatexBalloonModelService.CalculateHeliumCost(_sizeInCentimeters, _countOfBalloonsInSet, ref _volume), 2);
             BalloonCostWithHelium = Math.Round((_balloonCost + _heliumCost), 2);
             BalloonPriceMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPrice) / (double)_balloonCost) - 100;
             BalloonPriceWithAirMarkupInPercentage = (int)Math.Round((double)(100 * _balloonPriceWithAir) / (double)_balloonCost) - 100;

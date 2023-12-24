@@ -28,12 +28,12 @@ public class LatexBalloonModelService
         }
     }
 
-    public static decimal CalculateHeliumCost(int DiameterOfTheBalloon, int CountOfBalloonsInSetField)
+    public static decimal CalculateHeliumCost(int diameterOfTheBalloon, int countOfBalloonsInSetField, ref double sphereVolume)
     {
         var HeliumСubicMeterCost = (double)Constants.HeliumCanisterCost / 5.7;
-        var SphereVolume = (4 * Math.PI * Math.Pow(DiameterOfTheBalloon/2, 3))/3000000;
+        sphereVolume = Math.Round(((4 * Math.PI * Math.Pow(diameterOfTheBalloon/2, 3))/3000000), 3, MidpointRounding.ToPositiveInfinity);
 
-        decimal cost = (decimal)(HeliumСubicMeterCost * SphereVolume * CountOfBalloonsInSetField);
+        decimal cost = (decimal)(HeliumСubicMeterCost * sphereVolume * countOfBalloonsInSetField);
         return cost;
     }
 

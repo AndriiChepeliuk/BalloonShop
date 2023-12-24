@@ -43,10 +43,10 @@
                     Grid.Column="0"
                     Grid.ColumnSpan="3"
                     VerticalAlignment="Center"
-                    TextWrapping="Wrap"
                     Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
                     Text="{Binding ElementName=latexBalloonEntityElement, Path=BalloonName}"
-                    TextAlignment="Center" />
+                    TextAlignment="Center"
+                    TextWrapping="Wrap" />
 
                 <TextBlock
                     Grid.Row="2"

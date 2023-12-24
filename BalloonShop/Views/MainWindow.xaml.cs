@@ -3,6 +3,7 @@ using System;
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
+using System.Windows.Controls;
 
 namespace BalloonShop.Views
 {
@@ -13,7 +14,6 @@ namespace BalloonShop.Views
         App_Settings_Page,
         LatexBalloons_Balloons_Page,
         LatexBalloons_Balloons_AddNew_Page,
-        LatexBalloons_Hearts_Page,
         Settings_LatexBalloons_Page,
         Settings_LatexBalloons_BalloonsTypes_Page,
         Settings_LatexBalloons_BalloonsTypes_Add_Page,
@@ -33,7 +33,6 @@ namespace BalloonShop.Views
         private Pages.App_Settings_Page app_Settings_Page = new Pages.App_Settings_Page();
         private Pages.LatexBalloons_Balloons_Page latexBalloons_Balloons_Page = new Pages.LatexBalloons_Balloons_Page();
         private Pages.LatexBalloons_Balloons_AddNew_Page latexBalloons_Balloons_AddNew_Page = new Pages.LatexBalloons_Balloons_AddNew_Page();
-        private Pages.LatexBalloons_Hearts_Page latexBalloons_Hearts_Page = new Pages.LatexBalloons_Hearts_Page();
         private Pages.Settings_LatexBalloons_Page settings_LatexBalloons_Page = new Pages.Settings_LatexBalloons_Page();
         private Pages.Settings_LatexBalloons_BalloonsTypes_Page settings_LatexBalloons_BalloonsTypes_Page = new Pages.Settings_LatexBalloons_BalloonsTypes_Page();
         private Pages.Settings_LatexBalloons_BalloonsTypes_Add_Page settings_LatexBalloons_BalloonsTypes_Add_Page = new Pages.Settings_LatexBalloons_BalloonsTypes_Add_Page();
@@ -81,6 +80,13 @@ namespace BalloonShop.Views
 
         public void ExecutePage(AppPages page)
         {
+            if (container.Content is UserControl)
+            {
+                (container.Content as UserControl).DataContext = null;
+            }
+
+            GC.Collect();
+
             switch (page)
             {
                 case AppPages.App_LatexBalloons_Page:
@@ -103,11 +109,6 @@ namespace BalloonShop.Views
                     container.Content = app_Settings_Page = new();
                     titleText.Text = "Налаштування";
                     titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\icons8-settings-50_grey.png", UriKind.Relative));
-                    break;
-                case AppPages.LatexBalloons_Hearts_Page:
-                    container.Content = latexBalloons_Hearts_Page = new();
-                    titleText.Text = "Латексні кульки серця";
-                    titleImage.Source = new BitmapImage(new Uri("\\Data\\Icons\\LatexBalloonsIcons\\LatexBalloons_Hearts_Icon.png", UriKind.Relative));
                     break;
                 case AppPages.Settings_LatexBalloons_Page:
                     container.Content = settings_LatexBalloons_Page = new();

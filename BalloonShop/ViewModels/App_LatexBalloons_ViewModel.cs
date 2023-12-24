@@ -2,8 +2,10 @@
 using BalloonShop.Models.LatexBalloonType;
 using BalloonShop.Services;
 using BalloonShop.Views;
+using System;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace BalloonShop.ViewModels;
@@ -56,17 +58,21 @@ public class App_LatexBalloons_ViewModel : ViewModelBase
         if (_selectedBalloobType != null)
         {
             LatexBalloonsOfSpecificType = new ObservableCollection<LatexBalloonModel>(
-                        LatexBalloonModelService.GetLatexBalloonsWithSpecificType(_selectedBalloobType.Id)
-                        );
+                        LatexBalloonModelService.GetLatexBalloonsWithSpecificType(_selectedBalloobType.Id));
 
             LoadWindow();
+
+            if (window.container.Content is UserControl)
+            {
+                (window.container.Content as UserControl).DataContext = null;
+                GC.Collect();
+            }
 
             window.container.Content = new Pages.LatexBalloons_Balloons_Page(_selectedBalloobType, _latexBalloonsOfSpecificType);
 
             window.titleText.Text = _selectedBalloobType.Name;
             window.titleImage.Source = _selectedBalloobType.Image;
         }
-
     }
 
     private void LoadWindow()
