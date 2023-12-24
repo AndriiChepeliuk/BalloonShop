@@ -40,6 +40,8 @@ namespace BalloonShop.Pages
                 dataContext.LatexBalloonType = balloobType;
                 dataContext.LatexBalloons = latexBalloonsOfSpecificType;
             }
+
+            GC.Collect();
         }
 
         private void ShowSpecificLatexBalloon_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

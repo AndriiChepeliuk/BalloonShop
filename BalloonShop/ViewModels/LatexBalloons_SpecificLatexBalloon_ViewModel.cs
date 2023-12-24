@@ -4,6 +4,7 @@ using BalloonShop.Views;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace BalloonShop.ViewModels;
@@ -36,6 +37,13 @@ public class LatexBalloons_SpecificLatexBalloon_ViewModel : ViewModelBase
                         LatexBalloonModelService.GetLatexBalloonsWithSpecificType(_latexBalloon.LatexBalloonType.Id)
                         );
         LoadWindow();
+
+        if (window.container.Content is UserControl)
+        {
+            (window.container.Content as UserControl).DataContext = null;
+            GC.Collect();
+        }
+
         window.container.Content = new Pages.LatexBalloons_Balloons_Page(_latexBalloon.LatexBalloonType, latexBalloonsOfSpecificType);
 
         window.titleText.Text = _latexBalloon.LatexBalloonType.Name;

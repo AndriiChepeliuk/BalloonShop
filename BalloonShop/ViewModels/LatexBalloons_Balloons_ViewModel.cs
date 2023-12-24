@@ -4,6 +4,7 @@ using BalloonShop.Views;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace BalloonShop.ViewModels;
@@ -60,6 +61,12 @@ public class LatexBalloons_Balloons_ViewModel : ViewModelBase
         {
             LoadWindow();
 
+            if (window.container.Content is UserControl)
+            {
+                (window.container.Content as UserControl).DataContext = null;
+                GC.Collect();
+            }
+
             window.container.Content = new Pages.LatexBalloons_SpecificLatexBalloon_Page(_selectedLatexBalloon);
             window.titleText.Text = _selectedLatexBalloon.Name;
         }
@@ -74,10 +81,16 @@ public class LatexBalloons_Balloons_ViewModel : ViewModelBase
     private void ExecuteShowLatexBalloons_Balloons_AddNew_PageCommand(object obj)
     {
         LoadWindow();
+
+        if (window.container.Content is UserControl)
+        {
+            (window.container.Content as UserControl).DataContext = null;
+            GC.Collect();
+        }
+
         window.container.Content = new Pages.LatexBalloons_Balloons_AddNew_Page(_latexBalloonType);
 
         window.titleText.Text = "Додати нову латексну кульку" + " '" + _latexBalloonType.Name + "'";
-        //window.titleImage.Source = _latexBalloonType.Image;
     }
 
     private void LoadWindow()

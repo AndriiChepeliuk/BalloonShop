@@ -3,6 +3,7 @@ using System;
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
+using System.Windows.Controls;
 
 namespace BalloonShop.Views
 {
@@ -79,6 +80,13 @@ namespace BalloonShop.Views
 
         public void ExecutePage(AppPages page)
         {
+            if (container.Content is UserControl)
+            {
+                (container.Content as UserControl).DataContext = null;
+            }
+
+            GC.Collect();
+
             switch (page)
             {
                 case AppPages.App_LatexBalloons_Page:
